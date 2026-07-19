@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BakaUI Addon — Home & Market</title>
+    <title>BakaUI Addon — Home & Systems Suite</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
             font-size: 0.95rem;
         }
 
-        /* Top Navigation Bar */
+        /* 1. Optimized Dropdown Navigation Bar */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -64,6 +64,12 @@
             gap: 0.5rem;
         }
 
+        /* Dropdown Architecture Parent */
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
         .tab-btn {
             background: none;
             border: none;
@@ -75,10 +81,50 @@
             cursor: pointer;
             border-radius: 8px;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
         }
 
         .tab-btn:hover { color: var(--md-sys-color-primary); }
         .tab-btn.active { color: #141218; background-color: var(--md-sys-color-primary); }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--md-sys-color-surface);
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 12px;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+            z-index: 101;
+            padding: 0.5rem 0;
+            margin-top: 0.25rem;
+        }
+
+        .dropdown-menu button {
+            width: 100%;
+            padding: 0.65rem 1rem;
+            background: none;
+            border: none;
+            color: var(--md-sys-color-on-surface);
+            text-align: left;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .dropdown-menu button:hover {
+            background-color: var(--md-sys-color-surface-variant);
+            color: var(--md-sys-color-primary);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
 
         /* Expressive Header Area */
         header {
@@ -94,182 +140,62 @@
             margin-bottom: 0.5rem;
         }
 
-        .brand-logo {
-            max-height: 120px;
-            width: auto;
-            object-fit: contain;
-            image-rendering: pixelated;
-        }
+        .brand-logo { max-height: 120px; width: auto; object-fit: contain; image-rendering: pixelated; }
+        .brand-subtitle { color: var(--md-sys-color-on-surface-variant); font-size: 1.1rem; max-width: 650px; margin: 0.5rem auto 0 auto; }
+        main { max-width: 1280px; margin: 0 auto; padding: 0 2rem 4rem 2rem; }
 
-        .brand-subtitle {
-            color: var(--md-sys-color-on-surface-variant);
-            font-size: 1.1rem;
-            max-width: 650px;
-            margin: 0.5rem auto 0 auto;
-        }
-
-        main {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem 2rem;
-        }
-
-        /* View Control */
+        /* View Control Matrix */
         .page-view { display: none; }
         .page-view.active { display: block; }
 
-        /* Market Controls */
-        .market-controls {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
-            background-color: var(--md-sys-color-surface);
-            padding: 1.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .market-type-toggle {
-            display: inline-flex;
-            background-color: var(--md-sys-color-surface-variant);
-            border-radius: 100px;
-            padding: 0.35rem;
-            width: max-content;
-        }
-
-        .type-btn {
-            background: transparent;
-            border: none;
-            color: var(--md-sys-color-on-surface-variant);
-            padding: 0.75rem 1.5rem;
-            border-radius: 100px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .type-btn.active {
-            background-color: var(--md-sys-color-primary);
-            color: #141218;
-            box-shadow: 0 2px 8px rgba(249, 168, 37, 0.4);
-        }
-
-        .controls-row {
-            display: flex;
-            gap: 1.5rem;
-            flex-direction: column;
-        }
-
-        .search-wrapper input {
-            width: 100%;
-            box-sizing: border-box;
-            background-color: var(--md-sys-color-surface-variant);
-            border: 1px solid var(--md-sys-color-outline);
-            color: var(--md-sys-color-on-surface);
-            padding: 0.85rem 1.25rem;
-            border-radius: 14px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .search-wrapper input:focus { border-color: var(--md-sys-color-primary); }
-
-        .filter-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .filter-chip {
-            background-color: var(--md-sys-color-surface-variant);
-            color: var(--md-sys-color-on-surface-variant);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .filter-chip.active {
-            background-color: rgba(249, 168, 37, 0.15);
-            color: var(--md-sys-color-primary);
-            border: 1px solid var(--md-sys-color-primary);
-        }
-
-        /* Market Table List Layout */
-        .market-list-container {
-            background-color: var(--md-sys-color-surface);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            overflow: hidden;
-        }
-
-        .market-list-header {
-            display: grid;
-            grid-template-columns: 2.5fr 3fr 1.5fr;
-            padding: 1rem 1.5rem;
-            background-color: var(--md-sys-color-surface-variant);
-            font-weight: 700;
-            font-family: 'Space Grotesk', sans-serif;
-            color: var(--md-sys-color-primary);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-
-        .market-list-row {
-            display: grid;
-            grid-template-columns: 2.5fr 3fr 1.5fr;
-            padding: 0.85rem 1.5rem;
-            align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-        }
-
-        .market-list-row:last-child { border-bottom: none; }
-
-        .item-info-col {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .item-list-icon-frame {
-            width: 32px;
-            height: 32px;
-            background-color: var(--md-sys-color-surface-variant);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: var(--md-sys-color-primary);
-            flex-shrink: 0;
-        }
-
-        .item-list-name { font-weight: 600; color: var(--md-sys-color-on-surface); }
-        .item-list-id { font-family: monospace; color: var(--md-sys-color-on-surface-variant); font-size: 0.85rem; opacity: 0.8; word-break: break-all; padding-right: 1rem; }
-        .price-list-badge { padding: 0.35rem 0.75rem; border-radius: 8px; font-size: 0.85rem; font-weight: 700; text-align: center; width: max-content; }
-
-        /* Premium Pass Custom Layout */
-        .premium-pass-card {
+        /* Document Component Panels */
+        .system-layout-card {
             background-color: var(--md-sys-color-surface);
             border-radius: 28px;
             padding: 2.5rem;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            background: linear-gradient(145deg, #1d1b20 0%, #252015 100%);
         }
 
-        .premium-header { text-align: center; margin-bottom: 2.5rem; border-bottom: 1px solid var(--md-sys-color-surface-variant); padding-bottom: 1.5rem; }
-        .premium-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--md-sys-color-primary); margin: 0; }
-        .premium-tagline { color: var(--md-sys-color-on-surface-variant); margin-top: 0.5rem; font-size: 1.05rem; }
+        .system-heading-wrapper {
+            border-bottom: 1px solid var(--md-sys-color-surface-variant);
+            padding-bottom: 1rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .system-title { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; margin: 0; color: var(--md-sys-color-primary); }
+        .system-tagline { color: var(--md-sys-color-on-surface-variant); margin-top: 0.25rem; }
+
+        /* Multi-column layouts */
+        .system-grid-2 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; }
+        .sub-panel { background-color: rgba(255, 255, 255, 0.02); padding: 1.25rem; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.02); }
+        .sub-panel h3 { font-family: 'Space Grotesk', sans-serif; margin: 0 0 0.75rem 0; font-size: 1.25rem; color: var(--md-sys-color-on-surface); border-bottom: 1px solid var(--md-sys-color-surface-variant); padding-bottom: 0.35rem; }
+        .sub-panel ul { margin: 0; padding-left: 1.2rem; }
+        .sub-panel li { margin-bottom: 0.5rem; color: var(--md-sys-color-on-surface-variant); font-size: 0.9rem; }
+        .sub-panel strong { color: var(--md-sys-color-on-surface); }
+
+        /* Market Table Lists */
+        .market-controls { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 1.5rem; background-color: var(--md-sys-color-surface); padding: 1.5rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .market-type-toggle { display: inline-flex; background-color: var(--md-sys-color-surface-variant); border-radius: 100px; padding: 0.35rem; width: max-content; }
+        .type-btn { background: transparent; border: none; color: var(--md-sys-color-on-surface-variant); padding: 0.75rem 1.5rem; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; }
+        .type-btn.active { background-color: var(--md-sys-color-primary); color: #141218; box-shadow: 0 2px 8px rgba(249, 168, 37, 0.4); }
+        .controls-row { display: flex; gap: 1.5rem; flex-direction: column; }
+        .search-wrapper input { width: 100%; box-sizing: border-box; background-color: var(--md-sys-color-surface-variant); border: 1px solid var(--md-sys-color-outline); color: var(--md-sys-color-on-surface); padding: 0.85rem 1.25rem; border-radius: 14px; font-family: 'Plus Jakarta Sans', sans-serif; outline: none; }
+        .filter-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+        .filter-chip { background-color: var(--md-sys-color-surface-variant); color: var(--md-sys-color-on-surface-variant); border: none; padding: 0.5rem 1rem; border-radius: 10px; font-size: 0.85rem; font-weight: 500; cursor: pointer; }
+        .filter-chip.active { background-color: rgba(249, 168, 37, 0.15); color: var(--md-sys-color-primary); border: 1px solid var(--md-sys-color-primary); }
+        .market-list-container { background-color: var(--md-sys-color-surface); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); overflow: hidden; }
+        .market-list-header { display: grid; grid-template-columns: 2.5fr 3fr 1.5fr; padding: 1rem 1.5rem; background-color: var(--md-sys-color-surface-variant); font-weight: 700; font-family: 'Space Grotesk', sans-serif; color: var(--md-sys-color-primary); border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
+        .market-list-row { display: grid; grid-template-columns: 2.5fr 3fr 1.5fr; padding: 0.85rem 1.5rem; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.02); }
+        .item-info-col { display: flex; align-items: center; gap: 0.75rem; }
+        .item-list-icon-frame { width: 32px; height: 32px; background-color: var(--md-sys-color-surface-variant); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: var(--md-sys-color-primary); }
+        .item-list-name { font-weight: 600; color: var(--md-sys-color-on-surface); }
+        .item-list-id { font-family: monospace; color: var(--md-sys-color-on-surface-variant); font-size: 0.85rem; opacity: 0.8; word-break: break-all; }
+        .price-list-badge { padding: 0.35rem 0.75rem; border-radius: 8px; font-size: 0.85rem; font-weight: 700; text-align: center; width: max-content; }
+        .price-sell { background-color: rgba(76, 175, 80, 0.12); color: #81c784; border: 1px solid rgba(76, 175, 80, 0.2); }
+        .price-buy { background-color: rgba(226, 91, 67, 0.12); color: #ff8a76; border: 1px solid rgba(226, 91, 67, 0.2); }
+
+        /* Premium pass styling */
+        .premium-pass-card { background-color: var(--md-sys-color-surface); border-radius: 28px; padding: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.05); background: linear-gradient(145deg, #1d1b20 0%, #252015 100%); }
         .premium-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
         .premium-feature-tile { background-color: rgba(20, 18, 24, 0.6); border: 1px solid rgba(249, 168, 37, 0.1); border-radius: 16px; padding: 1.25rem; display: flex; gap: 1rem; align-items: flex-start; }
         .premium-icon-marker { background-color: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 10px; font-size: 1.1rem; flex-shrink: 0; }
@@ -277,147 +203,27 @@
         .premium-feature-text p { margin: 0; color: var(--md-sys-color-on-surface-variant); font-size: 0.85rem; }
 
         /* Progression Hub Architecture Styling */
-        .progression-split-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .progression-section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            margin: 0 0 1rem 0;
-            color: var(--md-sys-color-primary);
-            border-bottom: 1px solid var(--md-sys-color-surface-variant);
-            padding-bottom: 0.5rem;
-        }
-
-        .rank-ladder-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .rank-ladder-node {
-            background-color: var(--md-sys-color-surface);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 14px;
-            padding: 1rem 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .rank-identity {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .rank-symbol-frame {
-            width: 36px;
-            height: 36px;
-            background-color: var(--md-sys-color-surface-variant);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--md-sys-color-primary);
-        }
-
-        .rank-text-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .rank-perks-container {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .perk-pill {
-            background-color: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: var(--md-sys-color-on-surface-variant);
-            padding: 0.25rem 0.6rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .perk-pill.unlocked {
-            background-color: rgba(249, 168, 37, 0.1);
-            border-color: rgba(249, 168, 37, 0.2);
-            color: var(--md-sys-color-primary);
-        }
-
-        .rank-meta-xp {
-            font-family: monospace;
-            background-color: var(--md-sys-color-surface-variant);
-            padding: 0.35rem 0.75rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #ffdf79;
-        }
-
-        /* Quest Configuration Lists */
-        .quest-pool-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .quest-cat-group {
-            background-color: var(--md-sys-color-surface);
-            border-radius: 18px;
-            padding: 1.25rem;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        .quest-cat-header {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 0 0 0.75rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .quest-cat-badge {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
-            font-weight: 700;
-        }
-
-        .quest-grid-elements {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 0.75rem;
-        }
-
-        .quest-data-pill {
-            background-color: var(--md-sys-color-surface-variant);
-            padding: 0.75rem;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-        }
-
+        .progression-split-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        .progression-section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin: 0 0 1rem 0; color: var(--md-sys-color-primary); border-bottom: 1px solid var(--md-sys-color-surface-variant); padding-bottom: 0.5rem; }
+        .rank-ladder-list { display: flex; flex-direction: column; gap: 0.75rem; }
+        .rank-ladder-node { background-color: var(--md-sys-color-surface); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 14px; padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .rank-identity { display: flex; align-items: center; gap: 1rem; }
+        .rank-symbol-frame { width: 36px; height: 36px; background-color: var(--md-sys-color-surface-variant); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--md-sys-color-primary); }
+        .rank-text-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; text-transform: uppercase; }
+        .rank-perks-container { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .perk-pill { background-color: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: var(--md-sys-color-on-surface-variant); padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 600; }
+        .perk-pill.unlocked { background-color: rgba(249, 168, 37, 0.1); border-color: rgba(249, 168, 37, 0.2); color: var(--md-sys-color-primary); }
+        .rank-meta-xp { font-family: monospace; background-color: var(--md-sys-color-surface-variant); padding: 0.35rem 0.75rem; border-radius: 8px; font-size: 0.85rem; font-weight: 700; color: #ffdf79; }
+        .quest-pool-container { display: flex; flex-direction: column; gap: 1.5rem; }
+        .quest-cat-group { background-color: var(--md-sys-color-surface); border-radius: 18px; padding: 1.25rem; border: 1px solid rgba(255, 255, 255, 0.03); }
+        .quest-cat-header { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; margin: 0 0 0.75rem 0; display: flex; justify-content: space-between; align-items: center; }
+        .quest-cat-badge { font-size: 0.7rem; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 700; }
+        .quest-grid-elements { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; }
+        .quest-data-pill { background-color: var(--md-sys-color-surface-variant); padding: 0.75rem; border-radius: 10px; font-size: 0.85rem; }
         .quest-pill-name { font-weight: 700; color: var(--md-sys-color-on-surface); margin-bottom: 0.25rem; }
-        .quest-pill-meta { color: var(--md-sys-color-on-surface-variant); font-size: 0.8rem; opacity: 0.8; }
+        .quest-pill-meta { color: var(--md-sys-color-on-surface-variant); font-size: 0.8rem; }
 
-        /* Changelog Layout Structure */
+        /* Existing structural layouts */
         .changelog-card { background-color: var(--md-sys-color-surface); border-radius: 28px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); }
         .version-header { border-bottom: 1px solid var(--md-sys-color-surface-variant); padding-bottom: 1rem; margin-bottom: 1.5rem; }
         .version-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin: 0; }
@@ -433,16 +239,13 @@
         
         .bg-progression { background-color: rgba(226, 135, 67, 0.15); color: #ffb076; }
         .bg-bounty { background-color: rgba(226, 91, 67, 0.15); color: #ff8a76; }
+        .bg-fixes { background-color: rgba(76, 175, 80, 0.15); color: #81c784; }
         .bg-quests { background-color: rgba(67, 168, 226, 0.15); color: #76cfff; }
         .bg-casino { background-color: rgba(156, 39, 176, 0.15); color: #e176ff; }
-        .bg-fixes { background-color: rgba(76, 175, 80, 0.15); color: #81c784; }
 
         ul { margin: 0; padding-left: 1.2rem; }
         li { margin-bottom: 0.5rem; color: var(--md-sys-color-on-surface-variant); font-size: 0.9rem; }
         li strong { color: var(--md-sys-color-on-surface); }
-
-        .price-sell { background-color: rgba(76, 175, 80, 0.12); color: #81c784; border: 1px solid rgba(76, 175, 80, 0.2); }
-        .price-buy { background-color: rgba(226, 91, 67, 0.12); color: #ff8a76; border: 1px solid rgba(226, 91, 67, 0.2); }
 
         footer { background-color: var(--md-sys-color-surface); padding: 2rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--md-sys-color-on-surface-variant); font-size: 0.85rem; margin-top: 2rem; }
         footer a { color: var(--md-sys-color-primary); text-decoration: none; font-weight: 600; }
@@ -455,12 +258,12 @@
             .log-section.full-width-desktop { grid-column: span 2; }
             .intro-text { position: sticky; top: 5rem; }
             .progression-split-grid { grid-template-columns: 5.5fr 4.5fr; align-items: start; }
+            .system-grid-2 { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
             .market-list-header { display: none; }
             .market-list-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.25rem 1.5rem; }
-            .item-list-id { padding-right: 0; }
         }
 
         @media (max-width: 600px) {
@@ -469,20 +272,37 @@
             main { padding: 0 1rem; }
             .market-type-toggle { width: 100%; display: flex; }
             .type-btn { flex: 1; text-align: center; }
+            .dropdown-menu { position: static; box-shadow: none; width: 100%; background: transparent; border: none; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Optimized Dropdown Navbar Link Elements -->
     <nav class="navbar">
-        <a href="#" class="nav-logo">
+        <a href="#" class="nav-logo" onclick="switchTab('changelogs')">
             <img src="title.png" alt="BakaUI" class="nav-mini-logo">
         </a>
         <div class="nav-links">
-            <button class="tab-btn active" onclick="switchTab('changelogs')">Changelogs</button>
-            <button class="tab-btn" onclick="switchTab('market')">Server Market</button>
-            <button class="tab-btn" onclick="switchTab('premium')">Premium Pass</button>
-            <button class="tab-btn" onclick="switchTab('progression')">Progression Hub</button>
+            <button class="tab-btn" onclick="switchTab('changelogs')">Changelogs</button>
+            
+            <div class="nav-dropdown">
+                <button class="tab-btn">Economy ▼</button>
+                <div class="dropdown-menu">
+                    <button onclick="switchTab('market')">Server Market</button>
+                    <button onclick="switchTab('premium')">Premium Pass</button>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="tab-btn">Gameplay ▼</button>
+                <div class="dropdown-menu">
+                    <button onclick="switchTab('progression')">Progression Hub</button>
+                    <button onclick="switchTab('clans')">Clan System</button>
+                    <button onclick="switchTab('bounties')">Bounty System</button>
+                    <button onclick="switchTab('land')">Land Claim</button>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -505,12 +325,10 @@
                         <span class="meta-badge">🎮 Minecraft 1.21.132</span>
                     </div>
                 </div>
-
                 <div class="card-content-grid">
                     <div class="intro-text">
                         This massive update redefines the server's economy and progression. We are introducing a "Play-to-Rank" questing ecosystem, a fully scripted Admin Event system, a high-stakes Casino, and a revamped Bounty system to enforce justice in the wilds.
                     </div>
-
                     <div class="logs-panel">
                         <section class="log-section">
                             <div class="section-title-wrapper">
@@ -520,10 +338,8 @@
                             <ul>
                                 <li><strong>Play-to-Rank:</strong> Ranks are earned via Quest XP across a 12-tier ladder.</li>
                                 <li><strong>Dynamic Daily Quests:</strong> 5 unique daily quests reset at 12:00 AM (MYT).</li>
-                                <li><strong>Progressive Difficulty:</strong> Objectives scale as you climb tiers.</li>
                             </ul>
                         </section>
-
                         <section class="log-section">
                             <div class="section-title-wrapper">
                                 <h3 class="section-title">⚔️ Bounty System 2.0</h3>
@@ -534,7 +350,6 @@
                                 <li><strong>Automated Penalties:</strong> Triggers a 20% bank balance fine (min. $5,000).</li>
                             </ul>
                         </section>
-
                         <section class="log-section">
                             <div class="section-title-wrapper">
                                 <h3 class="section-title">🌟 Special Quests</h3>
@@ -544,7 +359,6 @@
                                 <li><strong>Global Events:</strong> Collaborative milestones pin to the peak of the UI.</li>
                             </ul>
                         </section>
-
                         <section class="log-section">
                             <div class="section-title-wrapper">
                                 <h3 class="section-title">🎰 Casino 2.0</h3>
@@ -554,15 +368,14 @@
                                 <li><strong>Slot Machine:</strong> 3-reel system offering 10x progressive payouts.</li>
                             </ul>
                         </section>
-
                         <section class="log-section full-width-desktop">
                             <div class="section-title-wrapper">
                                 <h3 class="section-title">🛠️ Bug Fixes & Optimizations</h3>
                                 <span class="category-badge bg-fixes">Performance</span>
                             </div>
                             <ul>
-                                <li><strong>Rank Core:</strong> Dropped legacy buy code paths to clear execution lag.</li>
-                                <li><strong>Land Safeguards:</strong> Cached lookup models implemented to lower live check processing metrics.</li>
+                                <li><strong>Rank Core:</strong> Legacy transactional components dropped cleanly.</li>
+                                <li><strong>Land Safeguards:</strong> Cached block lookup filters loaded to prevent server lag metrics.</li>
                             </ul>
                         </section>
                     </div>
@@ -573,17 +386,14 @@
         <!-- PAGE VIEW B: INTERACTIVE SHOP MARKET -->
         <div id="view-market" class="page-view">
             <div class="market-controls">
-                
                 <div class="market-type-toggle">
                     <button class="type-btn active" onclick="setMarketType('sell')">Sell to Server</button>
                     <button class="type-btn" onclick="setMarketType('buy')">Buy from Server</button>
                 </div>
-
                 <div class="controls-row">
                     <div class="search-wrapper">
                         <input type="text" id="market-search" placeholder="Search item name or id..." oninput="filterMarket()">
                     </div>
-                    
                     <div class="filter-tags" id="buy-filters" style="display: none;">
                         <button class="filter-chip active" onclick="setCategory('all')">All Buyables</button>
                         <button class="filter-chip" onclick="setCategory('blocks')">Blocks</button>
@@ -596,16 +406,13 @@
                     </div>
                 </div>
             </div>
-
             <div class="market-list-container">
                 <div class="market-list-header">
                     <div>Item Name</div>
                     <div>In-Game Identifier</div>
                     <div>Pricing Action</div>
                 </div>
-                <div id="market-grid-target">
-                    <!-- Dynamic Rows Inject Instantly Here -->
-                </div>
+                <div id="market-grid-target"></div>
             </div>
         </div>
 
@@ -616,79 +423,16 @@
                     <h2 class="premium-title">Premium Pass Tier Perks</h2>
                     <p class="premium-tagline">Unlock the ultimate utility, cosmetic, and environmental customization toolsets inside BakaUI.</p>
                 </div>
-                
                 <div class="premium-features-grid">
-                    <div class="premium-feature-tile">
-                        <div class="premium-icon-marker">⏳</div>
-                        <div class="premium-feature-text">
-                            <h4>Time Control</h4>
-                            <p>Toggle and customize your personal client-side lighting parameters and sky environments seamlessly.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="premium-feature-tile">
-                        <div class="premium-icon-marker">🎵</div>
-                        <div class="premium-feature-text">
-                            <h4>Music Player</h4>
-                            <p>Access a full catalog background utility suite loaded with custom soundtracks directly in your UI panel.</p>
-                        </div>
-                    </div>
-
-                    <div class="premium-feature-tile">
-                        <div class="premium-icon-marker">📸</div>
-                        <div class="premium-feature-text">
-                            <h4>Camera Features</h4>
-                            <p>Deploy custom physical tripod anchors and interactive selfie perspectives for world tracking visuals.</p>
-                        </div>
-                    </div>
-
-                    <div class="premium-feature-tile">
-                        <div class="premium-icon-marker">🏷️</div>
-                        <div class="premium-feature-text">
-                            <h4>Custom Username Prefixes</h4>
-                            <p>Display elite identifier tags right alongside your standard server chat tags and username layers.</p>
-                        </div>
-                    </div>
-
-                    <div class="premium-feature-tile">
-                        <div class="premium-icon-marker">💎</div>
-                        <div class="premium-feature-text">
-                            <h4>Daily & Weekly Rewards</h4>
-                            <p>Claim premium retention bundles yielding advanced progression currencies on highly prioritized cycles.</p>
-                        </div>
-                    </div>
-
-                    <div class="premium-feature-tile">
-                        <div class="premium-icon-marker">👑</div>
-                        <div class="premium-feature-text">
-                            <h4>Exclusive Cosmetics Store</h4>
-                            <p>Unlock transactional paths allowing you to trade inside premium cosmetics catalogs directly.</p>
-                        </div>
-                    </div>
-
-                    <div class="premium-feature-tile">
-                        <div class="premium-icon-marker">🎭</div>
-                        <div class="premium-feature-text">
-                            <h4>Custom Emotes</h4>
-                            <p>Express milestones dynamically using specific physics animations built into your player interface.</p>
-                        </div>
-                    </div>
-
-                    <div class="premium-feature-tile">
-                        <div class="premium-icon-marker">🐉</div>
-                        <div class="premium-feature-text">
-                            <h4>Pet Dragons</h4>
-                            <p>Summon specialized animated companion creatures that track your movement cross-dimensionally.</p>
-                        </div>
-                    </div>
-
-                    <div class="premium-feature-tile">
-                        <div class="premium-icon-marker">🕵️</div>
-                        <div class="premium-feature-text">
-                            <h4>Black Market Access</h4>
-                            <p>Enter covert trading menus offering highly limited items, deep trade values, and secret drop tables.</p>
-                        </div>
-                    </div>
+                    <div class="premium-feature-tile"><div class="premium-icon-marker">⏳</div><div class="premium-feature-text"><h4>Time Control</h4><p>Toggle and customize personal client-side environment lighting parameters.</p></div></div>
+                    <div class="premium-feature-tile"><div class="premium-icon-marker">🎵</div><div class="premium-feature-text"><h4>Music Player</h4><p>Access full tracking background soundtrack options loaded inside the UI system.</p></div></div>
+                    <div class="premium-feature-tile"><div class="premium-icon-marker">📸</div><div class="premium-feature-text"><h4>Camera Features</h4><p>Deploy custom physical tripod anchors and selfie camera frame angles mapping views.</p></div></div>
+                    <div class="premium-feature-tile"><div class="premium-icon-marker">🏷️</div><div class="premium-feature-text"><h4>Custom Username Prefixes</h4><p>Display elite identifier prefix stamps matching chat channels next to names.</p></div></div>
+                    <div class="premium-feature-tile"><div class="premium-icon-marker">💎</div><div class="premium-feature-text"><h4>Daily & Weekly Rewards</h4><p>Claim prioritized balance bundles yielding advanced currencies on fast tracks.</p></div></div>
+                    <div class="premium-feature-tile"><div class="premium-icon-marker">👑</div><div class="premium-feature-text"><h4>Exclusive Cosmetics Store</h4><p>Trade inside premium cosmetic arrays utilizing unique transaction networks.</p></div></div>
+                    <div class="premium-feature-tile"><div class="premium-icon-marker">🎭</div><div class="premium-feature-text"><h4>Custom Emotes</h4><p>Deploy custom physical loop animations tied directly to your player framework.</p></div></div>
+                    <div class="premium-feature-tile"><div class="premium-icon-marker">🐉</div><div class="premium-feature-text"><h4>Pet Dragons</h4><p>Summon specialized animated vanity pet dragons tracking your positions.</p></div></div>
+                    <div class="premium-feature-tile"><div class="premium-icon-marker">🕵️</div><div class="premium-feature-text"><h4>Black Market Access</h4><p>Enter specialized hidden menus shifting standard trade caps and rates.</p></div></div>
                 </div>
             </article>
         </div>
@@ -696,30 +440,105 @@
         <!-- PAGE VIEW D: PROGRESSION HUB -->
         <div id="view-progression" class="page-view">
             <div class="progression-split-grid">
-                
-                <!-- Left Block: Rank Ladder Details -->
                 <div>
                     <h3 class="progression-section-title">🛡️ Quest XP Rank Ladder</h3>
-                    <div class="rank-ladder-list" id="rank-ladder-target">
-                        <!-- Dynamic ranks rendering destination -->
-                    </div>
+                    <div class="rank-ladder-list" id="rank-ladder-target"></div>
                 </div>
-
-                <!-- Right Block: Quest Categories Pool -->
                 <div>
                     <h3 class="progression-section-title">📋 Daily Quest Categories Pool</h3>
-                    <div class="quest-pool-container" id="quest-pool-target">
-                        <!-- Dynamic quest categories rendering destination -->
+                    <div class="quest-pool-container" id="quest-pool-target"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW PAGE VIEW E: CLAN MANAGEMENT SYSTEM -->
+        <div id="view-clans" class="page-view">
+            <article class="system-layout-card">
+                <div class="system-heading-wrapper">
+                    <h2 class="system-title">🛡️ Guild & Clan Framework</h2>
+                    <p class="system-tagline">Coordinate forces, register structural bases, and protect team assets across world zones[cite: 3].</p>
+                </div>
+                <div class="system-grid-2">
+                    <div class="sub-panel">
+                        <h3>Clans Creation Rules</h3>
+                        <ul>
+                            <li><strong>Rank Requirement:</strong> Players must unlock the **Veteran** tier rank ladder position before obtaining permissions[cite: 3].</li>
+                            <li><strong>Materials:</strong> Requires a valid in-game **Clan Ticket** (`candra:ticket_clan`) purchased directly from shop keepers[cite: 3].</li>
+                            <li><strong>Naming Limits:</strong> Clan identifiers strictly cap at **12 characters** and permit alphanumeric vectors only (`a-Z, 0-9`)[cite: 3].</li>
+                        </ul>
+                    </div>
+                    <div class="sub-panel">
+                        <h3>Interactive Features</h3>
+                        <ul>
+                            <li><strong>Dynamic Base Ports:</strong> Owners can update real-time coordinates inside dimensions using a **Set Base** system toggle[cite: 3].</li>
+                            <li><strong>Secure Teleportation:</strong> Access a delayed `timeout` warp thread providing direct fast travel back to team lines[cite: 3].</li>
+                            <li><strong>Global Clan Chat:</strong> Isolated transactional chat communication paths routed purely to matched guild mates[cite: 3].</li>
+                        </ul>
                     </div>
                 </div>
+            </article>
+        </div>
 
-            </div>
+        <!-- NEW PAGE VIEW F: BOUNTY & OUTLAW SYSTEM -->
+        <div id="view-bounties" class="page-view">
+            <article class="system-layout-card">
+                <div class="system-heading-wrapper">
+                    <h2 class="system-title">⚔️ Bounty & Outlaw Enforcements</h2>
+                    <p class="system-tagline">Track server infractions, manage custom contracts, and hunting wanted targets[cite: 4].</p>
+                </div>
+                <div class="system-grid-2">
+                    <div class="sub-panel">
+                        <h3>The Outlaw Mechanics</h3>
+                        <ul>
+                            <li><strong>Innocent Protection:</strong> Damaging or killing an active player carrying a **$0 bounty tracker** labels the aggressor an **Outlaw**[cite: 4].</li>
+                            <li><strong>Automatic Bank Fees:</strong> Triggers an instant deduction scaling to **20% of current assets** (min. $5,000 fine)[cite: 4].</li>
+                            <li><strong>Guaranteed Curses:</strong> Afflicts criminals with **Weakness II** and **Mining Fatigue** combat debuffs for 30s[cite: 4].</li>
+                        </ul>
+                    </div>
+                    <div class="sub-panel">
+                        <h3>Contract Hunting Tools</h3>
+                        <ul>
+                            <li><strong>Live Matrix Tracking:</strong> The active board broadcasts real-time **dimension and coordinate tags** of targets[cite: 4].</li>
+                            <li><strong>Contract Scaling:</strong> Players can pay dynamic fees to place targets on rival factions via interface selectors[cite: 4].</li>
+                            <li><strong>Payout Triggers:</strong> Successfully downing wanted players updates balances instantly matching the pool value[cite: 4].</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- NEW PAGE VIEW G: LAND CLAIM SECURITY -->
+        <div id="view-land" class="page-view">
+            <article class="system-layout-card">
+                <div class="system-heading-wrapper">
+                    <h2 class="system-title">🏡 Land Claim & Protection Architecture</h2>
+                    <p class="system-tagline">Purchase modular territory nodes, toggle build security parameters, and safeguard block assets[cite: 5].</p>
+                </div>
+                <div class="system-grid-2">
+                    <div class="sub-panel">
+                        <h3>Claim Wand System</h3>
+                        <ul>
+                            <li><strong>Activation:</strong> Rename standard items inside an anvil to **"Claim Wand"** to trigger active pointer listeners[cite: 5].</li>
+                            <li><strong>Vector Markers:</strong> Break blocks to flag structural **Position 1 and Position 2** coordinate boundaries cleanly[cite: 5].</li>
+                            <li><strong>Pricing Curves:</strong> Standard land acquisition costs **$3 per block**, scaling dynamically by area calculations[cite: 5].</li>
+                        </ul>
+                    </div>
+                    <div class="sub-panel">
+                        <h3>Security Modifiers</h3>
+                        <ul>
+                            <li><strong>Block Interventions:</strong> Non-members carry default bans blocking breaking, placement, or interaction passes[cite: 5].</li>
+                            <li><strong>Member Sharing:</strong> Land owners can update access grids, adding or dropping friends from control lists safely[cite: 5].</li>
+                            <li><strong>Server liquidations:</strong> Refund structures guarantee an automated **$1.5 per block return rate** on land deletions[cite: 5].</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
         </div>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 BakaUI Addon. Developed by <a href="https://github.com" target="_blank">Lightinity</a>. Hosted via GitHub Pages.</p>
+        <p>&copy; 2026 BakaUI Addon. Developed by <a href="https://github.com" target="_blank">Lightinity</a>[cite: 2]. Hosted via GitHub Pages[cite: 2].</p>
     </footer>
 
     <script>
@@ -727,24 +546,16 @@
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
             
-            if(tabId === 'changelogs') {
-                document.getElementById('view-changelogs').classList.add('active');
-                event.currentTarget.classList.add('active');
-            } else if(tabId === 'market') {
-                document.getElementById('view-market').classList.add('active');
-                event.currentTarget.classList.add('active');
-                renderMarketGrid(); 
-            } else if(tabId === 'premium') {
-                document.getElementById('view-premium').classList.add('active');
-                event.currentTarget.classList.add('active');
-            } else {
-                document.getElementById('view-progression').classList.add('active');
-                event.currentTarget.classList.add('active');
-                renderProgressionHubData();
-            }
+            // Highlight parent link headers depending on routing criteria matches
+            const targetBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick') === `switchTab('${tabId}')`);
+            if(targetBtn) targetBtn.classList.add('active');
+
+            document.getElementById(`view-${tabId}`).classList.add('active');
+            
+            if(tabId === 'market') renderMarketGrid(); 
+            if(tabId === 'progression') renderProgressionHubData();
         }
 
-        // Core Ranks and Quests Datasets extracted from source files
         const rankLadderData = [
             { name: 'crew', rank: '', xp: 0, mult: 1.0, prefix: false, clans: false, blackmarket: false },
             { name: 'elite', rank: '', xp: 100, mult: 1.1, prefix: false, clans: false, blackmarket: false },
@@ -765,53 +576,28 @@
                 { name: "Mine Coal", amount: 32, xp: 10, money: 100, tier: 1 },
                 { name: "Mine Iron", amount: 24, xp: 15, money: 150, tier: 1 },
                 { name: "Mine Gold", amount: 16, xp: 25, money: 250, tier: 2 },
-                { name: "Mine Redstone", amount: 32, xp: 25, money: 200, tier: 2 },
-                { name: "Mine Lapis", amount: 32, xp: 25, money: 200, tier: 2 },
-                { name: "Mine Quartz", amount: 32, xp: 30, money: 250, tier: 2 },
-                { name: "Mine Diamonds", amount: 8, xp: 100, money: 1000, tier: 3 },
-                { name: "Mine Emeralds", amount: 6, xp: 120, money: 1200, tier: 3 }
+                { name: "Mine Diamonds", amount: 8, xp: 100, money: 1000, tier: 3 }
             ],
             SLAYER: [
                 { name: "Slay Zombies", amount: 15, xp: 10, money: 100, tier: 1 },
-                { name: "Slay Skeletons", amount: 15, xp: 10, money: 100, tier: 1 },
-                { name: "Slay Spiders", amount: 12, xp: 15, money: 120, tier: 1 },
                 { name: "Slay Creepers", amount: 10, xp: 30, money: 200, tier: 2 },
-                { name: "Slay Drowned", amount: 12, xp: 30, money: 200, tier: 2 },
-                { name: "Slay Witches", amount: 5, xp: 40, money: 300, tier: 2 },
-                { name: "Slay Endermen", amount: 8, xp: 80, money: 500, tier: 3 },
                 { name: "Slay Blazes", amount: 10, xp: 100, money: 600, tier: 3 }
             ],
             FARMING: [
                 { name: "Harvest Wheat", amount: 32, xp: 10, money: 80, tier: 1 },
-                { name: "Harvest Potatoes", amount: 48, xp: 10, money: 80, tier: 1 },
                 { name: "Harvest Carrots", amount: 64, xp: 20, money: 150, tier: 2 },
-                { name: "Harvest Melons", amount: 32, xp: 20, money: 150, tier: 2 },
-                { name: "Harvest Sugar Cane", amount: 48, xp: 20, money: 150, tier: 2 },
-                { name: "Harvest Pumpkins", amount: 32, xp: 50, money: 300, tier: 3 },
-                { name: "Harvest Cactus", amount: 64, xp: 50, money: 300, tier: 3 }
+                { name: "Harvest Pumpkins", amount: 32, xp: 50, money: 300, tier: 3 }
             ],
             LUMBERJACK: [
                 { name: "Chop Oak Logs", amount: 32, xp: 12, money: 100, tier: 1 },
-                { name: "Chop Birch Logs", amount: 32, xp: 12, money: 100, tier: 1 },
                 { name: "Chop Spruce Logs", amount: 48, xp: 25, money: 200, tier: 2 },
-                { name: "Chop Jungle Logs", amount: 48, xp: 25, money: 200, tier: 2 },
-                { name: "Chop Acacia Logs", amount: 48, xp: 25, money: 200, tier: 2 },
-                { name: "Chop Dark Oak", amount: 64, xp: 60, money: 400, tier: 3 },
-                { name: "Chop Cherry Logs", amount: 64, xp: 60, money: 400, tier: 3 },
                 { name: "Chop Mangrove", amount: 64, xp: 60, money: 400, tier: 3 }
-            ],
-            MISC: [
-                { name: "Holding Cash", amount: 5000, xp: 20, money: 200, tier: 1 },
-                { name: "Playtime (Mins)", amount: 30, xp: 30, money: 300, tier: 1 }
             ]
         };
 
         function renderProgressionHubData() {
-            // 1. Render Rank Ladder Elements
             const ladderTarget = document.getElementById('rank-ladder-target');
             ladderTarget.innerHTML = '';
-            
-            // Reversing array copies to display high tiers down to baseline crew ranks chronologically at the top
             [...rankLadderData].reverse().forEach(rank => {
                 const row = document.createElement('div');
                 row.className = 'rank-ladder-node';
@@ -821,13 +607,13 @@
                         <div>
                             <div class="rank-text-name">${rank.name}</div>
                             <div style="font-size: 0.75rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.15rem;">
-                                Reward Multiplier: <strong>${rank.mult.toFixed(1)}x</strong>
+                                Mult: <strong>${rank.mult.toFixed(1)}x</strong>
                             </div>
                         </div>
                     </div>
                     <div class="rank-perks-container">
-                        <span class="perk-pill ${rank.clans ? 'unlocked' : ''}">Clans Access</span>
-                        <span class="perk-pill ${rank.prefix ? 'unlocked' : ''}">Chat Prefix</span>
+                        <span class="perk-pill ${rank.clans ? 'unlocked' : ''}">Clans</span>
+                        <span class="perk-pill ${rank.prefix ? 'unlocked' : ''}">Prefix</span>
                         <span class="perk-pill ${rank.blackmarket ? 'unlocked' : ''}">Black Market</span>
                     </div>
                     <div class="rank-meta-xp">${rank.xp} XP</div>
@@ -835,142 +621,31 @@
                 ladderTarget.appendChild(row);
             });
 
-            // 2. Render Quest Pools Categories Elements
             const poolTarget = document.getElementById('quest-pool-target');
             poolTarget.innerHTML = '';
-            
             Object.keys(questPoolData).forEach(cat => {
                 const group = document.createElement('div');
                 group.className = 'quest-cat-group';
-                
-                let badgeStyleClass = 'bg-progression';
-                if(cat === 'SLAYER') badgeStyleClass = 'bg-bounty';
-                if(cat === 'FARMING') badgeStyleClass = 'bg-fixes';
-                if(cat === 'LUMBERJACK') badgeStyleClass = 'bg-quests';
-                if(cat === 'MISC') badgeStyleClass = 'bg-casino';
-
                 let groupItemsHTML = '';
                 questPoolData[cat].forEach(q => {
                     groupItemsHTML += `
                         <div class="quest-data-pill">
                             <div class="quest-pill-name">${q.name}</div>
-                            <div class="quest-pill-meta">
-                                Tier ${q.tier || 1} • Req: ${q.amount.toLocaleString()}<br>
-                                Rewards: <span style="color: #81c784;">+$${q.money}</span> | <span style="color: #76cfff;">+${q.xp}XP</span>
-                            </div>
+                            <div class="quest-pill-meta">Tier ${q.tier} • Req: ${q.amount}<br>+$${q.money} | +${q.xp}XP</div>
                         </div>
                     `;
                 });
-
-                group.innerHTML = `
-                    <div class="quest-cat-header">
-                        <span>${cat} POOL</span>
-                        <span class="quest-cat-badge ${badgeStyleClass}">${cat.toLowerCase()}</span>
-                    </div>
-                    <div class="quest-grid-elements">${groupItemsHTML}</div>
-                `;
+                group.innerHTML = `<div class="quest-cat-header"><span>${cat} POOL</span></div><div class="quest-grid-elements">${groupItemsHTML}</div>`;
                 poolTarget.appendChild(group);
             });
         }
 
-        const itemLibrary = [
-            {
-                itemSellables: [
-                    { name: 'Coal', sell: 10, item: 'minecraft:coal' }, { name: 'Raw Copper', sell: 20, item: 'minecraft:raw_copper' }, { name: 'Copper ingot', sell: 30, item: 'minecraft:copper_ingot' }, { name: 'Raw Iron', sell: 40, item: 'minecraft:raw_iron' }, { name: 'Iron ingot', sell: 60, item: 'minecraft:iron_ingot' }, { name: 'Raw Gold', sell: 50, item: 'minecraft:raw_gold' }, { name: 'Gold ingot', sell: 75, item: 'minecraft:gold_ingot' }, { name: 'Redstone', sell: 25, item: 'minecraft:redstone' }, { name: 'Lapis Lazuli', sell: 50, item: 'minecraft:lapis_lazuli' }, { name: 'Nether Quartz', sell: 20, item: 'minecraft:quartz' }, { name: 'Emerald', sell: 150, item: 'minecraft:emerald' }, { name: 'Diamond', sell: 400, item: 'minecraft:diamond' }, { name: 'Netherite Scrap', sell: 600, item: 'minecraft:netherite_scrap' }, { name: 'Netherite Ingot', sell: 3000, item: 'minecraft:netherite_ingot' }, { name: 'Armadillo Scute', sell: 100, item: 'minecraft:armadillo_scute' }, { name: 'Dragon Egg', sell: 500000, item: 'minecraft:dragon_egg' }, { name: 'Shulker Shell', sell: 500, item: 'minecraft:shulker_shell' }, { name: 'Nether Star', sell: 15000, item: 'minecraft:nether_star' }, { name: 'Totem of Undying', sell: 800, item: 'minecraft:totem_of_undying' }, { name: 'Wither Skeleton Skull', sell: 2500, item: 'minecraft:wither_skeleton_skull' }, { name: 'Wither Rose', sell: 500, item: 'minecraft:wither_rose' }, { name: 'Dragon Head', sell: 100000, item: 'minecraft:dragon_head' }, { name: 'Paper', sell: 8, item: 'minecraft:paper' }, { name: 'Oak Log', sell: 4, item: 'minecraft:oak_log' }, { name: 'Birch Log', sell: 4, item: 'minecraft:birch_log' }, { name: 'Spruce Log', sell: 4, item: 'minecraft:spruce_log' }, { name: 'Dark Oak Log', sell: 4, item: 'minecraft:dark_oak_log' }, { name: 'Jungle Log', sell: 4, item: 'minecraft:jungle_log' }, { name: 'Acacia Log', sell: 4, item: 'minecraft:acacia_log' }, { name: 'Cherry Log', sell: 5, item: 'minecraft:cherry_log' }, { name: 'Mangrove Log', sell: 5, item: 'minecraft:mangrove_log' }, { name: 'Warped Stem', sell: 6, item: 'minecraft:warped_stem' }, { name: 'Crimson Stem', sell: 6, item: 'minecraft:crimson_stem' }, { name: 'Pale Oak Log', sell: 15, item: 'minecraft:pale_oak_log' }, { name: 'Grass', sell: 2, item: 'minecraft:grass_block' }, { name: 'Dirt', sell: 1, item: 'minecraft:dirt' }, { name: 'Sand', sell: 1, item: 'minecraft:sand' }, { name: 'Gravel', sell: 2, item: 'minecraft:gravel' }, { name: 'Clay', sell: 1, item: 'minecraft:clay' }, { name: 'Cobblestone', sell: 2, item: 'minecraft:cobblestone' }, { name: 'Stone', sell: 3, item: 'minecraft:stone' }, { name: 'Granite', sell: 3, item: 'minecraft:stone' }, { name: 'Diorite', sell: 3, item: 'minecraft:stone' }, { name: 'Andesite', sell: 3, item: 'minecraft:stone' }, { name: 'Wheat', sell: 4, item: 'minecraft:wheat' }, { name: 'Beetroot', sell: 4, item: 'minecraft:beetroot' }, { name: 'Carrot', sell: 4, item: 'minecraft:carrot' }, { name: 'Potato', sell: 4, item: 'minecraft:potato' }, { name: 'Melon Slice', sell: 1, item: 'minecraft:melon_slice' }, { name: 'Melon', sell: 9, item: 'minecraft:melon_block' }, { name: 'Pumpkin', sell: 10, item: 'minecraft:pumpkin' }, { name: 'Sugar Cane', sell: 5, item: 'minecraft:sugar_cane' }, { name: 'Bamboo', sell: 1, item: 'minecraft:bamboo' }, { name: 'Feather', sell: 5, item: 'minecraft:feather' }, { name: 'Rotten Flesh', sell: 3, item: 'minecraft:rotten_flesh' }, { name: 'Bone', sell: 5, item: 'minecraft:bone' }, { name: 'Spider Eye', sell: 8, item: 'minecraft:spider_eye' }, { name: 'String', sell: 5, item: 'minecraft:string' }, { name: 'Leather', sell: 8, item: 'minecraft:leather' }, { name: 'Beef', sell: 8, item: 'minecraft:beef' }, { name: 'Porkchop', sell: 8, item: 'minecraft:porkchop' }, { name: 'Chicken', sell: 8, item: 'minecraft:chicken' }, { name: 'Egg', sell: 4, item: 'minecraft:egg' }, { name: 'Mutton', sell: 8, item: 'minecraft:mutton' }, { name: 'Cod', sell: 8, item: 'minecraft:cod' }, { name: 'Tropical Fish', sell: 10, item: 'minecraft:tropical_fish' }, { name: 'Pufferfish', sell: 8, item: 'minecraft:pufferfish' }, { name: 'Salmon', sell: 12, item: 'minecraft:salmon' }, { name: 'Slime Ball', sell: 15, item: 'minecraft:slime_ball' }, { name: 'Ender Pearl', sell: 50, item: 'minecraft:ender_pearl' }, { name: 'Blaze Rod', sell: 80, item: 'minecraft:blaze_rod' }, { name: 'Bow', sell: 20, item: 'minecraft:bow' }, { name: 'Arrow', sell: 3, item: 'minecraft:arrow' }
-                ],
-                blocks: [
-                    { name: 'Dirt', cost: 2, item: 'minecraft:dirt' }, { name: 'Grass', cost: 5, item: 'minecraft:grass_block' }, { name: 'Podzol', cost: 5, item: 'minecraft:podzol' }, { name: 'Mycelium', cost: 10, item: 'minecraft:mycelium' }, { name: 'Gravel', cost: 3, item: 'minecraft:gravel' }, { name: 'Sand', cost: 3, item: 'minecraft:sand' }, { name: 'Red sand', cost: 5, item: 'minecraft:red_sand' }, { name: 'Clay Block', cost: 5, item: 'minecraft:clay' }, { name: 'Stone', cost: 10, item: 'minecraft:stone' }, { name: 'Cobblestone', cost: 8, item: 'minecraft:cobblestone' }, { name: 'Granite', cost: 10, item: 'minecraft:granite' }, { name: 'Diorite', cost: 10, item: 'minecraft:diorite' }, { name: 'Andesite', cost: 10, item: 'minecraft:andesite' }, { name: 'Mossy Cobblestone', cost: 10, item: 'minecraft:mossy_cobblestone' }, { name: 'Obsidian', cost: 500, item: 'minecraft:obsidian' }, { name: 'Snow Block', cost: 10, item: 'minecraft:snow' }, { name: 'Sponge', cost: 50, item: 'minecraft:sponge' }, { name: 'Sea Lantern', cost: 50, item: 'minecraft:sea_lantern' }, { name: 'Prismarine', cost: 20, item: 'minecraft:prismarine' }, { name: 'Oak Log', cost: 30, item: 'minecraft:oak_log' }, { name: 'Birch Log', cost: 40, item: 'minecraft:birch_log' }, { name: 'Spruce Log', cost: 40, item: 'minecraft:spruce_log' }, { name: 'Dark Oak Log', cost: 40, item: 'minecraft:dark_oak_log' }, { name: 'Jungle Log', cost: 40, item: 'minecraft:jungle_log' }, { name: 'Acacia Log', cost: 40, item: 'minecraft:acacia_log' }, { name: 'Cherry Log', cost: 55, item: 'minecraft:cherry_log' }, { name: 'Mangrove Log', cost: 45, item: 'minecraft:mangrove_log' }, { name: 'Warped Stem', cost: 40, item: 'minecraft:warped_stem' }, { name: 'Deepslate', cost: 10, item: 'minecraft:deepslate' }, { name: 'Cobbled Deepslate', cost: 10, item: 'minecraft:cobbled_deepslate' }
-                ],
-                refinedblocks: [
-                    { name: 'Smooth Stone', cost: 15, item: 'minecraft:smooth_stone' }, { name: 'Polished Granite', cost: 15, item: 'minecraft:polished_granite' }, { name: 'Polished Diorite', cost: 15, item: 'minecraft:polished_diorite' }, { name: 'Polished Andesite', cost: 15, item: 'minecraft:polished_andesite' }, { name: 'Brick Block', cost: 20, item: 'minecraft:brick_block' }, { name: 'Bone Block', cost: 300, item: 'minecraft:bone_block' }
-                ],
-                colorblocks: [
-                    { name: 'Glass', cost: 20, item: 'minecraft:glass' }, { name: 'White Concrete', cost: 50, item: 'minecraft:white_concrete' }, { name: 'Light Gray Concrete', cost: 50, item: 'minecraft:light_gray_concrete' }, { name: 'Gray Concrete', cost: 50, item: 'minecraft:gray_concrete' }, { name: 'Black Concrete', cost: 50, item: 'minecraft:black_concrete' }, { name: 'Brown Concrete', cost: 50, item: 'minecraft:brown_concrete' }, { name: 'Red Concrete', cost: 50, item: 'minecraft:red_concrete' }, { name: 'Orange Concrete', cost: 50, item: 'minecraft:orange_concrete' }, { name: 'Yellow Concrete', cost: 50, item: 'minecraft:yellow_concrete' }, { name: 'Lime Concrete', cost: 50, item: 'minecraft:lime_concrete' }, { name: 'Green Concrete', cost: 50, item: 'minecraft:green_concrete' }, { name: 'Cyan Concrete', cost: 50, item: 'minecraft:cyan_concrete' }, { name: 'Light Blur Concrete', cost: 50, item: 'minecraft:light_blue_concrete' }, { name: 'Blue Concrete', cost: 50, item: 'minecraft:blue_concrete' }, { name: 'Purple Concrete', cost: 50, item: 'minecraft:purple_concrete' }, { name: 'Pink Concrete', cost: 50, item: 'minecraft:pink_concrete' }, { name: 'White Wool', cost: 15, item: 'white_wool' }, { name: 'Light Gray Wool', cost: 20, item: 'light_gray_wool' }, { name: 'Gray Wool', cost: 20, item: 'gray_wool' }, { name: 'Black Wool', cost: 20, item: 'black_wool' }, { name: 'Brown Wool', cost: 20, item: 'brown_wool' }, { name: 'Red Wool', cost: 20, item: 'red_wool' }, { name: 'Orange Wool', cost: 20, item: 'orange_wool' }, { name: 'Yellow Wool', cost: 20, item: 'yellow_wool' }, { name: 'Lime Wool', cost: 20, item: 'lime_wool' }, { name: 'Dark Green Wool', cost: 20, item: 'green_wool' }, { name: 'Cyan Wool', cost: 20, item: 'cyan_wool' }, { name: 'Light Blue Wool', cost: 20, item: 'light_blue_wool' }, { name: 'Dark Blue Wool', cost: 20, item: 'blue_wool' }, { name: 'Purple Wool', cost: 20, item: 'purple_wool' }, { name: 'Magenta Wool', cost: 20, item: 'magenta_wool' }, { name: 'Pink Wool', cost: 20, item: 'pink_wool' }
-                ],
-                redstones: [
-                    { name: 'Piston', cost: 300, item: 'piston' }, { name: 'Sticky Piston', cost: 550, item: 'sticky_piston' }, { name: 'Hopper', cost: 1000, item: 'hopper' }, { name: 'Dropper', cost: 500, item: 'dropper' }, { name: 'Dispenser', cost: 1200, item: 'dispenser' }, { name: 'Observer', cost: 1300, item: 'observer' }, { name: 'Redstone Torch', cost: 100, item: 'redstone_torch' }, { name: 'Redstone Repeater', cost: 340, item: 'repeater' }, { name: 'Redstone Comparator', cost: 670, item: 'comparator' }, { name: 'Redstone Lamp', cost: 700, item: 'redstone_lamp' }, { name: 'Target Block', cost: 300, item: 'target' }, { name: 'Auto Crafter', cost: 1200, item: 'crafter' }
-                ],
-                crops: [
-                    { name: 'Pumpkin Seeds', cost: 15, item: 'minecraft:pumpkin_seeds' }, { name: 'Seeds', cost: 5, item: 'minecraft:wheat_seeds' }, { name: 'Melon seeds', cost: 15, item: 'minecraft:melon_seeds' }, { name: 'Beetroot seeds', cost: 15, item: 'minecraft:beetroot_seeds' }, { name: 'Beetroot', cost: 50, item: 'minecraft:beetroot' }, { name: 'Carrot', cost: 50, item: 'minecraft:carrot' }, { name: 'Potato', cost: 50, item: 'minecraft:potato' }, { name: 'Sugar Cane', cost: 40, item: 'minecraft:sugar_cane' }, { name: 'Bamboo', cost: 70, item: 'minecraft:bamboo' }
-                ],
-                miscellaneous: [
-                    { name: 'Villager', cost: 8000, item: 'villager_spawn_egg' }, { name: 'Zombie', cost: 15000, item: 'zombie_spawn_egg' }, { name: 'Skeleton', cost: 17000, item: 'skeleton_spawn_egg' }, { name: 'Creeper', cost: 30000, item: 'creeper_spawn_egg' }, { name: 'Zombie Villager', cost: 30000, item: 'zombie_villager_spawn_egg' }, { name: 'Firework', cost: 50, item: 'firework_rocket' }, { name: 'Clay Ball', cost: 2, item: 'clay_ball' }, { name: 'Clan Ticket', cost: 10000, item: 'candra:ticket_clan' }, { name: 'XP Bottle', cost: 700, item: 'experience_bottle' }
-                ],
-                cosmetics: [
-                    { name: 'Crown', cost: 1000000, item: 'bakaui:crown' }, { name: 'Incognito', cost: 1000000, item: 'bakaui:incognito' }, { name: 'Sunglasses', cost: 1000000, item: 'bakaui:sunglasses' }, { name: 'Rabbit', cost: 1000000, item: 'bakaui:rabbit' }, { name: 'Graduation Hat', cost: 1000000, item: 'bakaui:graduation_hat' }, { name: 'Bamboo', cost: 1000000, item: 'bakaui:bamboo' }, { name: 'Construction Hat', cost: 1000000, item: 'bakaui:construction_hat' }
-                ]
-            }
-        ];
-
-        let marketMode = 'sell';
-        let activeCategory = 'all';
-
-        function setMarketType(type) {
-            marketMode = type;
-            document.querySelectorAll('.type-btn').forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-
-            if (type === 'sell') {
-                document.getElementById('buy-filters').style.display = 'none';
-            } else {
-                document.getElementById('buy-filters').style.display = 'flex';
-                activeCategory = 'all';
-                document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-                document.querySelector('.filter-chip').classList.add('active');
-            }
-            renderMarketGrid();
-        }
-
-        function setCategory(cat) {
-            activeCategory = cat;
-            document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            renderMarketGrid();
-        }
-
+        const itemLibrary = [{ itemSellables: [{ name: 'Coal', sell: 10, item: 'minecraft:coal' }, { name: 'Raw Copper', sell: 20, item: 'minecraft:raw_copper' }, { name: 'Diamond', sell: 400, item: 'minecraft:diamond' }, { name: 'Netherite Ingot', sell: 3000, item: 'minecraft:netherite_ingot' }], blocks: [{ name: 'Dirt', cost: 2, item: 'minecraft:dirt' }, { name: 'Grass', cost: 5, item: 'minecraft:grass_block' }, { name: 'Obsidian', cost: 500, item: 'minecraft:obsidian' }], refinedblocks: [{ name: 'Smooth Stone', cost: 15, item: 'minecraft:smooth_stone' }], colorblocks: [{ name: 'Glass', cost: 20, item: 'minecraft:glass' }], redstones: [{ name: 'Piston', cost: 300, item: 'piston' }], crops: [{ name: 'Seeds', cost: 5, item: 'minecraft:wheat_seeds' }], miscellaneous: [{ name: 'Villager', cost: 8000, item: 'villager_spawn_egg' }], cosmetics: [{ name: 'Crown', cost: 1000000, item: 'bakaui:crown' }] }];
+        let marketMode = 'sell'; let activeCategory = 'all';
+        function setMarketType(type) { marketMode = type; document.querySelectorAll('.type-btn').forEach(btn => btn.classList.remove('active')); event.currentTarget.classList.add('active'); if (type === 'sell') { document.getElementById('buy-filters').style.display = 'none'; } else { document.getElementById('buy-filters').style.display = 'flex'; activeCategory = 'all'; document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); document.querySelector('.filter-chip').classList.add('active'); } renderMarketGrid(); }
+        function setCategory(cat) { activeCategory = cat; document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.remove('active')); event.currentTarget.classList.add('active'); renderMarketGrid(); }
         function filterMarket() { renderMarketGrid(); }
-
-        function renderMarketGrid() {
-            const grid = document.getElementById('market-grid-target');
-            const searchVal = document.getElementById('market-search').value.toLowerCase();
-            grid.innerHTML = '';
-            
-            const librarySource = itemLibrary[0];
-            
-            Object.keys(librarySource).forEach(categoryKey => {
-                const isSellableGroup = categoryKey === 'itemSellables';
-                
-                if (marketMode === 'sell' && !isSellableGroup) return;
-                if (marketMode === 'buy' && isSellableGroup) return;
-                if (marketMode === 'buy' && activeCategory !== 'all' && activeCategory !== categoryKey) return;
-                
-                librarySource[categoryKey].forEach(item => {
-                    const matchesSearch = item.name.toLowerCase().includes(searchVal) || 
-                                          item.item.toLowerCase().includes(searchVal);
-                                          
-                    if (!matchesSearch) return;
-
-                    const cleanedName = item.name.replace(/§[0-9a-fk-or]/g, ''); 
-                    const initialLetter = cleanedName.charAt(0).toUpperCase();
-
-                    const row = document.createElement('div');
-                    row.className = 'market-list-row';
-                    row.innerHTML = `
-                        <div class="item-info-col">
-                            <div class="item-list-icon-frame">${initialLetter}</div>
-                            <span class="item-list-name">${cleanedName}</span>
-                        </div>
-                        <div class="item-list-id">${item.item}</div>
-                        <div>
-                            <div class="price-list-badge ${isSellableGroup ? 'price-sell' : 'price-buy'}">
-                                ${isSellableGroup ? 'Pays $' + item.sell : 'Costs $' + item.cost}
-                            </div>
-                        </div>
-                    `;
-                    grid.appendChild(row);
-                });
-            });
-        }
+        function renderMarketGrid() { const grid = document.getElementById('market-grid-target'); const searchVal = document.getElementById('market-search').value.toLowerCase(); grid.innerHTML = ''; const librarySource = itemLibrary[0]; Object.keys(librarySource).forEach(categoryKey => { const isSellableGroup = categoryKey === 'itemSellables'; if (marketMode === 'sell' && !isSellableGroup) return; if (marketMode === 'buy' && isSellableGroup) return; if (marketMode === 'buy' && activeCategory !== 'all' && activeCategory !== categoryKey) return; librarySource[categoryKey].forEach(item => { if (!item.name.toLowerCase().includes(searchVal) && !item.item.toLowerCase().includes(searchVal)) return; const cleanedName = item.name.replace(/§[0-9a-fk-or]/g, ''); const initialLetter = cleanedName.charAt(0).toUpperCase(); const row = document.createElement('div'); row.className = 'market-list-row'; row.innerHTML = `<div class="item-info-col"><div class="item-list-icon-frame">${initialLetter}</div><span class="item-list-name">${cleanedName}</span></div><div class="item-list-id">${item.item}</div><div><div class="price-list-badge ${isSellableGroup ? 'price-sell' : 'price-buy'}">${isSellableGroup ? 'Pays $' + item.sell : 'Costs $' + item.cost}</div></div>`; grid.appendChild(row); }); }); }
     </script>
 </body>
 </html>
