@@ -31,7 +31,7 @@
             font-size: 0.95rem;
         }
 
-        /* 1. Top Navigation Bar */
+        /* Top Navigation Bar */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -71,14 +71,8 @@
             transition: all 0.2s;
         }
 
-        .tab-btn:hover {
-            color: var(--md-sys-color-primary);
-        }
-
-        .tab-btn.active {
-            color: #141218;
-            background-color: var(--md-sys-color-primary);
-        }
+        .tab-btn:hover { color: var(--md-sys-color-primary); }
+        .tab-btn.active { color: #141218; background-color: var(--md-sys-color-primary); }
 
         header {
             background: linear-gradient(180deg, rgba(249, 168, 37, 0.1) 0%, rgba(20, 18, 24, 0) 100%);
@@ -109,24 +103,53 @@
         }
 
         /* View Switching Logic */
-        .page-view {
-            display: none;
-        }
-
-        .page-view.active {
-            display: block;
-        }
+        .page-view { display: none; }
+        .page-view.active { display: block; }
 
         /* --- MARKET SYSTEM STYLING --- */
         .market-controls {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
             margin-bottom: 2rem;
             background-color: var(--md-sys-color-surface);
-            padding: 1.25rem;
+            padding: 1.5rem;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Master Toggle for Buy vs Sell */
+        .market-type-toggle {
+            display: inline-flex;
+            background-color: var(--md-sys-color-surface-variant);
+            border-radius: 100px;
+            padding: 0.35rem;
+            width: max-content;
+        }
+
+        .type-btn {
+            background: transparent;
+            border: none;
+            color: var(--md-sys-color-on-surface-variant);
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .type-btn.active {
+            background-color: var(--md-sys-color-primary);
+            color: #141218;
+            box-shadow: 0 2px 8px rgba(249, 168, 37, 0.4);
+        }
+
+        .controls-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-direction: column;
         }
 
         .search-wrapper input {
@@ -135,44 +158,44 @@
             background-color: var(--md-sys-color-surface-variant);
             border: 1px solid var(--md-sys-color-outline);
             color: var(--md-sys-color-on-surface);
-            padding: 0.75rem 1rem;
-            border-radius: 12px;
+            padding: 0.85rem 1.25rem;
+            border-radius: 14px;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             outline: none;
         }
 
-        .search-wrapper input:focus {
-            border-color: var(--md-sys-color-primary);
-        }
+        .search-wrapper input:focus { border-color: var(--md-sys-color-primary); }
 
         .filter-tags {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .filter-chip {
             background-color: var(--md-sys-color-surface-variant);
             color: var(--md-sys-color-on-surface-variant);
             border: none;
-            padding: 0.4rem 0.8rem;
-            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
             font-size: 0.85rem;
             font-weight: 500;
             cursor: pointer;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.2s;
         }
 
         .filter-chip.active {
-            background-color: rgba(249, 168, 37, 0.2);
+            background-color: rgba(249, 168, 37, 0.15);
             color: var(--md-sys-color-primary);
             border: 1px solid var(--md-sys-color-primary);
         }
 
         .market-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 1.25rem;
         }
 
@@ -190,19 +213,18 @@
         }
 
         .item-icon-frame {
-            width: 64px;
-            height: 64px;
+            width: 56px;
+            height: 56px;
             background-color: var(--md-sys-color-surface-variant);
-            border-radius: 14px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 0.75rem;
-            image-rendering: pixelated;
         }
 
         .item-icon-fallback {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
         }
 
         .item-name {
@@ -216,124 +238,36 @@
         .item-id {
             font-size: 0.75rem;
             color: var(--md-sys-color-on-surface-variant);
-            margin: 0.25rem 0 0.75rem 0;
+            margin: 0.25rem 0 1rem 0;
             font-family: monospace;
             opacity: 0.7;
         }
 
         .price-badge {
             width: 100%;
-            padding: 0.4rem 0px;
-            border-radius: 8px;
-            font-size: 0.85rem;
+            padding: 0.5rem 0px;
+            border-radius: 10px;
+            font-size: 0.9rem;
             font-weight: 700;
             margin-top: auto;
         }
 
-        .price-sell {
-            background-color: rgba(76, 175, 80, 0.12);
-            color: #81c784;
-        }
-
-        .price-buy {
-            background-color: rgba(226, 91, 67, 0.12);
-            color: #ff8a76;
-        }
-
-        .item-type-tag {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            opacity: 0.4;
-        }
+        .price-sell { background-color: rgba(76, 175, 80, 0.12); color: #81c784; border: 1px solid rgba(76, 175, 80, 0.2); }
+        .price-buy { background-color: rgba(226, 91, 67, 0.12); color: #ff8a76; border: 1px solid rgba(226, 91, 67, 0.2); }
 
         /* --- CHANGELOG EXISTING STYLING --- */
-        .changelog-card {
-            background-color: var(--md-sys-color-surface);
-            border-radius: 28px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .version-header {
-            border-bottom: 1px solid var(--md-sys-color-surface-variant);
-            padding-bottom: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .version-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .meta-info {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 0.5rem;
-            font-size: 0.85rem;
-            color: var(--md-sys-color-on-surface-variant);
-        }
-
-        .meta-badge {
-            background-color: var(--md-sys-color-surface-variant);
-            padding: 0.2rem 0.6rem;
-            border-radius: 8px;
-        }
-
-        .intro-text {
-            font-size: 1rem;
-            background-color: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
-            padding: 1rem 1.25rem;
-            border-radius: 16px;
-        }
-
-        .card-content-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .logs-panel {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        .log-section {
-            background-color: rgba(255, 255, 255, 0.02);
-            padding: 1.25rem;
-            border-radius: 18px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-        }
-
-        .section-title-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .category-badge {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            padding: 0.2rem 0.6rem;
-            border-radius: 8px;
-        }
+        .changelog-card { background-color: var(--md-sys-color-surface); border-radius: 28px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .version-header { border-bottom: 1px solid var(--md-sys-color-surface-variant); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+        .version-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin: 0; }
+        .meta-info { display: flex; gap: 0.75rem; margin-top: 0.5rem; font-size: 0.85rem; color: var(--md-sys-color-on-surface-variant); }
+        .meta-badge { background-color: var(--md-sys-color-surface-variant); padding: 0.2rem 0.6rem; border-radius: 8px; }
+        .intro-text { font-size: 1rem; background-color: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); padding: 1rem 1.25rem; border-radius: 16px; }
+        .card-content-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1.5rem; }
+        .logs-panel { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        .log-section { background-color: rgba(255, 255, 255, 0.02); padding: 1.25rem; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.02); }
+        .section-title-wrapper { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0; }
+        .category-badge { font-size: 0.7rem; text-transform: uppercase; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 8px; }
         
         .bg-progression { background-color: rgba(226, 135, 67, 0.15); color: #ffb076; }
         .bg-bounty { background-color: rgba(226, 91, 67, 0.15); color: #ff8a76; }
@@ -345,17 +279,11 @@
         li { margin-bottom: 0.5rem; color: var(--md-sys-color-on-surface-variant); font-size: 0.9rem; }
         li strong { color: var(--md-sys-color-on-surface); }
 
-        footer {
-            background-color: var(--md-sys-color-surface);
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--md-sys-color-on-surface-variant);
-            font-size: 0.85rem;
-        }
+        footer { background-color: var(--md-sys-color-surface); padding: 2rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--md-sys-color-on-surface-variant); font-size: 0.85rem; margin-top: 2rem; }
 
         @media (min-width: 992px) {
-            .market-controls { grid-template-columns: 300px 1fr; align-items: center; }
+            .controls-row { flex-direction: row; align-items: center; }
+            .search-wrapper { flex: 0 0 350px; }
             .card-content-grid { grid-template-columns: 320px 1fr; align-items: start; }
             .logs-panel { grid-template-columns: repeat(2, 1fr); }
             .log-section.full-width-desktop { grid-column: span 2; }
@@ -366,6 +294,8 @@
             .brand-title { font-size: 2.5rem; }
             .navbar { padding: 1rem; flex-direction: column; gap: 0.75rem; }
             main { padding: 0 1rem; }
+            .market-type-toggle { width: 100%; display: flex; }
+            .type-btn { flex: 1; text-align: center; }
         }
     </style>
 </head>
@@ -464,24 +394,35 @@
         <!-- PAGE VIEW B: INTERACTIVE SHOP MARKET -->
         <div id="view-market" class="page-view">
             <div class="market-controls">
-                <div class="search-wrapper">
-                    <input type="text" id="market-search" placeholder="Search item name or id (e.g., netherite)..." oninput="filterMarket()">
+                
+                <!-- Master Tier Split -->
+                <div class="market-type-toggle">
+                    <button class="type-btn active" onclick="setMarketType('sell')">Sell to Server</button>
+                    <button class="type-btn" onclick="setMarketType('buy')">Buy from Server</button>
                 </div>
-                <div class="filter-tags" id="filter-container">
-                    <button class="filter-chip active" onclick="setCategory('all')">All Items</button>
-                    <button class="filter-chip" onclick="setCategory('itemSellables')">Sellables (Player ➔ Server)</button>
-                    <button class="filter-chip" onclick="setCategory('blocks')">Building Blocks</button>
-                    <button class="filter-chip" onclick="setCategory('refinedblocks')">Refined Blocks</button>
-                    <button class="filter-chip" onclick="setCategory('colorblocks')">Colored Blocks/Wool</button>
-                    <button class="filter-chip" onclick="setCategory('redstones')">Redstone Systems</button>
-                    <button class="filter-chip" onclick="setCategory('crops')">Crops & Seeds</button>
-                    <button class="filter-chip" onclick="setCategory('miscellaneous')">Miscellaneous</button>
-                    <button class="filter-chip" onclick="setCategory('cosmetics')">Cosmetics</button>
+
+                <!-- Lower Search & Filter Tools -->
+                <div class="controls-row">
+                    <div class="search-wrapper">
+                        <input type="text" id="market-search" placeholder="Search item name or id..." oninput="filterMarket()">
+                    </div>
+                    
+                    <!-- Only visible when 'Buy' is active -->
+                    <div class="filter-tags" id="buy-filters" style="display: none;">
+                        <button class="filter-chip active" onclick="setCategory('all')">All Buyables</button>
+                        <button class="filter-chip" onclick="setCategory('blocks')">Blocks</button>
+                        <button class="filter-chip" onclick="setCategory('refinedblocks')">Refined</button>
+                        <button class="filter-chip" onclick="setCategory('colorblocks')">Colors</button>
+                        <button class="filter-chip" onclick="setCategory('redstones')">Redstone</button>
+                        <button class="filter-chip" onclick="setCategory('crops')">Crops</button>
+                        <button class="filter-chip" onclick="setCategory('miscellaneous')">Misc</button>
+                        <button class="filter-chip" onclick="setCategory('cosmetics')">Cosmetics</button>
+                    </div>
                 </div>
             </div>
 
             <div class="market-grid" id="market-grid-target">
-                <!-- Item tiles dynamically populated by script -->
+                <!-- Items inject here -->
             </div>
         </div>
 
@@ -492,7 +433,7 @@
     </footer>
 
     <script>
-        // Tab Engine Switching
+        // Tab Engine
         function switchTab(tabId) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
@@ -503,211 +444,60 @@
             } else {
                 document.getElementById('view-market').classList.add('active');
                 event.currentTarget.classList.add('active');
-                renderMarketGrid(); // Initialize data mapping elements
+                renderMarketGrid(); 
             }
         }
 
-        // Hydrated JSON Item Library Data State Source
+        // Database
         const itemLibrary = [
             {
                 itemSellables: [
-                    { name: 'Coal', sell: 10, item: 'minecraft:coal' },
-                    { name: 'Raw Copper', sell: 20, item: 'minecraft:raw_copper' },
-                    { name: 'Copper ingot', sell: 30, item: 'minecraft:copper_ingot' },
-                    { name: 'Raw Iron', sell: 40, item: 'minecraft:raw_iron' },
-                    { name: 'Iron ingot', sell: 60, item: 'minecraft:iron_ingot' },
-                    { name: 'Raw Gold', sell: 50, item: 'minecraft:raw_gold' },
-                    { name: 'Gold ingot', sell: 75, item: 'minecraft:gold_ingot' },
-                    { name: 'Redstone', sell: 25, item: 'minecraft:redstone' },
-                    { name: 'Lapis Lazuli', sell: 50, item: 'minecraft:lapis_lazuli' },
-                    { name: 'Nether Quartz', sell: 20, item: 'minecraft:quartz' },
-                    { name: 'Emerald', sell: 150, item: 'minecraft:emerald' },
-                    { name: 'Diamond', sell: 400, item: 'minecraft:diamond' },
-                    { name: 'Netherite Scrap', sell: 600, item: 'minecraft:netherite_scrap' },
-                    { name: 'Netherite Ingot', sell: 3000, item: 'minecraft:netherite_ingot' },
-                    { name: 'Armadillo Scute', sell: 100, item: 'minecraft:armadillo_scute' },
-                    { name: 'Dragon Egg', sell: 500000, item: 'minecraft:dragon_egg' },
-                    { name: 'Shulker Shell', sell: 500, item: 'minecraft:shulker_shell' },
-                    { name: 'Nether Star', sell: 15000, item: 'minecraft:nether_star' },
-                    { name: 'Totem of Undying', sell: 800, item: 'minecraft:totem_of_undying' },
-                    { name: 'Wither Skeleton Skull', sell: 2500, item: 'minecraft:wither_skeleton_skull' },
-                    { name: 'Wither Rose', sell: 500, item: 'minecraft:wither_rose' },
-                    { name: 'Dragon Head', sell: 100000, item: 'minecraft:dragon_head' },
-                    { name: 'Paper', sell: 8, item: 'minecraft:paper' },
-                    { name: 'Oak Log', sell: 4, item: 'minecraft:oak_log' },
-                    { name: 'Birch Log', sell: 4, item: 'minecraft:birch_log' },
-                    { name: 'Spruce Log', sell: 4, item: 'minecraft:spruce_log' },
-                    { name: 'Dark Oak Log', sell: 4, item: 'minecraft:dark_oak_log' },
-                    { name: 'Jungle Log', sell: 4, item: 'minecraft:jungle_log' },
-                    { name: 'Acacia Log', sell: 4, item: 'minecraft:acacia_log' },
-                    { name: 'Cherry Log', sell: 5, item: 'minecraft:cherry_log' },
-                    { name: 'Mangrove Log', sell: 5, item: 'minecraft:mangrove_log' },
-                    { name: 'Warped Stem', sell: 6, item: 'minecraft:warped_stem' },
-                    { name: 'Crimson Stem', sell: 6, item: 'minecraft:crimson_stem' },
-                    { name: 'Pale Oak Log', sell: 15, item: 'minecraft:pale_oak_log' },
-                    { name: 'Grass', sell: 2, item: 'minecraft:grass_block' },
-                    { name: 'Dirt', sell: 1, item: 'minecraft:dirt' },
-                    { name: 'Sand', sell: 1, item: 'minecraft:sand' },
-                    { name: 'Gravel', sell: 2, item: 'minecraft:gravel' },
-                    { name: 'Clay', sell: 1, item: 'minecraft:clay' },
-                    { name: 'Cobblestone', sell: 2, item: 'minecraft:cobblestone' },
-                    { name: 'Stone', sell: 3, item: 'minecraft:stone' },
-                    { name: 'Granite', sell: 3, item: 'minecraft:stone' },
-                    { name: 'Diorite', sell: 3, item: 'minecraft:stone' },
-                    { name: 'Andesite', sell: 3, item: 'minecraft:stone' },
-                    { name: 'Wheat', sell: 4, item: 'minecraft:wheat' },
-                    { name: 'Beetroot', sell: 4, item: 'minecraft:beetroot' },
-                    { name: 'Carrot', sell: 4, item: 'minecraft:carrot' },
-                    { name: 'Potato', sell: 4, item: 'minecraft:potato' },
-                    { name: 'Melon Slice', sell: 1, item: 'minecraft:melon_slice' },
-                    { name: 'Melon', sell: 9, item: 'minecraft:melon_block' },
-                    { name: 'Pumpkin', sell: 10, item: 'minecraft:pumpkin' },
-                    { name: 'Sugar Cane', sell: 5, item: 'minecraft:sugar_cane' },
-                    { name: 'Bamboo', sell: 1, item: 'minecraft:bamboo' },
-                    { name: 'Feather', sell: 5, item: 'minecraft:feather' },
-                    { name: 'Rotten Flesh', sell: 3, item: 'minecraft:rotten_flesh' },
-                    { name: 'Bone', sell: 5, item: 'minecraft:bone' },
-                    { name: 'Spider Eye', sell: 8, item: 'minecraft:spider_eye' },
-                    { name: 'String', sell: 5, item: 'minecraft:string' },
-                    { name: 'Leather', sell: 8, item: 'minecraft:leather' },
-                    { name: 'Beef', sell: 8, item: 'minecraft:beef' },
-                    { name: 'Porkchop', sell: 8, item: 'minecraft:porkchop' },
-                    { name: 'Chicken', sell: 8, item: 'minecraft:chicken' },
-                    { name: 'Egg', sell: 4, item: 'minecraft:egg' },
-                    { name: 'Mutton', sell: 8, item: 'minecraft:mutton' },
-                    { name: 'Cod', sell: 8, item: 'minecraft:cod' },
-                    { name: 'Tropical Fish', sell: 10, item: 'minecraft:tropical_fish' },
-                    { name: 'Pufferfish', sell: 8, item: 'minecraft:pufferfish' },
-                    { name: 'Salmon', sell: 12, item: 'minecraft:salmon' },
-                    { name: 'Slime Ball', sell: 15, item: 'minecraft:slime_ball' },
-                    { name: 'Ender Pearl', sell: 50, item: 'minecraft:ender_pearl' },
-                    { name: 'Blaze Rod', sell: 80, item: 'minecraft:blaze_rod' },
-                    { name: 'Bow', sell: 20, item: 'minecraft:bow' },
-                    { name: 'Arrow', sell: 3, item: 'minecraft:arrow' }
+                    { name: 'Coal', sell: 10, item: 'minecraft:coal' }, { name: 'Raw Copper', sell: 20, item: 'minecraft:raw_copper' }, { name: 'Copper ingot', sell: 30, item: 'minecraft:copper_ingot' }, { name: 'Raw Iron', sell: 40, item: 'minecraft:raw_iron' }, { name: 'Iron ingot', sell: 60, item: 'minecraft:iron_ingot' }, { name: 'Raw Gold', sell: 50, item: 'minecraft:raw_gold' }, { name: 'Gold ingot', sell: 75, item: 'minecraft:gold_ingot' }, { name: 'Redstone', sell: 25, item: 'minecraft:redstone' }, { name: 'Lapis Lazuli', sell: 50, item: 'minecraft:lapis_lazuli' }, { name: 'Nether Quartz', sell: 20, item: 'minecraft:quartz' }, { name: 'Emerald', sell: 150, item: 'minecraft:emerald' }, { name: 'Diamond', sell: 400, item: 'minecraft:diamond' }, { name: 'Netherite Scrap', sell: 600, item: 'minecraft:netherite_scrap' }, { name: 'Netherite Ingot', sell: 3000, item: 'minecraft:netherite_ingot' }, { name: 'Armadillo Scute', sell: 100, item: 'minecraft:armadillo_scute' }, { name: 'Dragon Egg', sell: 500000, item: 'minecraft:dragon_egg' }, { name: 'Shulker Shell', sell: 500, item: 'minecraft:shulker_shell' }, { name: 'Nether Star', sell: 15000, item: 'minecraft:nether_star' }, { name: 'Totem of Undying', sell: 800, item: 'minecraft:totem_of_undying' }, { name: 'Wither Skeleton Skull', sell: 2500, item: 'minecraft:wither_skeleton_skull' }, { name: 'Wither Rose', sell: 500, item: 'minecraft:wither_rose' }, { name: 'Dragon Head', sell: 100000, item: 'minecraft:dragon_head' }, { name: 'Paper', sell: 8, item: 'minecraft:paper' }, { name: 'Oak Log', sell: 4, item: 'minecraft:oak_log' }, { name: 'Birch Log', sell: 4, item: 'minecraft:birch_log' }, { name: 'Spruce Log', sell: 4, item: 'minecraft:spruce_log' }, { name: 'Dark Oak Log', sell: 4, item: 'minecraft:dark_oak_log' }, { name: 'Jungle Log', sell: 4, item: 'minecraft:jungle_log' }, { name: 'Acacia Log', sell: 4, item: 'minecraft:acacia_log' }, { name: 'Cherry Log', sell: 5, item: 'minecraft:cherry_log' }, { name: 'Mangrove Log', sell: 5, item: 'minecraft:mangrove_log' }, { name: 'Warped Stem', sell: 6, item: 'minecraft:warped_stem' }, { name: 'Crimson Stem', sell: 6, item: 'minecraft:crimson_stem' }, { name: 'Pale Oak Log', sell: 15, item: 'minecraft:pale_oak_log' }, { name: 'Grass', sell: 2, item: 'minecraft:grass_block' }, { name: 'Dirt', sell: 1, item: 'minecraft:dirt' }, { name: 'Sand', sell: 1, item: 'minecraft:sand' }, { name: 'Gravel', sell: 2, item: 'minecraft:gravel' }, { name: 'Clay', sell: 1, item: 'minecraft:clay' }, { name: 'Cobblestone', sell: 2, item: 'minecraft:cobblestone' }, { name: 'Stone', sell: 3, item: 'minecraft:stone' }, { name: 'Granite', sell: 3, item: 'minecraft:stone' }, { name: 'Diorite', sell: 3, item: 'minecraft:stone' }, { name: 'Andesite', sell: 3, item: 'minecraft:stone' }, { name: 'Wheat', sell: 4, item: 'minecraft:wheat' }, { name: 'Beetroot', sell: 4, item: 'minecraft:beetroot' }, { name: 'Carrot', sell: 4, item: 'minecraft:carrot' }, { name: 'Potato', sell: 4, item: 'minecraft:potato' }, { name: 'Melon Slice', sell: 1, item: 'minecraft:melon_slice' }, { name: 'Melon', sell: 9, item: 'minecraft:melon_block' }, { name: 'Pumpkin', sell: 10, item: 'minecraft:pumpkin' }, { name: 'Sugar Cane', sell: 5, item: 'minecraft:sugar_cane' }, { name: 'Bamboo', sell: 1, item: 'minecraft:bamboo' }, { name: 'Feather', sell: 5, item: 'minecraft:feather' }, { name: 'Rotten Flesh', sell: 3, item: 'minecraft:rotten_flesh' }, { name: 'Bone', sell: 5, item: 'minecraft:bone' }, { name: 'Spider Eye', sell: 8, item: 'minecraft:spider_eye' }, { name: 'String', sell: 5, item: 'minecraft:string' }, { name: 'Leather', sell: 8, item: 'minecraft:leather' }, { name: 'Beef', sell: 8, item: 'minecraft:beef' }, { name: 'Porkchop', sell: 8, item: 'minecraft:porkchop' }, { name: 'Chicken', sell: 8, item: 'minecraft:chicken' }, { name: 'Egg', sell: 4, item: 'minecraft:egg' }, { name: 'Mutton', sell: 8, item: 'minecraft:mutton' }, { name: 'Cod', sell: 8, item: 'minecraft:cod' }, { name: 'Tropical Fish', sell: 10, item: 'minecraft:tropical_fish' }, { name: 'Pufferfish', sell: 8, item: 'minecraft:pufferfish' }, { name: 'Salmon', sell: 12, item: 'minecraft:salmon' }, { name: 'Slime Ball', sell: 15, item: 'minecraft:slime_ball' }, { name: 'Ender Pearl', sell: 50, item: 'minecraft:ender_pearl' }, { name: 'Blaze Rod', sell: 80, item: 'minecraft:blaze_rod' }, { name: 'Bow', sell: 20, item: 'minecraft:bow' }, { name: 'Arrow', sell: 3, item: 'minecraft:arrow' }
                 ],
                 blocks: [
-                    { name: 'Dirt', cost: 2, item: 'minecraft:dirt' },
-                    { name: 'Grass', cost: 5, item: 'minecraft:grass_block' },
-                    { name: 'Podzol', cost: 5, item: 'minecraft:podzol' },
-                    { name: 'Mycelium', cost: 10, item: 'minecraft:mycelium' },
-                    { name: 'Gravel', cost: 3, item: 'minecraft:gravel' },
-                    { name: 'Sand', cost: 3, item: 'minecraft:sand' },
-                    { name: 'Red sand', cost: 5, item: 'minecraft:red_sand' },
-                    { name: 'Clay Block', cost: 5, item: 'minecraft:clay' },
-                    { name: 'Stone', cost: 10, item: 'minecraft:stone' },
-                    { name: 'Cobblestone', cost: 8, item: 'minecraft:cobblestone' },
-                    { name: 'Granite', cost: 10, item: 'minecraft:granite' },
-                    { name: 'Diorite', cost: 10, item: 'minecraft:diorite' },
-                    { name: 'Andesite', cost: 10, item: 'minecraft:andesite' },
-                    { name: 'Mossy Cobblestone', cost: 10, item: 'minecraft:mossy_cobblestone' },
-                    { name: 'Obsidian', cost: 500, item: 'minecraft:obsidian' },
-                    { name: 'Snow Block', cost: 10, item: 'minecraft:snow' },
-                    { name: 'Sponge', cost: 50, item: 'minecraft:sponge' },
-                    { name: 'Sea Lantern', cost: 50, item: 'minecraft:sea_lantern' },
-                    { name: 'Prismarine', cost: 20, item: 'minecraft:prismarine' },
-                    { name: 'Oak Log', cost: 30, item: 'minecraft:oak_log' },
-                    { name: 'Birch Log', cost: 40, item: 'minecraft:birch_log' },
-                    { name: 'Spruce Log', cost: 40, item: 'minecraft:spruce_log' },
-                    { name: 'Dark Oak Log', cost: 40, item: 'minecraft:dark_oak_log' },
-                    { name: 'Jungle Log', cost: 40, item: 'minecraft:jungle_log' },
-                    { name: 'Acacia Log', cost: 40, item: 'minecraft:acacia_log' },
-                    { name: 'Cherry Log', cost: 55, item: 'minecraft:cherry_log' },
-                    { name: 'Mangrove Log', cost: 45, item: 'minecraft:mangrove_log' },
-                    { name: 'Warped Stem', cost: 40, item: 'minecraft:warped_stem' },
-                    { name: 'Deepslate', cost: 10, item: 'minecraft:deepslate' },
-                    { name: 'Cobbled Deepslate', cost: 10, item: 'minecraft:cobbled_deepslate' }
+                    { name: 'Dirt', cost: 2, item: 'minecraft:dirt' }, { name: 'Grass', cost: 5, item: 'minecraft:grass_block' }, { name: 'Podzol', cost: 5, item: 'minecraft:podzol' }, { name: 'Mycelium', cost: 10, item: 'minecraft:mycelium' }, { name: 'Gravel', cost: 3, item: 'minecraft:gravel' }, { name: 'Sand', cost: 3, item: 'minecraft:sand' }, { name: 'Red sand', cost: 5, item: 'minecraft:red_sand' }, { name: 'Clay Block', cost: 5, item: 'minecraft:clay' }, { name: 'Stone', cost: 10, item: 'minecraft:stone' }, { name: 'Cobblestone', cost: 8, item: 'minecraft:cobblestone' }, { name: 'Granite', cost: 10, item: 'minecraft:granite' }, { name: 'Diorite', cost: 10, item: 'minecraft:diorite' }, { name: 'Andesite', cost: 10, item: 'minecraft:andesite' }, { name: 'Mossy Cobblestone', cost: 10, item: 'minecraft:mossy_cobblestone' }, { name: 'Obsidian', cost: 500, item: 'minecraft:obsidian' }, { name: 'Snow Block', cost: 10, item: 'minecraft:snow' }, { name: 'Sponge', cost: 50, item: 'minecraft:sponge' }, { name: 'Sea Lantern', cost: 50, item: 'minecraft:sea_lantern' }, { name: 'Prismarine', cost: 20, item: 'minecraft:prismarine' }, { name: 'Oak Log', cost: 30, item: 'minecraft:oak_log' }, { name: 'Birch Log', cost: 40, item: 'minecraft:birch_log' }, { name: 'Spruce Log', cost: 40, item: 'minecraft:spruce_log' }, { name: 'Dark Oak Log', cost: 40, item: 'minecraft:dark_oak_log' }, { name: 'Jungle Log', cost: 40, item: 'minecraft:jungle_log' }, { name: 'Acacia Log', cost: 40, item: 'minecraft:acacia_log' }, { name: 'Cherry Log', cost: 55, item: 'minecraft:cherry_log' }, { name: 'Mangrove Log', cost: 45, item: 'minecraft:mangrove_log' }, { name: 'Warped Stem', cost: 40, item: 'minecraft:warped_stem' }, { name: 'Deepslate', cost: 10, item: 'minecraft:deepslate' }, { name: 'Cobbled Deepslate', cost: 10, item: 'minecraft:cobbled_deepslate' }
                 ],
                 refinedblocks: [
-                    { name: 'Smooth Stone', cost: 15, item: 'minecraft:smooth_stone' },
-                    { name: 'Polished Granite', cost: 15, item: 'minecraft:polished_granite' },
-                    { name: 'Polished Diorite', cost: 15, item: 'minecraft:polished_diorite' },
-                    { name: 'Polished Andesite', cost: 15, item: 'minecraft:polished_andesite' },
-                    { name: 'Brick Block', cost: 20, item: 'minecraft:brick_block' },
-                    { name: 'Bone Block', cost: 300, item: 'minecraft:bone_block' }
+                    { name: 'Smooth Stone', cost: 15, item: 'minecraft:smooth_stone' }, { name: 'Polished Granite', cost: 15, item: 'minecraft:polished_granite' }, { name: 'Polished Diorite', cost: 15, item: 'minecraft:polished_diorite' }, { name: 'Polished Andesite', cost: 15, item: 'minecraft:polished_andesite' }, { name: 'Brick Block', cost: 20, item: 'minecraft:brick_block' }, { name: 'Bone Block', cost: 300, item: 'minecraft:bone_block' }
                 ],
                 colorblocks: [
-                    { name: 'Glass', cost: 20, item: 'minecraft:glass' },
-                    { name: 'White Concrete', cost: 50, item: 'minecraft:white_concrete' },
-                    { name: 'Light Gray Concrete', cost: 50, item: 'minecraft:light_gray_concrete' },
-                    { name: 'Gray Concrete', cost: 50, item: 'minecraft:gray_concrete' },
-                    { name: 'Black Concrete', cost: 50, item: 'minecraft:black_concrete' },
-                    { name: 'Brown Concrete', cost: 50, item: 'minecraft:brown_concrete' },
-                    { name: 'Red Concrete', cost: 50, item: 'minecraft:red_concrete' },
-                    { name: 'Orange Concrete', cost: 50, item: 'minecraft:orange_concrete' },
-                    { name: 'Yellow Concrete', cost: 50, item: 'minecraft:yellow_concrete' },
-                    { name: 'Lime Concrete', cost: 50, item: 'minecraft:lime_concrete' },
-                    { name: 'Green Concrete', cost: 50, item: 'minecraft:green_concrete' },
-                    { name: 'Cyan Concrete', cost: 50, item: 'minecraft:cyan_concrete' },
-                    { name: 'Light Blur Concrete', cost: 50, item: 'minecraft:light_blue_concrete' },
-                    { name: 'Blue Concrete', cost: 50, item: 'minecraft:blue_concrete' },
-                    { name: 'Purple Concrete', cost: 50, item: 'minecraft:purple_concrete' },
-                    { name: 'Pink Concrete', cost: 50, item: 'minecraft:pink_concrete' },
-                    { name: 'White Wool', cost: 15, item: 'white_wool' },
-                    { name: 'Light Gray Wool', cost: 20, item: 'light_gray_wool' },
-                    { name: 'Gray Wool', cost: 20, item: 'gray_wool' },
-                    { name: 'Black Wool', cost: 20, item: 'black_wool' },
-                    { name: 'Brown Wool', cost: 20, item: 'brown_wool' },
-                    { name: 'Red Wool', cost: 20, item: 'red_wool' },
-                    { name: 'Orange Wool', cost: 20, item: 'orange_wool' },
-                    { name: 'Yellow Wool', cost: 20, item: 'yellow_wool' },
-                    { name: 'Lime Wool', cost: 20, item: 'lime_wool' },
-                    { name: 'Dark Green Wool', cost: 20, item: 'green_wool' },
-                    { name: 'Cyan Wool', cost: 20, item: 'cyan_wool' },
-                    { name: 'Light Blue Wool', cost: 20, item: 'light_blue_wool' },
-                    { name: 'Dark Blue Wool', cost: 20, item: 'blue_wool' },
-                    { name: 'Purple Wool', cost: 20, item: 'purple_wool' },
-                    { name: 'Magenta Wool', cost: 20, item: 'magenta_wool' },
-                    { name: 'Pink Wool', cost: 20, item: 'pink_wool' }
+                    { name: 'Glass', cost: 20, item: 'minecraft:glass' }, { name: 'White Concrete', cost: 50, item: 'minecraft:white_concrete' }, { name: 'Light Gray Concrete', cost: 50, item: 'minecraft:light_gray_concrete' }, { name: 'Gray Concrete', cost: 50, item: 'minecraft:gray_concrete' }, { name: 'Black Concrete', cost: 50, item: 'minecraft:black_concrete' }, { name: 'Brown Concrete', cost: 50, item: 'minecraft:brown_concrete' }, { name: 'Red Concrete', cost: 50, item: 'minecraft:red_concrete' }, { name: 'Orange Concrete', cost: 50, item: 'minecraft:orange_concrete' }, { name: 'Yellow Concrete', cost: 50, item: 'minecraft:yellow_concrete' }, { name: 'Lime Concrete', cost: 50, item: 'minecraft:lime_concrete' }, { name: 'Green Concrete', cost: 50, item: 'minecraft:green_concrete' }, { name: 'Cyan Concrete', cost: 50, item: 'minecraft:cyan_concrete' }, { name: 'Light Blur Concrete', cost: 50, item: 'minecraft:light_blue_concrete' }, { name: 'Blue Concrete', cost: 50, item: 'minecraft:blue_concrete' }, { name: 'Purple Concrete', cost: 50, item: 'minecraft:purple_concrete' }, { name: 'Pink Concrete', cost: 50, item: 'minecraft:pink_concrete' }, { name: 'White Wool', cost: 15, item: 'white_wool' }, { name: 'Light Gray Wool', cost: 20, item: 'light_gray_wool' }, { name: 'Gray Wool', cost: 20, item: 'gray_wool' }, { name: 'Black Wool', cost: 20, item: 'black_wool' }, { name: 'Brown Wool', cost: 20, item: 'brown_wool' }, { name: 'Red Wool', cost: 20, item: 'red_wool' }, { name: 'Orange Wool', cost: 20, item: 'orange_wool' }, { name: 'Yellow Wool', cost: 20, item: 'yellow_wool' }, { name: 'Lime Wool', cost: 20, item: 'lime_wool' }, { name: 'Dark Green Wool', cost: 20, item: 'green_wool' }, { name: 'Cyan Wool', cost: 20, item: 'cyan_wool' }, { name: 'Light Blue Wool', cost: 20, item: 'light_blue_wool' }, { name: 'Dark Blue Wool', cost: 20, item: 'blue_wool' }, { name: 'Purple Wool', cost: 20, item: 'purple_wool' }, { name: 'Magenta Wool', cost: 20, item: 'magenta_wool' }, { name: 'Pink Wool', cost: 20, item: 'pink_wool' }
                 ],
                 redstones: [
-                    { name: 'Piston', cost: 300, item: 'piston' },
-                    { name: 'Sticky Piston', cost: 550, item: 'sticky_piston' },
-                    { name: 'Hopper', cost: 1000, item: 'hopper' },
-                    { name: 'Dropper', cost: 500, item: 'dropper' },
-                    { name: 'Dispenser', cost: 1200, item: 'dispenser' },
-                    { name: 'Observer', cost: 1300, item: 'observer' },
-                    { name: 'Redstone Torch', cost: 100, item: 'redstone_torch' },
-                    { name: 'Redstone Repeater', cost: 340, item: 'repeater' },
-                    { name: 'Redstone Comparator', cost: 670, item: 'comparator' },
-                    { name: 'Redstone Lamp', cost: 700, item: 'redstone_lamp' },
-                    { name: 'Target Block', cost: 300, item: 'target' },
-                    { name: 'Auto Crafter', cost: 1200, item: 'crafter' }
+                    { name: 'Piston', cost: 300, item: 'piston' }, { name: 'Sticky Piston', cost: 550, item: 'sticky_piston' }, { name: 'Hopper', cost: 1000, item: 'hopper' }, { name: 'Dropper', cost: 500, item: 'dropper' }, { name: 'Dispenser', cost: 1200, item: 'dispenser' }, { name: 'Observer', cost: 1300, item: 'observer' }, { name: 'Redstone Torch', cost: 100, item: 'redstone_torch' }, { name: 'Redstone Repeater', cost: 340, item: 'repeater' }, { name: 'Redstone Comparator', cost: 670, item: 'comparator' }, { name: 'Redstone Lamp', cost: 700, item: 'redstone_lamp' }, { name: 'Target Block', cost: 300, item: 'target' }, { name: 'Auto Crafter', cost: 1200, item: 'crafter' }
                 ],
                 crops: [
-                    { name: 'Pumpkin Seeds', cost: 15, item: 'minecraft:pumpkin_seeds' },
-                    { name: 'Seeds', cost: 5, item: 'minecraft:wheat_seeds' },
-                    { name: 'Melon seeds', cost: 15, item: 'minecraft:melon_seeds' },
-                    { name: 'Beetroot seeds', cost: 15, item: 'minecraft:beetroot_seeds' },
-                    { name: 'Beetroot', cost: 50, item: 'minecraft:beetroot' },
-                    { name: 'Carrot', cost: 50, item: 'minecraft:carrot' },
-                    { name: 'Potato', cost: 50, item: 'minecraft:potato' },
-                    { name: 'Sugar Cane', cost: 40, item: 'minecraft:sugar_cane' },
-                    { name: 'Bamboo', cost: 70, item: 'minecraft:bamboo' }
+                    { name: 'Pumpkin Seeds', cost: 15, item: 'minecraft:pumpkin_seeds' }, { name: 'Seeds', cost: 5, item: 'minecraft:wheat_seeds' }, { name: 'Melon seeds', cost: 15, item: 'minecraft:melon_seeds' }, { name: 'Beetroot seeds', cost: 15, item: 'minecraft:beetroot_seeds' }, { name: 'Beetroot', cost: 50, item: 'minecraft:beetroot' }, { name: 'Carrot', cost: 50, item: 'minecraft:carrot' }, { name: 'Potato', cost: 50, item: 'minecraft:potato' }, { name: 'Sugar Cane', cost: 40, item: 'minecraft:sugar_cane' }, { name: 'Bamboo', cost: 70, item: 'minecraft:bamboo' }
                 ],
                 miscellaneous: [
-                    { name: 'Villager', cost: 8000, item: 'villager_spawn_egg' },
-                    { name: 'Zombie', cost: 15000, item: 'zombie_spawn_egg' },
-                    { name: 'Skeleton', cost: 17000, item: 'skeleton_spawn_egg' },
-                    { name: 'Creeper', cost: 30000, item: 'creeper_spawn_egg' },
-                    { name: 'Zombie Villager', cost: 30000, item: 'zombie_villager_spawn_egg' },
-                    { name: 'Firework', cost: 50, item: 'firework_rocket' },
-                    { name: 'Clay Ball', cost: 2, item: 'clay_ball' },
-                    { name: 'Clan Ticket', cost: 10000, item: 'candra:ticket_clan' },
-                    { name: 'XP Bottle', cost: 700, item: 'experience_bottle' }
+                    { name: 'Villager', cost: 8000, item: 'villager_spawn_egg' }, { name: 'Zombie', cost: 15000, item: 'zombie_spawn_egg' }, { name: 'Skeleton', cost: 17000, item: 'skeleton_spawn_egg' }, { name: 'Creeper', cost: 30000, item: 'creeper_spawn_egg' }, { name: 'Zombie Villager', cost: 30000, item: 'zombie_villager_spawn_egg' }, { name: 'Firework', cost: 50, item: 'firework_rocket' }, { name: 'Clay Ball', cost: 2, item: 'clay_ball' }, { name: 'Clan Ticket', cost: 10000, item: 'candra:ticket_clan' }, { name: 'XP Bottle', cost: 700, item: 'experience_bottle' }
                 ],
                 cosmetics: [
-                    { name: 'Crown', cost: 1000000, item: 'bakaui:crown' },
-                    { name: 'Incognito', cost: 1000000, item: 'bakaui:incognito' },
-                    { name: 'Sunglasses', cost: 1000000, item: 'bakaui:sunglasses' },
-                    { name: 'Rabbit', cost: 1000000, item: 'bakaui:rabbit' },
-                    { name: 'Graduation Hat', cost: 1000000, item: 'bakaui:graduation_hat' },
-                    { name: 'Bamboo', cost: 1000000, item: 'bakaui:bamboo' },
-                    { name: 'Construction Hat', cost: 1000000, item: 'bakaui:construction_hat' }
+                    { name: 'Crown', cost: 1000000, item: 'bakaui:crown' }, { name: 'Incognito', cost: 1000000, item: 'bakaui:incognito' }, { name: 'Sunglasses', cost: 1000000, item: 'bakaui:sunglasses' }, { name: 'Rabbit', cost: 1000000, item: 'bakaui:rabbit' }, { name: 'Graduation Hat', cost: 1000000, item: 'bakaui:graduation_hat' }, { name: 'Bamboo', cost: 1000000, item: 'bakaui:bamboo' }, { name: 'Construction Hat', cost: 1000000, item: 'bakaui:construction_hat' }
                 ]
             }
         ];
 
+        // Market State Matrix
+        let marketMode = 'sell'; // 'sell' or 'buy'
         let activeCategory = 'all';
+
+        function setMarketType(type) {
+            marketMode = type;
+            document.querySelectorAll('.type-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            if (type === 'sell') {
+                document.getElementById('buy-filters').style.display = 'none';
+            } else {
+                document.getElementById('buy-filters').style.display = 'flex';
+                // Reset category back to 'all' when switching to buy mode
+                activeCategory = 'all';
+                document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+                document.querySelector('.filter-chip').classList.add('active');
+            }
+            renderMarketGrid();
+        }
 
         function setCategory(cat) {
             activeCategory = cat;
@@ -716,11 +506,9 @@
             renderMarketGrid();
         }
 
-        function filterMarket() {
-            renderMarketGrid();
-        }
+        function filterMarket() { renderMarketGrid(); }
 
-        // Processing and layout rendering matrix logic
+        // Grid Render Injection
         function renderMarketGrid() {
             const grid = document.getElementById('market-grid-target');
             const searchVal = document.getElementById('market-search').value.toLowerCase();
@@ -729,7 +517,12 @@
             const librarySource = itemLibrary[0];
             
             Object.keys(librarySource).forEach(categoryKey => {
-                if (activeCategory !== 'all' && activeCategory !== categoryKey) return;
+                const isSellableGroup = categoryKey === 'itemSellables';
+                
+                // Routing Logic Based on Mode Selection
+                if (marketMode === 'sell' && !isSellableGroup) return;
+                if (marketMode === 'buy' && isSellableGroup) return;
+                if (marketMode === 'buy' && activeCategory !== 'all' && activeCategory !== categoryKey) return;
                 
                 librarySource[categoryKey].forEach(item => {
                     const matchesSearch = item.name.toLowerCase().includes(searchVal) || 
@@ -737,23 +530,19 @@
                                           
                     if (!matchesSearch) return;
 
-                    const isSellable = categoryKey === 'itemSellables';
-                    const cleanedName = item.name.replace(/§[0-9a-fk-or]/g, ''); // Strips out Minecraft styling color codes
-                    
-                    // Extracts a clean first letter to place inside individual item frames as fallback placeholders
+                    const cleanedName = item.name.replace(/§[0-9a-fk-or]/g, ''); 
                     const initialLetter = cleanedName.charAt(0).toUpperCase();
 
                     const card = document.createElement('div');
                     card.className = 'item-card';
                     card.innerHTML = `
-                        <div class="item-type-tag">${categoryKey === 'itemSellables' ? 'Sell' : 'Buy'}</div>
                         <div class="item-icon-frame">
                             <span class="item-icon-fallback" style="color: var(--md-sys-color-primary); font-weight: bold;">${initialLetter}</span>
                         </div>
                         <h4 class="item-name">${cleanedName}</h4>
                         <div class="item-id">${item.item}</div>
-                        <div class="price-badge ${isSellable ? 'price-sell' : 'price-buy'}">
-                            ${isSellable ? 'Sells: $' + item.sell : 'Cost: $' + item.cost}
+                        <div class="price-badge ${isSellableGroup ? 'price-sell' : 'price-buy'}">
+                            ${isSellableGroup ? 'Server Buys: $' + item.sell : 'Server Sells: $' + item.cost}
                         </div>
                     `;
                     grid.appendChild(card);
