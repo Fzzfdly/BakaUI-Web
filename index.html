@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakaUI Addon Changelogs</title>
+    <!-- Google Fonts for Material Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Material 3 Dark Palette (Non-AMOLED Dark) */
+            --md-sys-color-background: #141218;
+            --md-sys-color-surface: #1d1b20;
+            --md-sys-color-surface-variant: #2b2930;
+            --md-sys-color-primary: #F9A825; /* Orangey Yellow Accent */
+            --md-sys-color-primary-container: #574300;
+            --md-sys-color-on-primary-container: #FFDF79;
+            --md-sys-color-on-background: #e6e1e5;
+            --md-sys-color-on-surface: #e6e1e5;
+            --md-sys-color-on-surface-variant: #cac4d0;
+            --md-sys-color-outline: #938f99;
+            
+            /* Categories Colors */
+            --tag-progression: #e28743;
+            --tag-bounty: #e25b43;
+            --tag-quests: #43a8e2;
+            --tag-casino: #9c27b0;
+            --tag-fixes: #4caf50;
+        }
+
+        body {
+            background-color: var(--md-sys-color-background);
+            color: var(--md-sys-color-on-background);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Expressive Header Section */
+        header {
+            background: linear-gradient(180deg, rgba(249, 168, 37, 0.15) 0%, rgba(20, 18, 24, 0) 100%);
+            padding: 4rem 2rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .brand-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--md-sys-color-primary);
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .brand-subtitle {
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 1rem auto 0 auto;
+        }
+
+        /* Main Layout Container */
+        main {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Material 3 Expressive Card Structure */
+        .changelog-card {
+            background-color: var(--md-sys-color-surface);
+            border-radius: 28px; /* M3 Expressive High Rounding */
+            padding: 2.5rem;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .version-header {
+            border-bottom: 1px solid var(--md-sys-color-surface-variant);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .version-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--md-sys-color-on-surface);
+            margin: 0;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--md-sys-color-on-surface-variant);
+            flex-wrap: wrap;
+        }
+
+        .meta-badge {
+            background-color: var(--md-sys-color-surface-variant);
+            padding: 0.2rem 0.8rem;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--md-sys-color-on-surface);
+            background-color: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            padding: 1.25rem;
+            border-radius: 16px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Changelog Section Styling */
+        .log-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--md-sys-color-on-surface);
+        }
+
+        /* Material 3 Category Indicator Badges */
+        .category-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            letter-spacing: 0.5px;
+        }
+        .bg-progression { background-color: rgba(226, 135, 67, 0.2); color: #ffb076; }
+        .bg-bounty { background-color: rgba(226, 91, 67, 0.2); color: #ff8a76; }
+        .bg-quests { background-color: rgba(67, 168, 226, 0.2); color: #76cfff; }
+        .bg-casino { background-color: rgba(156, 39, 176, 0.2); color: #e176ff; }
+        .bg-fixes { background-color: rgba(76, 175, 80, 0.2); color: #81c784; }
+
+        ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        li strong {
+            color: var(--md-sys-color-on-surface);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .brand-title { font-size: 2.5rem; }
+            .changelog-card { padding: 1.5rem; border-radius: 20px; }
+            .version-title { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="brand-title">BakaUI</h1>
+        <p class="brand-subtitle">An essential user interface suite for Minecraft Bedrock servers featuring banking, warps, homes, clans, ranks, shops, and more.</p>
+    </header>
+
+    <main>
+        <!-- Changelog Entry Card -->
+        <article class="changelog-card">
+            
+            <div class="version-header">
+                <h2 class="version-title">v3.2.0 — The Progression Update</h2>
+                <div class="meta-info">
+                    <span class="meta-badge">📅 January 30, 2026</span>
+                    <span class="meta-badge">🎮 Minecraft 1.21.132</span>
+                </div>
+            </div>
+
+            <div class="intro-text">
+                This massive update redefines the server's economy and progression. We are introducing a "Play-to-Rank" questing ecosystem, a fully scripted Admin Event system, a high-stakes Casino, and a revamped Bounty system to enforce justice in the wilds.
+            </div>
+
+            <!-- Progression Overhaul -->
+            <section class="log-section">
+                <div class="section-title-wrapper">
+                    <h3 class="section-title">🔰 The Progression Overhaul</h3>
+                    <span class="category-badge bg-progression">Progression</span>
+                </div>
+                <ul>
+                    <li><strong>Play-to-Rank:</strong> Ranks are no longer bought with money. You must earn Quest XP to climb the 12-tier ladder (Crew ➔ Exarch).</li>
+                    <li><strong>Dynamic Daily Quests:</strong> Every day at 12:00 AM (MYT), receive 5 unique quests across Mining, Slayer, Farming, Lumberjack, and Misc categories.</li>
+                    <li><strong>Progressive Difficulty:</strong> As you rank up, quests automatically evolve (e.g., "Mine Coal" becomes "Mine Diamonds") and offer significantly higher rewards.</li>
+                    <li><strong>Milestone Feedback:</strong> Added a smart notification system that alerts you at 25%, 50%, and 75% progress.</li>
+                </ul>
+            </section>
+
+            <!-- Bounty System 2.0 -->
+            <section class="log-section">
+                <div class="section-title-wrapper">
+                    <h3 class="section-title">⚔️ Bounty System 2.0</h3>
+                    <span class="category-badge bg-bounty">Combat / Economy</span>
+                </div>
+                <ul>
+                    <li><strong>The "Outlaw" Mechanic:</strong> Killing an innocent player (someone with $0 bounty) now immediately marks you as an Outlaw.</li>
+                    <li><strong>Automatic Fine:</strong> You will be fined 20% of your bank (or a minimum of $5,000).</li>
+                    <li><strong>Combat Debuffs:</strong> You will be cursed with Weakness and Mining Fatigue for 30 seconds, making escape difficult.</li>
+                    <li><strong>Public Alert:</strong> Your crime and coordinates are broadcast to the entire server.</li>
+                    <li><strong>Live Tracking:</strong> The Bounty Leaderboard now displays the Last Known Location (Dimension & Coordinates) of wanted players.</li>
+                    <li><strong>Manual Contracts:</strong> Players can pay to place bounties on their enemies via the new Bounty Menu.</li>
+                    <li><strong>Exploit Patches:</strong> Fixed critical economy exploits; players can no longer set bounties they cannot afford.</li>
+                </ul>
+            </section>
+
+            <!-- Special Quests -->
+            <section class="log-section">
+                <div class="section-title-wrapper">
+                    <h3 class="section-title">🌟 Special Quests</h3>
+                    <span class="category-badge bg-quests">Admin Tools</span>
+                </div>
+                <ul>
+                    <li><strong>Global Events:</strong> Admins can now assign Server-Wide Special Quests (e.g., "Slay the Wither") that appear at the top of your Quest Menu.</li>
+                    <li><strong>Admin Tools:</strong> Added a dedicated Quest Creator UI (accessed via <code>?adminquests</code>) allowing staff to create custom challenges on the fly.</li>
+                </ul>
+            </section>
+
+            <!-- Casino 2.0 -->
+            <section class="log-section">
+                <div class="section-title-wrapper">
+                    <h3 class="section-title">🎰 Casino 2.0</h3>
+                    <span class="category-badge bg-casino">Minigames</span>
+                </div>
+                <ul>
+                    <li><strong>Slot Machine:</strong> Test your luck with the new 3-reel Slot Machine! Match 3 symbols for a Jackpot (10x payout).</li>
+                    <li><strong>Gacha Lucky Boxes:</strong> Pay to open a mystery box with rewards scaled by rarity: Common to Legendary.</li>
+                    <li><strong>Coinflip:</strong> Retained and optimized the classic "Double or Nothing" coinflip system.</li>
+                </ul>
+            </section>
+
+            <!-- Bug Fixes & Optimizations -->
+            <section class="log-section">
+                <div class="section-title-wrapper">
+                    <h3 class="section-title">🛠️ Bug Fixes & Optimizations</h3>
+                    <span class="category-badge bg-fixes">Performance</span>
+                </div>
+                <ul>
+                    <li><strong>Rank System:</strong> Completely removed legacy "Buy Rank" code to optimize performance.</li>
+                    <li><strong>Scoreboard:</strong> Minor appearance tweaks and backend performance improvements.</li>
+                    <li><strong>Land System:</strong> Added caching to reduce CPU usage during land checks.</li>
+                    <li><strong>Daily Rewards:</strong> Fixed an issue where the daily reward streak would sometimes reset incorrectly.</li>
+                    <li><strong>Streaks:</strong> Patched bugs related to playtime and login streaks.</li>
+                </ul>
+            </section>
+
+        </article>
+    </main>
+
+</body>
+</html>
