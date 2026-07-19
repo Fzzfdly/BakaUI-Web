@@ -199,7 +199,7 @@
         .premium-feature-text h4 { font-family: 'Space Grotesk', sans-serif; margin: 0 0 0.25rem 0; font-size: 1.1rem; color: var(--md-sys-color-on-surface); }
         .premium-feature-text p { margin: 0; color: var(--md-sys-color-on-surface-variant); font-size: 0.85rem; }
 
-        /* Optimized Full-Width Stacked Progression Hub Layout */
+        /* Full-Width Stacked Progression Hub Layout */
         .progression-stacked-container { display: flex; flex-direction: column; gap: 2.5rem; }
         .progression-section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; margin: 0 0 1.25rem 0; color: var(--md-sys-color-primary); border-bottom: 2px solid var(--md-sys-color-surface-variant); padding-bottom: 0.5rem; }
         
@@ -321,18 +321,18 @@
         <!-- PAGE VIEW A: CHANGELOGS -->
         <div id="view-changelogs" class="page-view active">
             
-            <!-- CURRENT RELEASE (Always Open) -->
-            <article class="changelog-card">
-                <div class="version-header">
-                    <h2 class="version-title">v3.2.0 — The Progression Update</h2>
+            <!-- CURRENT RELEASE (Now Collapsible) -->
+            <article class="changelog-card older-version open">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v3.2.0 — The Progression Update <span class="toggle-arrow">▼</span></h2>
                     <div class="meta-info">
                         <span class="meta-badge">📅 January 30, 2026</span>
                         <span class="meta-badge">🎮 Minecraft 1.21.132</span>
                     </div>
                 </div>
-                <div class="card-content-grid">
+                <div class="card-content-grid collapsible-content">
                     <div class="intro-text">
-                        This massive update redefines the server's economy and progression. We are introducing a "Play-to-Rank" questing ecosystem, a fully scripted Admin Event system, a high-stakes Casino, and a revamped Bounty system to enforce justice in the wilds.
+                        This massive update redefines the server's economy and progression. We are introducing a Play-to-Rank questing ecosystem, a fully scripted Admin Event system, a high-stakes Casino, and a revamped Bounty system to enforce justice in the wilds[cite: 1].
                     </div>
                     <div class="logs-panel">
                         <section class="log-section">
@@ -370,7 +370,7 @@
                                 <span class="category-badge bg-casino">Minigames</span>
                             </div>
                             <ul>
-                                <li><strong>Slot Machine:</strong> 3-reel system offering 10x progressive payouts.</li>
+                                <li><strong>Slot Machine:</strong> 3-reel system offering 10x progressive payouts[cite: 1].</li>
                             </ul>
                         </section>
                         <section class="log-section full-width-desktop">
@@ -379,8 +379,8 @@
                                 <span class="category-badge bg-fixes">Performance</span>
                             </div>
                             <ul>
-                                <li><strong>Rank Core:</strong> Legacy transactional components dropped cleanly[cite: 1, 2].</li>
-                                <li><strong>Land Safeguards:</strong> Cached block lookup filters loaded to prevent server lag metrics[cite: 1, 5].</li>
+                                <li><strong>Rank Core:</strong> Legacy buy code dropped cleanly to maximize performance benchmarks[cite: 1].</li>
+                                <li><strong>Land Safeguards:</strong> Cached block lookup filters loaded to prevent server lag metrics[cite: 1].</li>
                             </ul>
                         </section>
                     </div>
@@ -641,7 +641,7 @@
                 </div>
                 <div class="card-content-grid collapsible-content collapsed">
                     <div class="intro-text">
-                        Major baseline integration drop introducing the server's earliest streak models, basic minigames, and administrative chat logging.
+                        Major launch introducing basic server protections, minigames, and administrative chat logs.
                     </div>
                     <div class="logs-panel">
                         <section class="log-section">
@@ -651,8 +651,8 @@
                             </div>
                             <ul>
                                 <li><strong>Casino 1.0:</strong> Implemented the core double-or-nothing Coinflip betting mechanic.</li>
-                                <li><strong>Cleanup Engines:</strong> Deployed the automated entity and item sweep protection framework to eliminate ground lag.</li>
-                                <li><strong>Chat Logs:</strong> Added toggle switches to capture channel chats into admin debugging streams[cite: 2].</li>
+                                <li><strong>Cleanup Engines:</strong> Deployed the automated item clear sweeper to eliminate environmental ground lag.</li>
+                                <li><strong>Chat Logs:</strong> Added options to capture channel text into admin console debugging streams[cite: 2].</li>
                             </ul>
                         </section>
                         <section class="log-section">
@@ -661,7 +661,7 @@
                                 <span class="category-badge bg-fixes">API Limitations</span>
                             </div>
                             <ul>
-                                <li><strong>Scale Removal:</strong> Permanently removed the custom player resizing feature due to Minecraft deprecating character model scaling parameters.</li>
+                                <li><strong>Scale Removal:</strong> Permanently removed the player resizing feature due to Minecraft deprecating character model scaling parameters.</li>
                             </ul>
                         </section>
                     </div>
@@ -679,7 +679,7 @@
                 </div>
                 <div class="card-content-grid collapsible-content collapsed">
                     <div class="intro-text">
-                        BakaUI's ancient ancestral version baseline, highlighting fundamental script timing adjustments.
+                        BakaUI ancient version baseline, highlighting dynamic cameras and foundational timing adjustments.
                     </div>
                     <div class="logs-panel">
                         <section class="log-section full-width-desktop">
@@ -688,7 +688,325 @@
                                 <span class="category-badge bg-fixes">TPS Optimization</span>
                             </div>
                             <ul>
-                                <li><strong>Playtime Counter Algorithm:</strong> Re-engineered playtime counters to rely on scheduled background system intervals rather than executing on every single game tick, restoring critical server processing overhead[cite: 1].</li>
+                                <li><strong>Playtime Counter Algorithm:</strong> Re-engineered playtime counters to rely on scheduled system intervals rather than running on every game tick, protecting server TPS processing loads[cite: 1].</li>
+                                <li><strong>Experimental Views:</strong> Enabled the initial Beta model for specialized dynamic camera perspectives.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARCHIVED RELEASE: v2.2.2 -->
+            <article class="changelog-card older-version">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v2.2.2 — Performance & Sound Pass <span class="toggle-arrow">▼</span></h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 March 12, 2025</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.70</span>
+                    </div>
+                </div>
+                <div class="card-content-grid collapsible-content collapsed">
+                    <div class="intro-text">
+                        Implements background file optimization controls alongside premium sound mechanics.
+                    </div>
+                    <div class="logs-panel">
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">⚡ Server Architecture</h3>
+                                <span class="category-badge bg-fixes">Optimizations</span>
+                            </div>
+                            <ul>
+                                <li><strong>Lazy File Loading:</strong> Greatly reduced initial script load times by only importing target assets dynamically when menus open.</li>
+                                <li><strong>Thread Adjustments:</strong> Increased intervals between internal system evaluations to decrease CPU processing loads.</li>
+                            </ul>
+                        </section>
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🎵 Acoustic Controls</h3>
+                                <span class="category-badge bg-casino">Acoustics</span>
+                            </div>
+                            <ul>
+                                <li><strong>Audio Releases:</strong> Added a custom horror music track alongside a central toggle to disable background tracks entirely.</li>
+                                <li><strong>Source Badges:</strong> Audio broadcast cards update to display the initiating player's active name identifier.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARCHIVED RELEASE: v2.2.1 -->
+            <article class="changelog-card older-version">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v2.2.1 — Transactional Fixes <span class="toggle-arrow">▼</span></h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 March 07, 2025</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.70</span>
+                    </div>
+                </div>
+                <div class="card-content-grid collapsible-content collapsed">
+                    <div class="intro-text">
+                        A rigorous bug-squashing update resolving transaction errors, rank advancement glitches, and sound overlapping conflicts.
+                    </div>
+                    <div class="logs-panel">
+                        <section class="log-section full-width-desktop">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🛠️ Patch Index</h3>
+                                <span class="category-badge bg-fixes">Hotfixes</span>
+                            </div>
+                            <ul>
+                                <li><strong>Rank Verification:</strong> Resolved an economy exploit where players could upgrade ladder tiers without deducting money.</li>
+                                <li><strong>Audio Overlaps:</strong> Intercepted audio track threads to prevent songs from overlapping when triggered concurrently.</li>
+                                <li><strong>Enchant Safeguards:</strong> Fixed an unhandled exception crash thrown when launching enchant menus without holding enchantable items.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARCHIVED RELEASE: v2.2.0 -->
+            <article class="changelog-card older-version">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v2.2.0 — Utilities Redesign <span class="toggle-arrow">▼</span></h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 March 04, 2025</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.70</span>
+                    </div>
+                </div>
+                <div class="card-content-grid collapsible-content collapsed">
+                    <div class="intro-text">
+                        Completely overhauls menu view models while extending access paths to the hidden trading market maps.
+                    </div>
+                    <div class="logs-panel">
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🕵️ Black Market Pathing</h3>
+                                <span class="category-badge bg-bounty">Economy</span>
+                            </div>
+                            <ul>
+                                <li><strong>Baron Rank Unlocks:</strong> Non-premium players can now access the Black Market without purchasing pass tiers by achieving the Baron ladder rank[cite: 2].</li>
+                                <li><strong>Audio Shifting:</strong> Configured spatial audio parameters to stream background tracks globally to all server players.</li>
+                            </ul>
+                        </section>
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🛡️ Guild Operations</h3>
+                                <span class="category-badge bg-progression">Clan Framework</span>
+                            </div>
+                            <ul>
+                                <li><strong>Privacy Toggles:</strong> Embedded specific settings to let players show or toggle away clan visibility flags in chat streams[cite: 2].</li>
+                                <li><strong>Veteran Restrictions:</strong> Re-anchored permissions to prevent low-tier ranks from bypassing clan registration constraints[cite: 2].</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARCHIVED RELEASE: v2.1.1 -->
+            <article class="changelog-card older-version">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v2.1.1 — Quick Access Update <span class="toggle-arrow">▼</span></h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 March 02, 2025</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.70</span>
+                    </div>
+                </div>
+                <div class="card-content-grid collapsible-content collapsed">
+                    <div class="intro-text">
+                        Introduces a compact scoreboard option and a quick navigation bar layout.
+                    </div>
+                    <div class="logs-panel">
+                        <section class="log-section full-width-desktop">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">✨ Screen Layouts</h3>
+                                <span class="category-badge bg-quests">Interface</span>
+                            </div>
+                            <ul>
+                                <li><strong>Compact Scoreboard:</strong> Deployed an alternate, smaller scoreboard template to occupy less visual space on players' viewports.</li>
+                                <li><strong>Quick Access Grid:</strong> Added a quick-navigation access row layout right within the main hub menu page.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARCHIVED RELEASE: v2.1.0 -->
+            <article class="changelog-card older-version">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v2.1.0 — Speed Selling Integration <span class="toggle-arrow">▼</span></h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 February 23, 2025</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.70</span>
+                    </div>
+                </div>
+                <div class="card-content-grid collapsible-content collapsed">
+                    <div class="intro-text">
+                        Optimizes player liquidation pipelines and implements visual admin inspection systems.
+                    </div>
+                    <div class="logs-panel">
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">💰 Bulk Liquidation</h3>
+                                <span class="category-badge bg-casino">Economy</span>
+                            </div>
+                            <ul>
+                                <li><strong>Speed Sell:</strong> Re-engineered trading screens to let users liquidate backpack materials at greatly increased speed.</li>
+                            </ul>
+                        </section>
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">👁️ Administrative Sight</h3>
+                                <span class="category-badge bg-fixes">Moderation</span>
+                            </div>
+                            <ul>
+                                <li><strong>Inventory Inspection:</strong> Staff members can now audit active player inventory contents directly using the visual Admin UI panel[cite: 2].</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARCHIVED RELEASE: v2.0.2 -->
+            <article class="changelog-card older-version">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v2.0.2 — Compatibility Pass <span class="toggle-arrow">▼</span></h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 February 13, 2025</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.60</span>
+                    </div>
+                </div>
+                <div class="card-content-grid collapsible-content collapsed">
+                    <div class="intro-text">
+                        Maintains framework compatibility with engine engine updates.
+                    </div>
+                    <div class="logs-panel">
+                        <section class="log-section full-width-desktop">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🎮 Engine Support</h3>
+                                <span class="category-badge bg-fixes">Client Sync</span>
+                            </div>
+                            <ul>
+                                <li><strong>Minecraft 1.21.60:</strong> Upgraded internal packet handles to match client updates. Premium ranks can buy cosmetics directly inside the pass dashboard[cite: 6].</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARCHIVED RELEASE: v2.0.1 -->
+            <article class="changelog-card older-version">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v2.0.1 — Hotbar Display Patch <span class="toggle-arrow">▼</span></h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 February 10, 2025</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.50</span>
+                    </div>
+                </div>
+                <div class="card-content-grid collapsible-content collapsed">
+                    <div class="intro-text">
+                        Resolves critical rendering bugs concerning inventory visibility.
+                    </div>
+                    <div class="logs-panel">
+                        <section class="log-section full-width-desktop">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🛠️ UI Correction</h3>
+                                <span class="category-badge bg-fixes">Hotfixes</span>
+                            </div>
+                            <ul>
+                                <li><strong>Hotbar Restored:</strong> Patched a critical script rendering regression where the player's hotbar menu would abruptly disappear under specific overlay paths.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARCHIVED RELEASE: v2.0.0 -->
+            <article class="changelog-card older-version">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v2.0.0 — Next-Gen UI Architecture <span class="toggle-arrow">▼</span></h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 January 30, 2025</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.51</span>
+                    </div>
+                </div>
+                <div class="card-content-grid collapsible-content collapsed">
+                    <div class="intro-text">
+                        A foundational leap introducing a modern visual style, auto-accept TPA layers, and initial playtime metrics tracking.
+                    </div>
+                    <div class="logs-panel">
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">✨ Sleek Visual Styles</h3>
+                                <span class="category-badge bg-progression">Overhaul</span>
+                            </div>
+                            <ul>
+                                <li><strong>Modern Look:</strong> Complete UI template rewrite to achieve a sleek, pixel-clean appearance.</li>
+                                <li><strong>Scoreboard Sync:</strong> Prevented scoreboard box sizes from warping when users enter territories with long custom name strings.</li>
+                            </ul>
+                        </section>
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">⏱️ Tracking & Warps</h3>
+                                <span class="category-badge bg-quests">Mechanics</span>
+                            </div>
+                            <ul>
+                                <li><strong>Auto-TPA Accept:</strong> Added configuration parameters letting players enable automatic teleport confirmation.</li>
+                                <li><strong>Playtime:</strong> Integrated playtime duration tracking strings directly into the primary scoreboard displays.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARCHIVED RELEASE: v1.13 -->
+            <article class="changelog-card older-version">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v1.13 — Loaning Integration <span class="toggle-arrow">▼</span></h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 September 12, 2024</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.101</span>
+                    </div>
+                </div>
+                <div class="card-content-grid collapsible-content collapsed">
+                    <div class="intro-text">
+                        Launches functional credit loan management screens directly within your addon menus.
+                    </div>
+                    <div class="logs-panel">
+                        <section class="log-section full-width-desktop">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🏦 Financial Credit Systems</h3>
+                                <span class="category-badge bg-casino">Economy</span>
+                            </div>
+                            <ul>
+                                <li><strong>Loaning UI:</strong> Deployed full interface mapping to manage loans natively through configuration cards.</li>
+                                <li><strong>Decimal Size Scales:</strong> Modified sizing commands to accept floating point values from 0.1x to 10x with adjusting camera anchors.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARCHIVED RELEASE: v1.12 -->
+            <article class="changelog-card older-version">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v1.12 — Land Protection Security <span class="toggle-arrow">▼</span></h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 September 10, 2024</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.101</span>
+                    </div>
+                </div>
+                <div class="card-content-grid collapsible-content collapsed">
+                    <div class="intro-text">
+                        A critical security update locking block interactions securely against malicious non-members.
+                    </div>
+                    <div class="logs-panel">
+                        <section class="log-section full-width-desktop">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🔒 Security Safeguards</h3>
+                                <span class="category-badge bg-bounty">Exploit Fixes</span>
+                            </div>
+                            <ul>
+                                <li><strong>Interaction Blockers:</strong> Patched an exploit that allowed unverified land trespassers to open chests, shulker storage blocks, or interact with iron doors[cite: 5].</li>
+                                <li><strong>Admin Mutes:</strong> Added a moderation path letting admins easily mute loud server players via overlay toggles[cite: 2].</li>
                             </ul>
                         </section>
                     </div>
@@ -720,7 +1038,7 @@
                     </div>
                 </div>
             </div>
-            <div class="market-grid container" id="market-grid-target"></div>
+            <div class="market-list-container" id="market-grid-target"></div>
         </div>
 
         <!-- PAGE VIEW C: PREMIUM PASS PERKS -->
@@ -812,22 +1130,17 @@
             </article>
         </div>
 
-        <!-- PAGE VIEW D: PROGRESSION HUB (Optimized Layout Stack) -->
+        <!-- PAGE VIEW D: PROGRESSION HUB -->
         <div id="view-progression" class="page-view">
             <div class="progression-stacked-container">
-                
-                <!-- Top Block: Full-Width Rank Ladder Elements -->
                 <div>
                     <h3 class="progression-section-title">🛡️ Quest XP Rank Ladder</h3>
                     <div class="rank-ladder-grid" id="rank-ladder-target"></div>
                 </div>
-
-                <!-- Lower Block: Full-Width Restored Quest Pools Categories -->
                 <div>
                     <h3 class="progression-section-title">📋 Complete Daily Quest Configuration Database</h3>
                     <div class="quest-pool-container" id="quest-pool-target"></div>
                 </div>
-
             </div>
         </div>
 
@@ -945,7 +1258,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 BakaUI Addon. Developed by <a href="https://github.com" target="_blank">Lightinity</a>. Hosted via GitHub Pages.</p>
+        <p>&copy; 2026 BakaUI Addon. Developed by <a href="https://github.com" target="_blank">Lightinity</a>[cite: 2]. Hosted via GitHub Pages[cite: 2].</p>
     </footer>
 
     <script>
@@ -984,7 +1297,6 @@
             { name: 'exarch', rank: '', xp: 10000, mult: 6.0, prefix: true, clans: true, blackmarket: true }
         ];
 
-        // Fully Hydrated Quest Pool Data directly matching game script arrays
         const questPoolData = {
             MINING: [
                 { name: "Mine Coal", amount: 32, xp: 10, money: 100, tier: 1 },
@@ -1069,7 +1381,7 @@
                     groupItemsHTML += `
                         <div class="quest-data-pill">
                             <div class="quest-pill-name">${q.name}</div>
-                            <div class="quest-pill-meta">Tier ${q.tier || 1} • Goal Target: ${q.amount.toLocaleString()}<br>Payouts: <span style="color: #81c784;">+$${q.money}</span> | <span style="color: #76cfff;">+${q.xp} XP</span></div>
+                            <div class="quest-pill-meta">Tier ${q.tier || 1} • Target: ${q.amount.toLocaleString()}<br>Payouts: <span style="color: #81c784;">+$${q.money}</span> | <span style="color: #76cfff;">+${q.xp} XP</span></div>
                         </div>
                     `;
                 });
