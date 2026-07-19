@@ -145,7 +145,7 @@
         .page-view { display: none; }
         .page-view.active { display: block; }
 
-        /* Unified Layout Card Architecture */
+        /* Structural System Layout Framework Cards */
         .system-layout-card {
             background-color: var(--md-sys-color-surface);
             border-radius: 28px;
@@ -180,56 +180,19 @@
         .filter-chip { background-color: var(--md-sys-color-surface-variant); color: var(--md-sys-color-on-surface-variant); border: none; padding: 0.5rem 1rem; border-radius: 10px; font-size: 0.85rem; font-weight: 500; cursor: pointer; }
         .filter-chip.active { background-color: rgba(249, 168, 37, 0.15); color: var(--md-sys-color-primary); border: 1px solid var(--md-sys-color-primary); }
 
-        /* Optimized Focus-List Card Layout */
-        .market-list-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-            gap: 1rem;
-        }
-
-        .market-list-row {
-            background-color: var(--md-sys-color-surface);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .item-info-col {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            min-width: 0;
-        }
-
-        .item-text-wrapper {
-            display: flex;
-            flex-direction: column;
-            min-width: 0;
-        }
-
-        .item-list-icon-frame {
-            width: 36px;
-            height: 36px;
-            background-color: var(--md-sys-color-surface-variant);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--md-sys-color-primary);
-            flex-shrink: 0;
-        }
-
+        /* Focus List Grid Elements */
+        .market-list-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1rem; }
+        .market-list-row { background-color: var(--md-sys-color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .item-info-col { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+        .item-text-wrapper { display: flex; flex-direction: column; min-width: 0; }
+        .item-list-icon-frame { width: 36px; height: 36px; background-color: var(--md-sys-color-surface-variant); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; color: var(--md-sys-color-primary); flex-shrink: 0; }
         .item-list-name { font-weight: 700; color: var(--md-sys-color-on-surface); font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .item-list-id { font-family: monospace; color: var(--md-sys-color-on-surface-variant); font-size: 0.75rem; opacity: 0.6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 0.15rem; }
         .price-list-badge { padding: 0.4rem 0.75rem; border-radius: 10px; font-size: 0.85rem; font-weight: 700; text-align: center; white-space: nowrap; flex-shrink: 0; }
+        .price-sell { background-color: rgba(76, 175, 80, 0.12); color: #81c784; border: 1px solid rgba(76, 175, 80, 0.2); }
+        .price-buy { background-color: rgba(226, 91, 67, 0.12); color: #ff8a76; border: 1px solid rgba(226, 91, 67, 0.2); }
 
-        /* Premium pass styling */
+        /* Premium Pass */
         .premium-pass-card { background-color: var(--md-sys-color-surface); border-radius: 28px; padding: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.05); background: linear-gradient(145deg, #1d1b20 0%, #252015 100%); }
         .premium-meta-box { background-color: rgba(20, 18, 24, 0.5); border-radius: 16px; padding: 1.25rem; margin-bottom: 2rem; border: 1px solid rgba(249, 168, 37, 0.15); font-size: 0.9rem; color: var(--md-sys-color-on-surface-variant); line-height: 1.6; }
         .premium-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
@@ -258,7 +221,7 @@
         .quest-pill-name { font-weight: 700; color: var(--md-sys-color-on-surface); margin-bottom: 0.25rem; }
         .quest-pill-meta { color: var(--md-sys-color-on-surface-variant); font-size: 0.8rem; }
 
-        /* Existing structural layouts */
+        /* Accordion Changelog Styles */
         .changelog-card { background-color: var(--md-sys-color-surface); border-radius: 28px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); }
         .version-header { border-bottom: 1px solid var(--md-sys-color-surface-variant); padding-bottom: 1rem; margin-bottom: 1.5rem; }
         .version-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin: 0; }
@@ -281,6 +244,14 @@
         ul { margin: 0; padding-left: 1.2rem; }
         li { margin-bottom: 0.5rem; color: var(--md-sys-color-on-surface-variant); font-size: 0.9rem; }
         li strong { color: var(--md-sys-color-on-surface); }
+
+        .older-version { margin-top: 1.5rem; padding: 1.25rem 2rem; }
+        .accordion-toggle { cursor: pointer; user-select: none; border-bottom: none !important; padding-bottom: 0 !important; margin-bottom: 0 !important; }
+        .older-version.open .accordion-toggle { border-bottom: 1px solid var(--md-sys-color-surface-variant) !important; padding-bottom: 1rem !important; margin-bottom: 1.5rem !important; }
+        .toggle-arrow { font-size: 1rem; color: var(--md-sys-color-primary); float: right; transition: transform 0.2s; }
+        .older-version.open .toggle-arrow { transform: rotate(180deg); }
+        .collapsible-content { max-height: 5000px; overflow: hidden; transition: max-height 0.3s ease-out, opacity 0.2s; opacity: 1; }
+        .collapsible-content.collapsed { max-height: 0 !important; opacity: 0; margin-top: 0 !important; pointer-events: none; }
 
         footer { background-color: var(--md-sys-color-surface); padding: 2rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--md-sys-color-on-surface-variant); font-size: 0.85rem; margin-top: 2rem; }
         footer a { color: var(--md-sys-color-primary); text-decoration: none; font-weight: 600; }
@@ -347,6 +318,8 @@
         
         <!-- PAGE VIEW A: CHANGELOGS -->
         <div id="view-changelogs" class="page-view active">
+            
+            <!-- CURRENT RELEASE (Always Open) -->
             <article class="changelog-card">
                 <div class="version-header">
                     <h2 class="version-title">v3.2.0 — The Progression Update</h2>
@@ -411,6 +384,100 @@
                     </div>
                 </div>
             </article>
+
+            <!-- ARCHived RELEASE: v3.1.1 (Collapsible) -->
+            <article class="changelog-card older-version">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v3.1.1 — Hotfix Pass <span class="toggle-arrow">▼</span></h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 January 29, 2026</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.132</span>
+                    </div>
+                </div>
+                <div class="card-content-grid collapsible-content collapsed">
+                    <div class="intro-text">
+                        The BakaUI v3.1.1 hotfix includes targeted feature balancing and UI performance adjustments.
+                    </div>
+                    <div class="logs-panel">
+                        <section class="log-section full-width-desktop">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🛠️ Structural Tweaks</h3>
+                                <span class="category-badge bg-fixes">Optimizations</span>
+                            </div>
+                            <ul>
+                                <li><strong>Scoreboard Restoration:</strong> Reverted the scoreboard engine to an earlier stable tracking framework and tweaked appearance metrics to optimize real-time user readability.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARCHived RELEASE: v3.1.0 (Collapsible) -->
+            <article class="changelog-card older-version">
+                <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
+                    <h2 class="version-title">v3.1.0 — Core Systems Deployment <span class="toggle-arrow">▼</span></h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 January 28, 2026</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.132</span>
+                    </div>
+                </div>
+                <div class="card-content-grid collapsible-content collapsed">
+                    <div class="intro-text">
+                        BakaUI v3.1.0 marks the baseline launch of major server foundations, deploying combat metrics, chat logic interfaces, structural safety boundaries, and targeted sandbox balance changes.
+                    </div>
+                    <div class="logs-panel">
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">⚔️ Bounty Architecture</h3>
+                                <span class="category-badge bg-bounty">Combat</span>
+                            </div>
+                            <ul>
+                                <li><strong>Outlaw Multiplier:</strong> Players who slay unbountied characters receive an automated bounty penalty equivalent to 50% of their own active cash balance[cite: 4].</li>
+                                <li><strong>Command Integration:</strong> Players can access real-time bounty logs by typing <code>?bounty</code> in chat[cite: 2].</li>
+                                <li><strong>Staff Permissions:</strong> Admins can force-set bounty balances manually via menu selectors[cite: 4].</li>
+                            </ul>
+                        </section>
+
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🏡 Security Boundaries</h3>
+                                <span class="category-badge bg-progression">Land Protection</span>
+                            </div>
+                            <ul>
+                                <li><strong>Intrusion Warnings:</strong> Sends warning alerts if an unverified player attempts to break or interact with blocks inside registered territories[cite: 1, 5].</li>
+                                <li><strong>Interaction Patches:</strong> Fixed a configuration flaw where players lacking land clearance could open or trigger entities within boundaries[cite: 1, 5].</li>
+                                <li><strong>Database Chunks:</strong> Fixed memory flaws where Minecraft dynamic limits restricted global claim volume allocations[cite: 1, 5].</li>
+                            </ul>
+                        </section>
+
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">💬 Chat & Nametag Utilities</h3>
+                                <span class="category-badge bg-quests">Interface</span>
+                            </div>
+                            <ul>
+                                <li><strong>Privacy Locks:</strong> Added specific toggles (Hide Nametag and Hide Chat Name) to shield nameplate presence inside chat logs or overhead tags[cite: 2]. Fixed conflicts blocking both being enabled concurrently[cite: 2].</li>
+                                <li><strong>Global Broadcasts:</strong> Transactional money transfers and rank-up changes broadcast globally to server channels[cite: 1, 2].</li>
+                                <li><strong>Command Hooks:</strong> Integrated <code>?baltop</code> to track elite balances, and <code>?rules</code> to display server guidelines (staff trigger global broadcasts)[cite: 2].</li>
+                                <li><strong>Spawning Updates:</strong> Performance tweaks refresh tags correctly whenever users spawn or rank up[cite: 1, 2].</li>
+                            </ul>
+                        </section>
+
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">⚖️ Economy & Visual Balance</h3>
+                                <span class="category-badge bg-casino">Sandbox Balance</span>
+                            </div>
+                            <ul>
+                                <li><strong>One-Time Purchases:</strong> Katanas and Dragon pets are cataloged as one-time buys, locking out further purchases once owned[cite: 1, 6].</li>
+                                <li><strong>Asset Valuation:</strong> Raised price tiers across multiple core shop items to balance economy curves[cite: 1, 4].</li>
+                                <li><strong>Scoreboard Polish:</strong> Introduced a pulsating animation and lowered scale layouts to reduce tracking size constraints[cite: 1, 4].</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+
         </div>
 
         <!-- PAGE VIEW B: INTERACTIVE SHOP MARKET -->
@@ -436,9 +503,7 @@
                     </div>
                 </div>
             </div>
-            <div class="market-list-container" id="market-grid-target">
-                <!-- Data targets render directly here -->
-            </div>
+            <div class="market-list-container" id="market-grid-target"></div>
         </div>
 
         <!-- PAGE VIEW C: PREMIUM PASS PERKS -->
@@ -446,12 +511,12 @@
             <article class="premium-pass-card">
                 <div class="premium-header">
                     <h2 class="premium-title">Premium Pass Tier Perks</h2>
-                    <p class="premium-tagline">Unlock seasonal utility, cosmetics, and environmental customization tools[cite: 6].</p>
+                    <p class="premium-tagline">Unlock seasonal utility, cosmetics, and environmental customization tools.</p>
                 </div>
 
                 <div class="premium-meta-box">
                     <strong>💳 Pricing Strategy:</strong> Costs <strong>RM15</strong> (Promotion for current season)[cite: 6].<br>
-                    <strong>⏱️ Terms Constraints:</strong> Premium is seasonal and will reset at the conclusion of each active season[cite: 6]. Contact server admins to complete purchase validation passes[cite: 6].
+                    <strong>⏱️ Terms Constraints:</strong> Premium is seasonal and will reset at the conclusion of each active season. Contact server admins to complete purchase validation passes[cite: 6].
                 </div>
 
                 <div class="premium-features-grid">
@@ -549,7 +614,7 @@
             <article class="system-layout-card">
                 <div class="system-heading-wrapper">
                     <h2 class="system-title">🛡️ Guild & Clan Framework</h2>
-                    <p class="system-tagline">Coordinate forces, register structural bases, and protect team assets across world zones[cite: 3].</p>
+                    <p class="system-tagline">Coordinate forces, register structural bases, and protect team assets across world zones.</p>
                 </div>
                 <div class="system-grid-2">
                     <div class="sub-panel">
@@ -577,7 +642,7 @@
             <article class="system-layout-card">
                 <div class="system-heading-wrapper">
                     <h2 class="system-title">⚔️ Bounty & Outlaw Enforcements</h2>
-                    <p class="system-tagline">Track server infractions, manage custom contracts, and hunting wanted targets[cite: 4].</p>
+                    <p class="system-tagline">Track server infractions, manage custom contracts, and hunting wanted targets.</p>
                 </div>
                 <div class="system-grid-2">
                     <div class="sub-panel">
@@ -605,7 +670,7 @@
             <article class="system-layout-card">
                 <div class="system-heading-wrapper">
                     <h2 class="system-title">🏡 Land Claim & Protection Architecture</h2>
-                    <p class="system-tagline">Purchase modular territory nodes, toggle build security parameters, and safeguard block assets[cite: 5].</p>
+                    <p class="system-tagline">Purchase modular territory nodes, toggle build security parameters, and safeguard block assets.</p>
                 </div>
                 <div class="system-grid-2">
                     <div class="sub-panel">
@@ -633,7 +698,7 @@
             <article class="system-layout-card">
                 <div class="system-heading-wrapper">
                     <h2 class="system-title">🔥 Daily Login Streak Engine</h2>
-                    <p class="system-tagline">Maintain consecutive daily log cycles to showcase your tracking history[cite: 7].</p>
+                    <p class="system-tagline">Maintain consecutive daily log cycles to showcase your tracking history.</p>
                 </div>
                 <div class="system-grid-2">
                     <div class="sub-panel">
@@ -662,6 +727,13 @@
     </footer>
 
     <script>
+        function toggleChangelog(headerElement) {
+            const card = headerElement.closest('.older-version');
+            const content = card.querySelector('.collapsible-content');
+            card.classList.toggle('open');
+            content.classList.toggle('collapsed');
+        }
+
         function switchTab(tabId) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
@@ -956,7 +1028,9 @@
                     { name: 'Construction Hat', cost: 1000000, item: 'bakaui:construction_hat' }
                 ]
             }
-        ];let marketMode = 'sell'; let activeCategory = 'all';
+        ];
+
+        let marketMode = 'sell'; let activeCategory = 'all';
         function setMarketType(type) { marketMode = type; document.querySelectorAll('.type-btn').forEach(btn => btn.classList.remove('active')); event.currentTarget.classList.add('active'); if (type === 'sell') { document.getElementById('buy-filters').style.display = 'none'; } else { document.getElementById('buy-filters').style.display = 'flex'; activeCategory = 'all'; document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); document.querySelector('.filter-chip').classList.add('active'); } renderMarketGrid(); }
         function setCategory(cat) { activeCategory = cat; document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.remove('active')); event.currentTarget.classList.add('active'); renderMarketGrid(); }
         function filterMarket() { renderMarketGrid(); }
