@@ -203,7 +203,7 @@
             border: 1px solid var(--md-sys-color-primary);
         }
 
-        /* Market Table List Layout Styling */
+        /* Market Table List Layout */
         .market-list-container {
             background-color: var(--md-sys-color-surface);
             border-radius: 20px;
@@ -232,9 +232,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.02);
         }
 
-        .market-list-row:last-child {
-            border-bottom: none;
-        }
+        .market-list-row:last-child { border-bottom: none; }
 
         .item-info-col {
             display: flex;
@@ -256,30 +254,11 @@
             flex-shrink: 0;
         }
 
-        .item-list-name {
-            font-weight: 600;
-            color: var(--md-sys-color-on-surface);
-        }
+        .item-list-name { font-weight: 600; color: var(--md-sys-color-on-surface); }
+        .item-list-id { font-family: monospace; color: var(--md-sys-color-on-surface-variant); font-size: 0.85rem; opacity: 0.8; word-break: break-all; padding-right: 1rem; }
+        .price-list-badge { padding: 0.35rem 0.75rem; border-radius: 8px; font-size: 0.85rem; font-weight: 700; text-align: center; width: max-content; }
 
-        .item-list-id {
-            font-family: monospace;
-            color: var(--md-sys-color-on-surface-variant);
-            font-size: 0.85rem;
-            opacity: 0.8;
-            word-break: break-all;
-            padding-right: 1rem;
-        }
-
-        .price-list-badge {
-            padding: 0.35rem 0.75rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-align: center;
-            width: max-content;
-        }
-
-        /* Premium Pass Custom Architecture Layout */
+        /* Premium Pass Custom Layout */
         .premium-pass-card {
             background-color: var(--md-sys-color-surface);
             border-radius: 28px;
@@ -288,75 +267,157 @@
             background: linear-gradient(145deg, #1d1b20 0%, #252015 100%);
         }
 
-        .premium-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-            border-bottom: 1px solid var(--md-sys-color-surface-variant);
-            padding-bottom: 1.5rem;
-        }
+        .premium-header { text-align: center; margin-bottom: 2.5rem; border-bottom: 1px solid var(--md-sys-color-surface-variant); padding-bottom: 1.5rem; }
+        .premium-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--md-sys-color-primary); margin: 0; }
+        .premium-tagline { color: var(--md-sys-color-on-surface-variant); margin-top: 0.5rem; font-size: 1.05rem; }
+        .premium-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+        .premium-feature-tile { background-color: rgba(20, 18, 24, 0.6); border: 1px solid rgba(249, 168, 37, 0.1); border-radius: 16px; padding: 1.25rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .premium-icon-marker { background-color: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 10px; font-size: 1.1rem; flex-shrink: 0; }
+        .premium-feature-text h4 { font-family: 'Space Grotesk', sans-serif; margin: 0 0 0.25rem 0; font-size: 1.1rem; color: var(--md-sys-color-on-surface); }
+        .premium-feature-text p { margin: 0; color: var(--md-sys-color-on-surface-variant); font-size: 0.85rem; }
 
-        .premium-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--md-sys-color-primary);
-            margin: 0;
-        }
-
-        .premium-tagline {
-            color: var(--md-sys-color-on-surface-variant);
-            margin-top: 0.5rem;
-            font-size: 1.05rem;
-        }
-
-        .premium-features-grid {
+        /* Progression Hub Architecture Styling */
+        .progression-split-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
 
-        .premium-feature-tile {
-            background-color: rgba(20, 18, 24, 0.6);
-            border: 1px solid rgba(249, 168, 37, 0.1);
-            border-radius: 16px;
-            padding: 1.25rem;
+        .progression-section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin: 0 0 1rem 0;
+            color: var(--md-sys-color-primary);
+            border-bottom: 1px solid var(--md-sys-color-surface-variant);
+            padding-bottom: 0.5rem;
+        }
+
+        .rank-ladder-list {
             display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .rank-ladder-node {
+            background-color: var(--md-sys-color-surface);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 14px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
             gap: 1rem;
-            align-items: flex-start;
-            transition: border-color 0.2s;
         }
 
-        .premium-feature-tile:hover {
-            border-color: rgba(249, 168, 37, 0.3);
+        .rank-identity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .premium-icon-marker {
-            background-color: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
+        .rank-symbol-frame {
             width: 36px;
             height: 36px;
+            background-color: var(--md-sys-color-surface-variant);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            flex-shrink: 0;
+            font-size: 1.2rem;
+            color: var(--md-sys-color-primary);
         }
 
-        .premium-feature-text h4 {
+        .rank-text-name {
             font-family: 'Space Grotesk', sans-serif;
-            margin: 0 0 0.25rem 0;
+            font-weight: 700;
             font-size: 1.1rem;
-            color: var(--md-sys-color-on-surface);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .premium-feature-text p {
-            margin: 0;
+        .rank-perks-container {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .perk-pill {
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             color: var(--md-sys-color-on-surface-variant);
-            font-size: 0.85rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
 
-        /* Changelog Card Styling */
+        .perk-pill.unlocked {
+            background-color: rgba(249, 168, 37, 0.1);
+            border-color: rgba(249, 168, 37, 0.2);
+            color: var(--md-sys-color-primary);
+        }
+
+        .rank-meta-xp {
+            font-family: monospace;
+            background-color: var(--md-sys-color-surface-variant);
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #ffdf79;
+        }
+
+        /* Quest Configuration Lists */
+        .quest-pool-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .quest-cat-group {
+            background-color: var(--md-sys-color-surface);
+            border-radius: 18px;
+            padding: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .quest-cat-header {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 0 0.75rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quest-cat-badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .quest-grid-elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .quest-data-pill {
+            background-color: var(--md-sys-color-surface-variant);
+            padding: 0.75rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .quest-pill-name { font-weight: 700; color: var(--md-sys-color-on-surface); margin-bottom: 0.25rem; }
+        .quest-pill-meta { color: var(--md-sys-color-on-surface-variant); font-size: 0.8rem; opacity: 0.8; }
+
+        /* Changelog Layout Structure */
         .changelog-card { background-color: var(--md-sys-color-surface); border-radius: 28px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); }
         .version-header { border-bottom: 1px solid var(--md-sys-color-surface-variant); padding-bottom: 1rem; margin-bottom: 1.5rem; }
         .version-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; margin: 0; }
@@ -393,6 +454,7 @@
             .logs-panel { grid-template-columns: repeat(2, 1fr); }
             .log-section.full-width-desktop { grid-column: span 2; }
             .intro-text { position: sticky; top: 5rem; }
+            .progression-split-grid { grid-template-columns: 5.5fr 4.5fr; align-items: start; }
         }
 
         @media (max-width: 768px) {
@@ -420,6 +482,7 @@
             <button class="tab-btn active" onclick="switchTab('changelogs')">Changelogs</button>
             <button class="tab-btn" onclick="switchTab('market')">Server Market</button>
             <button class="tab-btn" onclick="switchTab('premium')">Premium Pass</button>
+            <button class="tab-btn" onclick="switchTab('progression')">Progression Hub</button>
         </div>
     </nav>
 
@@ -534,7 +597,6 @@
                 </div>
             </div>
 
-            <!-- List Layout Table Setup -->
             <div class="market-list-container">
                 <div class="market-list-header">
                     <div>Item Name</div>
@@ -631,6 +693,29 @@
             </article>
         </div>
 
+        <!-- PAGE VIEW D: PROGRESSION HUB -->
+        <div id="view-progression" class="page-view">
+            <div class="progression-split-grid">
+                
+                <!-- Left Block: Rank Ladder Details -->
+                <div>
+                    <h3 class="progression-section-title">🛡️ Quest XP Rank Ladder</h3>
+                    <div class="rank-ladder-list" id="rank-ladder-target">
+                        <!-- Dynamic ranks rendering destination -->
+                    </div>
+                </div>
+
+                <!-- Right Block: Quest Categories Pool -->
+                <div>
+                    <h3 class="progression-section-title">📋 Daily Quest Categories Pool</h3>
+                    <div class="quest-pool-container" id="quest-pool-target">
+                        <!-- Dynamic quest categories rendering destination -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </main>
 
     <footer>
@@ -649,10 +734,143 @@
                 document.getElementById('view-market').classList.add('active');
                 event.currentTarget.classList.add('active');
                 renderMarketGrid(); 
-            } else {
+            } else if(tabId === 'premium') {
                 document.getElementById('view-premium').classList.add('active');
                 event.currentTarget.classList.add('active');
+            } else {
+                document.getElementById('view-progression').classList.add('active');
+                event.currentTarget.classList.add('active');
+                renderProgressionHubData();
             }
+        }
+
+        // Core Ranks and Quests Datasets extracted from source files
+        const rankLadderData = [
+            { name: 'crew', rank: '', xp: 0, mult: 1.0, prefix: false, clans: false, blackmarket: false },
+            { name: 'elite', rank: '', xp: 100, mult: 1.1, prefix: false, clans: false, blackmarket: false },
+            { name: 'veteran', rank: '', xp: 300, mult: 1.2, prefix: false, clans: true, blackmarket: false },
+            { name: 'baron', rank: '', xp: 600, mult: 1.3, prefix: true, clans: true, blackmarket: false },
+            { name: 'viscount', rank: '', xp: 1000, mult: 1.5, prefix: true, clans: true, blackmarket: false },
+            { name: 'count', rank: '', xp: 1500, mult: 1.7, prefix: true, clans: true, blackmarket: false },
+            { name: 'duke', rank: '', xp: 2200, mult: 2.0, prefix: true, clans: true, blackmarket: true },
+            { name: 'king', rank: '', xp: 3000, mult: 2.5, prefix: true, clans: true, blackmarket: true },
+            { name: 'emperor', rank: '', xp: 4000, mult: 3.0, prefix: true, clans: true, blackmarket: true },
+            { name: 'overlord', rank: '', xp: 5500, mult: 4.0, prefix: true, clans: true, blackmarket: true },
+            { name: 'hero', rank: '', xp: 7500, mult: 5.0, prefix: true, clans: true, blackmarket: true },
+            { name: 'exarch', rank: '', xp: 10000, mult: 6.0, prefix: true, clans: true, blackmarket: true }
+        ];
+
+        const questPoolData = {
+            MINING: [
+                { name: "Mine Coal", amount: 32, xp: 10, money: 100, tier: 1 },
+                { name: "Mine Iron", amount: 24, xp: 15, money: 150, tier: 1 },
+                { name: "Mine Gold", amount: 16, xp: 25, money: 250, tier: 2 },
+                { name: "Mine Redstone", amount: 32, xp: 25, money: 200, tier: 2 },
+                { name: "Mine Lapis", amount: 32, xp: 25, money: 200, tier: 2 },
+                { name: "Mine Quartz", amount: 32, xp: 30, money: 250, tier: 2 },
+                { name: "Mine Diamonds", amount: 8, xp: 100, money: 1000, tier: 3 },
+                { name: "Mine Emeralds", amount: 6, xp: 120, money: 1200, tier: 3 }
+            ],
+            SLAYER: [
+                { name: "Slay Zombies", amount: 15, xp: 10, money: 100, tier: 1 },
+                { name: "Slay Skeletons", amount: 15, xp: 10, money: 100, tier: 1 },
+                { name: "Slay Spiders", amount: 12, xp: 15, money: 120, tier: 1 },
+                { name: "Slay Creepers", amount: 10, xp: 30, money: 200, tier: 2 },
+                { name: "Slay Drowned", amount: 12, xp: 30, money: 200, tier: 2 },
+                { name: "Slay Witches", amount: 5, xp: 40, money: 300, tier: 2 },
+                { name: "Slay Endermen", amount: 8, xp: 80, money: 500, tier: 3 },
+                { name: "Slay Blazes", amount: 10, xp: 100, money: 600, tier: 3 }
+            ],
+            FARMING: [
+                { name: "Harvest Wheat", amount: 32, xp: 10, money: 80, tier: 1 },
+                { name: "Harvest Potatoes", amount: 48, xp: 10, money: 80, tier: 1 },
+                { name: "Harvest Carrots", amount: 64, xp: 20, money: 150, tier: 2 },
+                { name: "Harvest Melons", amount: 32, xp: 20, money: 150, tier: 2 },
+                { name: "Harvest Sugar Cane", amount: 48, xp: 20, money: 150, tier: 2 },
+                { name: "Harvest Pumpkins", amount: 32, xp: 50, money: 300, tier: 3 },
+                { name: "Harvest Cactus", amount: 64, xp: 50, money: 300, tier: 3 }
+            ],
+            LUMBERJACK: [
+                { name: "Chop Oak Logs", amount: 32, xp: 12, money: 100, tier: 1 },
+                { name: "Chop Birch Logs", amount: 32, xp: 12, money: 100, tier: 1 },
+                { name: "Chop Spruce Logs", amount: 48, xp: 25, money: 200, tier: 2 },
+                { name: "Chop Jungle Logs", amount: 48, xp: 25, money: 200, tier: 2 },
+                { name: "Chop Acacia Logs", amount: 48, xp: 25, money: 200, tier: 2 },
+                { name: "Chop Dark Oak", amount: 64, xp: 60, money: 400, tier: 3 },
+                { name: "Chop Cherry Logs", amount: 64, xp: 60, money: 400, tier: 3 },
+                { name: "Chop Mangrove", amount: 64, xp: 60, money: 400, tier: 3 }
+            ],
+            MISC: [
+                { name: "Holding Cash", amount: 5000, xp: 20, money: 200, tier: 1 },
+                { name: "Playtime (Mins)", amount: 30, xp: 30, money: 300, tier: 1 }
+            ]
+        };
+
+        function renderProgressionHubData() {
+            // 1. Render Rank Ladder Elements
+            const ladderTarget = document.getElementById('rank-ladder-target');
+            ladderTarget.innerHTML = '';
+            
+            // Reversing array copies to display high tiers down to baseline crew ranks chronologically at the top
+            [...rankLadderData].reverse().forEach(rank => {
+                const row = document.createElement('div');
+                row.className = 'rank-ladder-node';
+                row.innerHTML = `
+                    <div class="rank-identity">
+                        <div class="rank-symbol-frame">${rank.rank}</div>
+                        <div>
+                            <div class="rank-text-name">${rank.name}</div>
+                            <div style="font-size: 0.75rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.15rem;">
+                                Reward Multiplier: <strong>${rank.mult.toFixed(1)}x</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rank-perks-container">
+                        <span class="perk-pill ${rank.clans ? 'unlocked' : ''}">Clans Access</span>
+                        <span class="perk-pill ${rank.prefix ? 'unlocked' : ''}">Chat Prefix</span>
+                        <span class="perk-pill ${rank.blackmarket ? 'unlocked' : ''}">Black Market</span>
+                    </div>
+                    <div class="rank-meta-xp">${rank.xp} XP</div>
+                `;
+                ladderTarget.appendChild(row);
+            });
+
+            // 2. Render Quest Pools Categories Elements
+            const poolTarget = document.getElementById('quest-pool-target');
+            poolTarget.innerHTML = '';
+            
+            Object.keys(questPoolData).forEach(cat => {
+                const group = document.createElement('div');
+                group.className = 'quest-cat-group';
+                
+                let badgeStyleClass = 'bg-progression';
+                if(cat === 'SLAYER') badgeStyleClass = 'bg-bounty';
+                if(cat === 'FARMING') badgeStyleClass = 'bg-fixes';
+                if(cat === 'LUMBERJACK') badgeStyleClass = 'bg-quests';
+                if(cat === 'MISC') badgeStyleClass = 'bg-casino';
+
+                let groupItemsHTML = '';
+                questPoolData[cat].forEach(q => {
+                    groupItemsHTML += `
+                        <div class="quest-data-pill">
+                            <div class="quest-pill-name">${q.name}</div>
+                            <div class="quest-pill-meta">
+                                Tier ${q.tier || 1} • Req: ${q.amount.toLocaleString()}<br>
+                                Rewards: <span style="color: #81c784;">+$${q.money}</span> | <span style="color: #76cfff;">+${q.xp}XP</span>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                group.innerHTML = `
+                    <div class="quest-cat-header">
+                        <span>${cat} POOL</span>
+                        <span class="quest-cat-badge ${badgeStyleClass}">${cat.toLowerCase()}</span>
+                    </div>
+                    <div class="quest-grid-elements">${groupItemsHTML}</div>
+                `;
+                poolTarget.appendChild(group);
+            });
         }
 
         const itemLibrary = [
