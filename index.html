@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BakaUI Addon Changelogs</title>
-    <!-- Google Fonts for Material Typography -->
+    <title>BakaUI Addon — Home & Market</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Material 3 Dark Palette (Non-AMOLED Dark) */
             --md-sys-color-background: #141218;
             --md-sys-color-surface: #1d1b20;
             --md-sys-color-surface-variant: #2b2930;
@@ -20,13 +18,7 @@
             --md-sys-color-on-background: #e6e1e5;
             --md-sys-color-on-surface: #e6e1e5;
             --md-sys-color-on-surface-variant: #cac4d0;
-            
-            /* Categories Colors */
-            --tag-progression: #e28743;
-            --tag-bounty: #e25b43;
-            --tag-quests: #43a8e2;
-            --tag-casino: #9c27b0;
-            --tag-fixes: #4caf50;
+            --md-sys-color-outline: #49454f;
         }
 
         body {
@@ -36,19 +28,67 @@
             margin: 0;
             padding: 0;
             line-height: 1.5;
-            font-size: 0.95rem; /* Toned down base font size */
+            font-size: 0.95rem;
         }
 
-        /* Expressive Header Section */
+        /* 1. Top Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: rgba(29, 27, 32, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--md-sys-color-on-surface-variant);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            color: var(--md-sys-color-primary);
+        }
+
+        .tab-btn.active {
+            color: #141218;
+            background-color: var(--md-sys-color-primary);
+        }
+
         header {
-            background: linear-gradient(180deg, rgba(249, 168, 37, 0.12) 0%, rgba(20, 18, 24, 0) 100%);
-            padding: 3rem 2rem 1.5rem 2rem;
+            background: linear-gradient(180deg, rgba(249, 168, 37, 0.1) 0%, rgba(20, 18, 24, 0) 100%);
+            padding: 3rem 2rem 2rem 2rem;
             text-align: center;
         }
 
         .brand-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
             color: var(--md-sys-color-primary);
             margin: 0;
@@ -58,23 +98,163 @@
         .brand-subtitle {
             color: var(--md-sys-color-on-surface-variant);
             font-size: 1.1rem;
-            max-width: 700px;
+            max-width: 650px;
             margin: 0.5rem auto 0 auto;
         }
 
-        /* Main Layout Container - Uses wider bounds on desktop to reduce margin void */
         main {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 1rem 2rem 3rem 2rem;
+            padding: 0 2rem 4rem 2rem;
         }
 
-        /* Material 3 Expressive Card Structure */
+        /* View Switching Logic */
+        .page-view {
+            display: none;
+        }
+
+        .page-view.active {
+            display: block;
+        }
+
+        /* --- MARKET SYSTEM STYLING --- */
+        .market-controls {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background-color: var(--md-sys-color-surface);
+            padding: 1.25rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .search-wrapper input {
+            width: 100%;
+            box-sizing: border-box;
+            background-color: var(--md-sys-color-surface-variant);
+            border: 1px solid var(--md-sys-color-outline);
+            color: var(--md-sys-color-on-surface);
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-wrapper input:focus {
+            border-color: var(--md-sys-color-primary);
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            background-color: var(--md-sys-color-surface-variant);
+            color: var(--md-sys-color-on-surface-variant);
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .filter-chip.active {
+            background-color: rgba(249, 168, 37, 0.2);
+            color: var(--md-sys-color-primary);
+            border: 1px solid var(--md-sys-color-primary);
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.25rem;
+        }
+
+        /* Material 3 Item Tiles */
+        .item-card {
+            background-color: var(--md-sys-color-surface);
+            border-radius: 18px;
+            padding: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .item-icon-frame {
+            width: 64px;
+            height: 64px;
+            background-color: var(--md-sys-color-surface-variant);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            image-rendering: pixelated;
+        }
+
+        .item-icon-fallback {
+            font-size: 1.75rem;
+        }
+
+        .item-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .item-id {
+            font-size: 0.75rem;
+            color: var(--md-sys-color-on-surface-variant);
+            margin: 0.25rem 0 0.75rem 0;
+            font-family: monospace;
+            opacity: 0.7;
+        }
+
+        .price-badge {
+            width: 100%;
+            padding: 0.4rem 0px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: auto;
+        }
+
+        .price-sell {
+            background-color: rgba(76, 175, 80, 0.12);
+            color: #81c784;
+        }
+
+        .price-buy {
+            background-color: rgba(226, 91, 67, 0.12);
+            color: #ff8a76;
+        }
+
+        .item-type-tag {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            opacity: 0.4;
+        }
+
+        /* --- CHANGELOG EXISTING STYLING --- */
         .changelog-card {
             background-color: var(--md-sys-color-surface);
             border-radius: 28px;
             padding: 2rem;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -88,7 +268,6 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--md-sys-color-on-surface);
             margin: 0;
         }
 
@@ -104,7 +283,6 @@
             background-color: var(--md-sys-color-surface-variant);
             padding: 0.2rem 0.6rem;
             border-radius: 8px;
-            font-weight: 500;
         }
 
         .intro-text {
@@ -113,10 +291,8 @@
             color: var(--md-sys-color-on-primary-container);
             padding: 1rem 1.25rem;
             border-radius: 16px;
-            margin-bottom: 0; /* Handled by grid gap layout */
         }
 
-        /* Responsive Desktop Grid Split */
         .card-content-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -124,14 +300,12 @@
             margin-top: 1.5rem;
         }
 
-        /* The actual changes panel layout */
         .logs-panel {
             display: grid;
             grid-template-columns: 1fr;
             gap: 1.5rem;
         }
 
-        /* Changelog Section Styling */
         .log-section {
             background-color: rgba(255, 255, 255, 0.02);
             padding: 1.25rem;
@@ -143,7 +317,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 0.75rem;
             margin-bottom: 0.75rem;
         }
 
@@ -152,7 +325,6 @@
             font-size: 1.2rem;
             font-weight: 700;
             margin: 0;
-            color: var(--md-sys-color-on-surface);
         }
 
         .category-badge {
@@ -161,8 +333,6 @@
             font-weight: 700;
             padding: 0.2rem 0.6rem;
             border-radius: 8px;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
         }
         
         .bg-progression { background-color: rgba(226, 135, 67, 0.15); color: #ffb076; }
@@ -171,160 +341,425 @@
         .bg-casino { background-color: rgba(156, 39, 176, 0.15); color: #e176ff; }
         .bg-fixes { background-color: rgba(76, 175, 80, 0.15); color: #81c784; }
 
-        ul {
-            margin: 0;
-            padding-left: 1.2rem;
-        }
+        ul { margin: 0; padding-left: 1.2rem; }
+        li { margin-bottom: 0.5rem; color: var(--md-sys-color-on-surface-variant); font-size: 0.9rem; }
+        li strong { color: var(--md-sys-color-on-surface); }
 
-        li {
-            margin-bottom: 0.5rem;
+        footer {
+            background-color: var(--md-sys-color-surface);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--md-sys-color-on-surface-variant);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        li:last-child {
-            margin-bottom: 0;
-        }
-
-        li strong {
-            color: var(--md-sys-color-on-surface);
-        }
-
-        /* Desktop Optimization Pass */
         @media (min-width: 992px) {
-            header {
-                padding: 4rem 2rem 2rem 2rem;
-            }
-            .brand-title {
-                font-size: 3.5rem;
-            }
-            /* Left column takes intro context, Right column takes the stacked changes blocks */
-            .card-content-grid {
-                grid-template-columns: 320px 1fr;
-                align-items: start;
-            }
-            /* Arranges update logs into a clean, easy-to-read 2-column layout */
-            .logs-panel {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            /* Spans the fixes/performance across both columns if it stands out at the end */
-            .log-section.full-width-desktop {
-                grid-column: span 2;
-            }
-            .intro-text {
-                position: sticky;
-                top: 2rem;
-            }
+            .market-controls { grid-template-columns: 300px 1fr; align-items: center; }
+            .card-content-grid { grid-template-columns: 320px 1fr; align-items: start; }
+            .logs-panel { grid-template-columns: repeat(2, 1fr); }
+            .log-section.full-width-desktop { grid-column: span 2; }
+            .intro-text { position: sticky; top: 5rem; }
         }
 
         @media (max-width: 600px) {
-            .brand-title { font-size: 2.25rem; }
-            .changelog-card { padding: 1.25rem; border-radius: 20px; }
-            .version-title { font-size: 1.4rem; }
-            main { padding: 1rem; }
+            .brand-title { font-size: 2.5rem; }
+            .navbar { padding: 1rem; flex-direction: column; gap: 0.75rem; }
+            main { padding: 0 1rem; }
         }
     </style>
 </head>
 <body>
 
+    <nav class="navbar">
+        <a href="#" class="nav-logo">BakaUI</a>
+        <div class="nav-links">
+            <button class="tab-btn active" onclick="switchTab('changelogs')">Changelogs</button>
+            <button class="tab-btn" onclick="switchTab('market')">Server Market</button>
+        </div>
+    </nav>
+
     <header>
         <h1 class="brand-title">BakaUI</h1>
-        <p class="brand-subtitle">An essential user interface suite for Minecraft Bedrock servers featuring banking, warps, homes, clans, ranks, shops, and more.</p>
+        <p class="brand-subtitle">Modular system configuration controls for Minecraft Bedrock servers.</p>
     </header>
 
     <main>
-        <article class="changelog-card">
-            
-            <div class="version-header">
-                <h2 class="version-title">v3.2.0 — The Progression Update</h2>
-                <div class="meta-info">
-                    <span class="meta-badge">📅 January 30, 2026</span>
-                    <span class="meta-badge">🎮 Minecraft 1.21.132</span>
+        
+        <!-- PAGE VIEW A: CHANGELOGS -->
+        <div id="view-changelogs" class="page-view active">
+            <article class="changelog-card">
+                <div class="version-header">
+                    <h2 class="version-title">v3.2.0 — The Progression Update</h2>
+                    <div class="meta-info">
+                        <span class="meta-badge">📅 January 30, 2026</span>
+                        <span class="meta-badge">🎮 Minecraft 1.21.132</span>
+                    </div>
+                </div>
+
+                <div class="card-content-grid">
+                    <div class="intro-text">
+                        This massive update redefines the server's economy and progression. We are introducing a "Play-to-Rank" questing ecosystem, a fully scripted Admin Event system, a high-stakes Casino, and a revamped Bounty system to enforce justice in the wilds.
+                    </div>
+
+                    <div class="logs-panel">
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🔰 Progression Overhaul</h3>
+                                <span class="category-badge bg-progression">Progression</span>
+                            </div>
+                            <ul>
+                                <li><strong>Play-to-Rank:</strong> Ranks are earned via Quest XP across a 12-tier ladder.</li>
+                                <li><strong>Dynamic Daily Quests:</strong> 5 unique daily quests reset at 12:00 AM (MYT).</li>
+                                <li><strong>Progressive Difficulty:</strong> Objectives scale as you climb tiers.</li>
+                            </ul>
+                        </section>
+
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">⚔️ Bounty System 2.0</h3>
+                                <span class="category-badge bg-bounty">Combat</span>
+                            </div>
+                            <ul>
+                                <li><strong>Outlaw Tagging:</strong> Slaying innocent players applies Outlaw status.</li>
+                                <li><strong>Automated Penalties:</strong> Triggers a 20% bank balance fine (min. $5,000).</li>
+                            </ul>
+                        </section>
+
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🌟 Special Quests</h3>
+                                <span class="category-badge bg-quests">Admin</span>
+                            </div>
+                            <ul>
+                                <li><strong>Global Events:</strong> Collaborative milestones pin to the peak of the UI.</li>
+                            </ul>
+                        </section>
+
+                        <section class="log-section">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🎰 Casino 2.0</h3>
+                                <span class="category-badge bg-casino">Minigames</span>
+                            </div>
+                            <ul>
+                                <li><strong>Slot Machine:</strong> 3-reel system offering 10x progressive payouts.</li>
+                            </ul>
+                        </section>
+
+                        <section class="log-section full-width-desktop">
+                            <div class="section-title-wrapper">
+                                <h3 class="section-title">🛠️ Bug Fixes & Optimizations</h3>
+                                <span class="category-badge bg-fixes">Performance</span>
+                            </div>
+                            <ul>
+                                <li><strong>Rank Core:</strong> Dropped legacy buy code paths to clear execution lag.</li>
+                                <li><strong>Land Safeguards:</strong> Cached lookup models implemented to lower live check processing metrics.</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- PAGE VIEW B: INTERACTIVE SHOP MARKET -->
+        <div id="view-market" class="page-view">
+            <div class="market-controls">
+                <div class="search-wrapper">
+                    <input type="text" id="market-search" placeholder="Search item name or id (e.g., netherite)..." oninput="filterMarket()">
+                </div>
+                <div class="filter-tags" id="filter-container">
+                    <button class="filter-chip active" onclick="setCategory('all')">All Items</button>
+                    <button class="filter-chip" onclick="setCategory('itemSellables')">Sellables (Player ➔ Server)</button>
+                    <button class="filter-chip" onclick="setCategory('blocks')">Building Blocks</button>
+                    <button class="filter-chip" onclick="setCategory('refinedblocks')">Refined Blocks</button>
+                    <button class="filter-chip" onclick="setCategory('colorblocks')">Colored Blocks/Wool</button>
+                    <button class="filter-chip" onclick="setCategory('redstones')">Redstone Systems</button>
+                    <button class="filter-chip" onclick="setCategory('crops')">Crops & Seeds</button>
+                    <button class="filter-chip" onclick="setCategory('miscellaneous')">Miscellaneous</button>
+                    <button class="filter-chip" onclick="setCategory('cosmetics')">Cosmetics</button>
                 </div>
             </div>
 
-            <!-- Responsive Grid Framework Wrapper -->
-            <div class="card-content-grid">
-                
-                <!-- Sticky Left Sidebar Context Column -->
-                <div class="intro-text">
-                    This massive update redefines the server's economy and progression. We are introducing a "Play-to-Rank" questing ecosystem, a fully scripted Admin Event system, a high-stakes Casino, and a revamped Bounty system to enforce justice in the wilds.
-                </div>
-
-                <!-- Right Side Structured Log Blocks -->
-                <div class="logs-panel">
-                    <!-- Progression Overhaul -->
-                    <section class="log-section">
-                        <div class="section-title-wrapper">
-                            <h3 class="section-title">🔰 Progression Overhaul</h3>
-                            <span class="category-badge bg-progression">Progression</span>
-                        </div>
-                        <ul>
-                            <li><strong>Play-to-Rank:</strong> Ranks are earned via Quest XP across a 12-tier ladder (Crew ➔ Exarch).</li>
-                            <li><strong>Dynamic Daily Quests:</strong> 5 unique daily quests reset at 12:00 AM (MYT) across varied archetypes.</li>
-                            <li><strong>Progressive Difficulty:</strong> Objectives dynamically scale up and yield better returns as you climb tiers.</li>
-                            <li><strong>Milestone Alerts:</strong> Automatic UI status warnings tracking progress at 25%, 50%, and 75%.</li>
-                        </ul>
-                    </section>
-
-                    <!-- Bounty System 2.0 -->
-                    <section class="log-section">
-                        <div class="section-title-wrapper">
-                            <h3 class="section-title">⚔️ Bounty System 2.0</h3>
-                            <span class="category-badge bg-bounty">Combat / Eco</span>
-                        </div>
-                        <ul>
-                            <li><strong>Outlaw Tagging:</strong> Slaying an innocent player instantly labels you an Outlaw.</li>
-                            <li><strong>Automated Penalties:</strong> Triggers a 20% bank balance reduction penalty (min. $5,000 fine).</li>
-                            <li><strong>Combat Debuffs:</strong> Curses active outlaws with Weakness & Mining Fatigue for 30 seconds.</li>
-                            <li><strong>Global Broadcasts:</strong> Outlaw locations and actions broadcast coordinates across the entire server.</li>
-                            <li><strong>Live Menu Tracking:</strong> Bounty Menu tracks real-time dimension and location vectors.</li>
-                        </ul>
-                    </section>
-
-                    <!-- Special Quests -->
-                    <section class="log-section">
-                        <div class="section-title-wrapper">
-                            <h3 class="section-title">🌟 Special Quests</h3>
-                            <span class="category-badge bg-quests">Admin Tools</span>
-                        </div>
-                        <ul>
-                            <li><strong>Global Events:</strong> Server-wide collaborative milestones now append to the peak of the Quest Menu.</li>
-                            <li><strong>Creator Framework:</strong> Staff can deploy interactive challenges using the custom <code>?adminquests</code> engine.</li>
-                        </ul>
-                    </section>
-
-                    <!-- Casino 2.0 -->
-                    <section class="log-section">
-                        <div class="section-title-wrapper">
-                            <h3 class="section-title">🎰 Casino 2.0</h3>
-                            <span class="category-badge bg-casino">Minigames</span>
-                        </div>
-                        <ul>
-                            <li><strong>Slot Machine:</strong> Integrated a 3-reel system offering a 10x progressive jackpot prize tier.</li>
-                            <li><strong>Gacha Lucky Boxes:</strong> Randomized dynamic drop table crate structures tiered from Common up to Legendary.</li>
-                            <li><strong>Coinflip:</strong> Performance optimizations applied to standard double-or-nothing systems.</li>
-                        </ul>
-                    </section>
-
-                    <!-- Bug Fixes & Optimizations -->
-                    <section class="log-section full-width-desktop">
-                        <div class="section-title-wrapper">
-                            <h3 class="section-title">🛠️ Bug Fixes & Optimizations</h3>
-                            <span class="category-badge bg-fixes">Performance</span>
-                        </div>
-                        <ul>
-                            <li><strong>Rank Core:</strong> Dropped legacy transactional rank components to clean execution pipelines.</li>
-                            <li><strong>Scoreboard Engine:</strong> Visual styling refinements alongside structural thread optimizations.</li>
-                            <li><strong>Land Safeguards:</strong> Cached lookup methods implemented to drastically lower real-time block query processing load.</li>
-                            <li><strong>Reward Regressions:</strong> Addressed a timing conflict where daily retention streaks dropped tracking arbitrarily.</li>
-                        </ul>
-                    </section>
-                </div>
-                
+            <div class="market-grid" id="market-grid-target">
+                <!-- Item tiles dynamically populated by script -->
             </div>
-        </article>
+        </div>
+
     </main>
 
+    <footer>
+        <p>&copy; 2026 BakaUI Addon. Development repository hosted via GitHub Pages.</p>
+    </footer>
+
+    <script>
+        // Tab Engine Switching
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
+            
+            if(tabId === 'changelogs') {
+                document.getElementById('view-changelogs').classList.add('active');
+                event.currentTarget.classList.add('active');
+            } else {
+                document.getElementById('view-market').classList.add('active');
+                event.currentTarget.classList.add('active');
+                renderMarketGrid(); // Initialize data mapping elements
+            }
+        }
+
+        // Hydrated JSON Item Library Data State Source
+        const itemLibrary = [
+            {
+                itemSellables: [
+                    { name: 'Coal', sell: 10, item: 'minecraft:coal' },
+                    { name: 'Raw Copper', sell: 20, item: 'minecraft:raw_copper' },
+                    { name: 'Copper ingot', sell: 30, item: 'minecraft:copper_ingot' },
+                    { name: 'Raw Iron', sell: 40, item: 'minecraft:raw_iron' },
+                    { name: 'Iron ingot', sell: 60, item: 'minecraft:iron_ingot' },
+                    { name: 'Raw Gold', sell: 50, item: 'minecraft:raw_gold' },
+                    { name: 'Gold ingot', sell: 75, item: 'minecraft:gold_ingot' },
+                    { name: 'Redstone', sell: 25, item: 'minecraft:redstone' },
+                    { name: 'Lapis Lazuli', sell: 50, item: 'minecraft:lapis_lazuli' },
+                    { name: 'Nether Quartz', sell: 20, item: 'minecraft:quartz' },
+                    { name: 'Emerald', sell: 150, item: 'minecraft:emerald' },
+                    { name: 'Diamond', sell: 400, item: 'minecraft:diamond' },
+                    { name: 'Netherite Scrap', sell: 600, item: 'minecraft:netherite_scrap' },
+                    { name: 'Netherite Ingot', sell: 3000, item: 'minecraft:netherite_ingot' },
+                    { name: 'Armadillo Scute', sell: 100, item: 'minecraft:armadillo_scute' },
+                    { name: 'Dragon Egg', sell: 500000, item: 'minecraft:dragon_egg' },
+                    { name: 'Shulker Shell', sell: 500, item: 'minecraft:shulker_shell' },
+                    { name: 'Nether Star', sell: 15000, item: 'minecraft:nether_star' },
+                    { name: 'Totem of Undying', sell: 800, item: 'minecraft:totem_of_undying' },
+                    { name: 'Wither Skeleton Skull', sell: 2500, item: 'minecraft:wither_skeleton_skull' },
+                    { name: 'Wither Rose', sell: 500, item: 'minecraft:wither_rose' },
+                    { name: 'Dragon Head', sell: 100000, item: 'minecraft:dragon_head' },
+                    { name: 'Paper', sell: 8, item: 'minecraft:paper' },
+                    { name: 'Oak Log', sell: 4, item: 'minecraft:oak_log' },
+                    { name: 'Birch Log', sell: 4, item: 'minecraft:birch_log' },
+                    { name: 'Spruce Log', sell: 4, item: 'minecraft:spruce_log' },
+                    { name: 'Dark Oak Log', sell: 4, item: 'minecraft:dark_oak_log' },
+                    { name: 'Jungle Log', sell: 4, item: 'minecraft:jungle_log' },
+                    { name: 'Acacia Log', sell: 4, item: 'minecraft:acacia_log' },
+                    { name: 'Cherry Log', sell: 5, item: 'minecraft:cherry_log' },
+                    { name: 'Mangrove Log', sell: 5, item: 'minecraft:mangrove_log' },
+                    { name: 'Warped Stem', sell: 6, item: 'minecraft:warped_stem' },
+                    { name: 'Crimson Stem', sell: 6, item: 'minecraft:crimson_stem' },
+                    { name: 'Pale Oak Log', sell: 15, item: 'minecraft:pale_oak_log' },
+                    { name: 'Grass', sell: 2, item: 'minecraft:grass_block' },
+                    { name: 'Dirt', sell: 1, item: 'minecraft:dirt' },
+                    { name: 'Sand', sell: 1, item: 'minecraft:sand' },
+                    { name: 'Gravel', sell: 2, item: 'minecraft:gravel' },
+                    { name: 'Clay', sell: 1, item: 'minecraft:clay' },
+                    { name: 'Cobblestone', sell: 2, item: 'minecraft:cobblestone' },
+                    { name: 'Stone', sell: 3, item: 'minecraft:stone' },
+                    { name: 'Granite', sell: 3, item: 'minecraft:stone' },
+                    { name: 'Diorite', sell: 3, item: 'minecraft:stone' },
+                    { name: 'Andesite', sell: 3, item: 'minecraft:stone' },
+                    { name: 'Wheat', sell: 4, item: 'minecraft:wheat' },
+                    { name: 'Beetroot', sell: 4, item: 'minecraft:beetroot' },
+                    { name: 'Carrot', sell: 4, item: 'minecraft:carrot' },
+                    { name: 'Potato', sell: 4, item: 'minecraft:potato' },
+                    { name: 'Melon Slice', sell: 1, item: 'minecraft:melon_slice' },
+                    { name: 'Melon', sell: 9, item: 'minecraft:melon_block' },
+                    { name: 'Pumpkin', sell: 10, item: 'minecraft:pumpkin' },
+                    { name: 'Sugar Cane', sell: 5, item: 'minecraft:sugar_cane' },
+                    { name: 'Bamboo', sell: 1, item: 'minecraft:bamboo' },
+                    { name: 'Feather', sell: 5, item: 'minecraft:feather' },
+                    { name: 'Rotten Flesh', sell: 3, item: 'minecraft:rotten_flesh' },
+                    { name: 'Bone', sell: 5, item: 'minecraft:bone' },
+                    { name: 'Spider Eye', sell: 8, item: 'minecraft:spider_eye' },
+                    { name: 'String', sell: 5, item: 'minecraft:string' },
+                    { name: 'Leather', sell: 8, item: 'minecraft:leather' },
+                    { name: 'Beef', sell: 8, item: 'minecraft:beef' },
+                    { name: 'Porkchop', sell: 8, item: 'minecraft:porkchop' },
+                    { name: 'Chicken', sell: 8, item: 'minecraft:chicken' },
+                    { name: 'Egg', sell: 4, item: 'minecraft:egg' },
+                    { name: 'Mutton', sell: 8, item: 'minecraft:mutton' },
+                    { name: 'Cod', sell: 8, item: 'minecraft:cod' },
+                    { name: 'Tropical Fish', sell: 10, item: 'minecraft:tropical_fish' },
+                    { name: 'Pufferfish', sell: 8, item: 'minecraft:pufferfish' },
+                    { name: 'Salmon', sell: 12, item: 'minecraft:salmon' },
+                    { name: 'Slime Ball', sell: 15, item: 'minecraft:slime_ball' },
+                    { name: 'Ender Pearl', sell: 50, item: 'minecraft:ender_pearl' },
+                    { name: 'Blaze Rod', sell: 80, item: 'minecraft:blaze_rod' },
+                    { name: 'Bow', sell: 20, item: 'minecraft:bow' },
+                    { name: 'Arrow', sell: 3, item: 'minecraft:arrow' }
+                ],
+                blocks: [
+                    { name: 'Dirt', cost: 2, item: 'minecraft:dirt' },
+                    { name: 'Grass', cost: 5, item: 'minecraft:grass_block' },
+                    { name: 'Podzol', cost: 5, item: 'minecraft:podzol' },
+                    { name: 'Mycelium', cost: 10, item: 'minecraft:mycelium' },
+                    { name: 'Gravel', cost: 3, item: 'minecraft:gravel' },
+                    { name: 'Sand', cost: 3, item: 'minecraft:sand' },
+                    { name: 'Red sand', cost: 5, item: 'minecraft:red_sand' },
+                    { name: 'Clay Block', cost: 5, item: 'minecraft:clay' },
+                    { name: 'Stone', cost: 10, item: 'minecraft:stone' },
+                    { name: 'Cobblestone', cost: 8, item: 'minecraft:cobblestone' },
+                    { name: 'Granite', cost: 10, item: 'minecraft:granite' },
+                    { name: 'Diorite', cost: 10, item: 'minecraft:diorite' },
+                    { name: 'Andesite', cost: 10, item: 'minecraft:andesite' },
+                    { name: 'Mossy Cobblestone', cost: 10, item: 'minecraft:mossy_cobblestone' },
+                    { name: 'Obsidian', cost: 500, item: 'minecraft:obsidian' },
+                    { name: 'Snow Block', cost: 10, item: 'minecraft:snow' },
+                    { name: 'Sponge', cost: 50, item: 'minecraft:sponge' },
+                    { name: 'Sea Lantern', cost: 50, item: 'minecraft:sea_lantern' },
+                    { name: 'Prismarine', cost: 20, item: 'minecraft:prismarine' },
+                    { name: 'Oak Log', cost: 30, item: 'minecraft:oak_log' },
+                    { name: 'Birch Log', cost: 40, item: 'minecraft:birch_log' },
+                    { name: 'Spruce Log', cost: 40, item: 'minecraft:spruce_log' },
+                    { name: 'Dark Oak Log', cost: 40, item: 'minecraft:dark_oak_log' },
+                    { name: 'Jungle Log', cost: 40, item: 'minecraft:jungle_log' },
+                    { name: 'Acacia Log', cost: 40, item: 'minecraft:acacia_log' },
+                    { name: 'Cherry Log', cost: 55, item: 'minecraft:cherry_log' },
+                    { name: 'Mangrove Log', cost: 45, item: 'minecraft:mangrove_log' },
+                    { name: 'Warped Stem', cost: 40, item: 'minecraft:warped_stem' },
+                    { name: 'Deepslate', cost: 10, item: 'minecraft:deepslate' },
+                    { name: 'Cobbled Deepslate', cost: 10, item: 'minecraft:cobbled_deepslate' }
+                ],
+                refinedblocks: [
+                    { name: 'Smooth Stone', cost: 15, item: 'minecraft:smooth_stone' },
+                    { name: 'Polished Granite', cost: 15, item: 'minecraft:polished_granite' },
+                    { name: 'Polished Diorite', cost: 15, item: 'minecraft:polished_diorite' },
+                    { name: 'Polished Andesite', cost: 15, item: 'minecraft:polished_andesite' },
+                    { name: 'Brick Block', cost: 20, item: 'minecraft:brick_block' },
+                    { name: 'Bone Block', cost: 300, item: 'minecraft:bone_block' }
+                ],
+                colorblocks: [
+                    { name: 'Glass', cost: 20, item: 'minecraft:glass' },
+                    { name: 'White Concrete', cost: 50, item: 'minecraft:white_concrete' },
+                    { name: 'Light Gray Concrete', cost: 50, item: 'minecraft:light_gray_concrete' },
+                    { name: 'Gray Concrete', cost: 50, item: 'minecraft:gray_concrete' },
+                    { name: 'Black Concrete', cost: 50, item: 'minecraft:black_concrete' },
+                    { name: 'Brown Concrete', cost: 50, item: 'minecraft:brown_concrete' },
+                    { name: 'Red Concrete', cost: 50, item: 'minecraft:red_concrete' },
+                    { name: 'Orange Concrete', cost: 50, item: 'minecraft:orange_concrete' },
+                    { name: 'Yellow Concrete', cost: 50, item: 'minecraft:yellow_concrete' },
+                    { name: 'Lime Concrete', cost: 50, item: 'minecraft:lime_concrete' },
+                    { name: 'Green Concrete', cost: 50, item: 'minecraft:green_concrete' },
+                    { name: 'Cyan Concrete', cost: 50, item: 'minecraft:cyan_concrete' },
+                    { name: 'Light Blur Concrete', cost: 50, item: 'minecraft:light_blue_concrete' },
+                    { name: 'Blue Concrete', cost: 50, item: 'minecraft:blue_concrete' },
+                    { name: 'Purple Concrete', cost: 50, item: 'minecraft:purple_concrete' },
+                    { name: 'Pink Concrete', cost: 50, item: 'minecraft:pink_concrete' },
+                    { name: 'White Wool', cost: 15, item: 'white_wool' },
+                    { name: 'Light Gray Wool', cost: 20, item: 'light_gray_wool' },
+                    { name: 'Gray Wool', cost: 20, item: 'gray_wool' },
+                    { name: 'Black Wool', cost: 20, item: 'black_wool' },
+                    { name: 'Brown Wool', cost: 20, item: 'brown_wool' },
+                    { name: 'Red Wool', cost: 20, item: 'red_wool' },
+                    { name: 'Orange Wool', cost: 20, item: 'orange_wool' },
+                    { name: 'Yellow Wool', cost: 20, item: 'yellow_wool' },
+                    { name: 'Lime Wool', cost: 20, item: 'lime_wool' },
+                    { name: 'Dark Green Wool', cost: 20, item: 'green_wool' },
+                    { name: 'Cyan Wool', cost: 20, item: 'cyan_wool' },
+                    { name: 'Light Blue Wool', cost: 20, item: 'light_blue_wool' },
+                    { name: 'Dark Blue Wool', cost: 20, item: 'blue_wool' },
+                    { name: 'Purple Wool', cost: 20, item: 'purple_wool' },
+                    { name: 'Magenta Wool', cost: 20, item: 'magenta_wool' },
+                    { name: 'Pink Wool', cost: 20, item: 'pink_wool' }
+                ],
+                redstones: [
+                    { name: 'Piston', cost: 300, item: 'piston' },
+                    { name: 'Sticky Piston', cost: 550, item: 'sticky_piston' },
+                    { name: 'Hopper', cost: 1000, item: 'hopper' },
+                    { name: 'Dropper', cost: 500, item: 'dropper' },
+                    { name: 'Dispenser', cost: 1200, item: 'dispenser' },
+                    { name: 'Observer', cost: 1300, item: 'observer' },
+                    { name: 'Redstone Torch', cost: 100, item: 'redstone_torch' },
+                    { name: 'Redstone Repeater', cost: 340, item: 'repeater' },
+                    { name: 'Redstone Comparator', cost: 670, item: 'comparator' },
+                    { name: 'Redstone Lamp', cost: 700, item: 'redstone_lamp' },
+                    { name: 'Target Block', cost: 300, item: 'target' },
+                    { name: 'Auto Crafter', cost: 1200, item: 'crafter' }
+                ],
+                crops: [
+                    { name: 'Pumpkin Seeds', cost: 15, item: 'minecraft:pumpkin_seeds' },
+                    { name: 'Seeds', cost: 5, item: 'minecraft:wheat_seeds' },
+                    { name: 'Melon seeds', cost: 15, item: 'minecraft:melon_seeds' },
+                    { name: 'Beetroot seeds', cost: 15, item: 'minecraft:beetroot_seeds' },
+                    { name: 'Beetroot', cost: 50, item: 'minecraft:beetroot' },
+                    { name: 'Carrot', cost: 50, item: 'minecraft:carrot' },
+                    { name: 'Potato', cost: 50, item: 'minecraft:potato' },
+                    { name: 'Sugar Cane', cost: 40, item: 'minecraft:sugar_cane' },
+                    { name: 'Bamboo', cost: 70, item: 'minecraft:bamboo' }
+                ],
+                miscellaneous: [
+                    { name: 'Villager', cost: 8000, item: 'villager_spawn_egg' },
+                    { name: 'Zombie', cost: 15000, item: 'zombie_spawn_egg' },
+                    { name: 'Skeleton', cost: 17000, item: 'skeleton_spawn_egg' },
+                    { name: 'Creeper', cost: 30000, item: 'creeper_spawn_egg' },
+                    { name: 'Zombie Villager', cost: 30000, item: 'zombie_villager_spawn_egg' },
+                    { name: 'Firework', cost: 50, item: 'firework_rocket' },
+                    { name: 'Clay Ball', cost: 2, item: 'clay_ball' },
+                    { name: 'Clan Ticket', cost: 10000, item: 'candra:ticket_clan' },
+                    { name: 'XP Bottle', cost: 700, item: 'experience_bottle' }
+                ],
+                cosmetics: [
+                    { name: 'Crown', cost: 1000000, item: 'bakaui:crown' },
+                    { name: 'Incognito', cost: 1000000, item: 'bakaui:incognito' },
+                    { name: 'Sunglasses', cost: 1000000, item: 'bakaui:sunglasses' },
+                    { name: 'Rabbit', cost: 1000000, item: 'bakaui:rabbit' },
+                    { name: 'Graduation Hat', cost: 1000000, item: 'bakaui:graduation_hat' },
+                    { name: 'Bamboo', cost: 1000000, item: 'bakaui:bamboo' },
+                    { name: 'Construction Hat', cost: 1000000, item: 'bakaui:construction_hat' }
+                ]
+            }
+        ];
+
+        let activeCategory = 'all';
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            renderMarketGrid();
+        }
+
+        function filterMarket() {
+            renderMarketGrid();
+        }
+
+        // Processing and layout rendering matrix logic
+        function renderMarketGrid() {
+            const grid = document.getElementById('market-grid-target');
+            const searchVal = document.getElementById('market-search').value.toLowerCase();
+            grid.innerHTML = '';
+            
+            const librarySource = itemLibrary[0];
+            
+            Object.keys(librarySource).forEach(categoryKey => {
+                if (activeCategory !== 'all' && activeCategory !== categoryKey) return;
+                
+                librarySource[categoryKey].forEach(item => {
+                    const matchesSearch = item.name.toLowerCase().includes(searchVal) || 
+                                          item.item.toLowerCase().includes(searchVal);
+                                          
+                    if (!matchesSearch) return;
+
+                    const isSellable = categoryKey === 'itemSellables';
+                    const cleanedName = item.name.replace(/§[0-9a-fk-or]/g, ''); // Strips out Minecraft styling color codes
+                    
+                    // Extracts a clean first letter to place inside individual item frames as fallback placeholders
+                    const initialLetter = cleanedName.charAt(0).toUpperCase();
+
+                    const card = document.createElement('div');
+                    card.className = 'item-card';
+                    card.innerHTML = `
+                        <div class="item-type-tag">${categoryKey === 'itemSellables' ? 'Sell' : 'Buy'}</div>
+                        <div class="item-icon-frame">
+                            <span class="item-icon-fallback" style="color: var(--md-sys-color-primary); font-weight: bold;">${initialLetter}</span>
+                        </div>
+                        <h4 class="item-name">${cleanedName}</h4>
+                        <div class="item-id">${item.item}</div>
+                        <div class="price-badge ${isSellable ? 'price-sell' : 'price-buy'}">
+                            ${isSellable ? 'Sells: $' + item.sell : 'Cost: $' + item.cost}
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            });
+        }
+    </script>
 </body>
 </html>
