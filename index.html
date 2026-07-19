@@ -297,6 +297,27 @@
             .market-type-toggle { width: 100%; display: flex; }
             .type-btn { flex: 1; text-align: center; }
         }
+
+        /* Expressive Header Logo Scaling Adjustments */
+.brand-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.brand-logo {
+    max-height: 120px; /* Adjust this value to control your logo's height on desktop */
+    width: auto;
+    object-fit: contain;
+    image-rendering: pixelated; /* Keeps your Minecraft-themed logo icons perfectly crisp */
+}
+
+@media (max-width: 600px) {
+    .brand-logo {
+        max-height: 80px; /* Scales down the logo safely on mobile device screens */
+    }
+}
     </style>
 </head>
 <body>
@@ -310,9 +331,12 @@
     </nav>
 
     <header>
-        <h1 class="brand-title">BakaUI</h1>
-        <p class="brand-subtitle">Modular system configuration controls for Minecraft Bedrock servers.</p>
-    </header>
+    <!-- Replace the text title with your logo image -->
+    <div class="brand-logo-container">
+        <img src="title.png" alt="BakaUI Logo" class="brand-logo">
+    </div>
+    <p class="brand-subtitle">Modular system configuration controls for Minecraft Bedrock servers.</p>
+</header>
 
     <main>
         
