@@ -31,7 +31,7 @@
             font-size: 0.95rem;
         }
 
-        /* Optimized Dropdown Navigation Bar */
+        /* Top Navigation Bar */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -145,6 +145,7 @@
         .page-view { display: none; }
         .page-view.active { display: block; }
 
+        /* Unified Layout Card Architecture */
         .system-layout-card {
             background-color: var(--md-sys-color-surface);
             border-radius: 28px;
@@ -168,7 +169,7 @@
         .sub-panel li { margin-bottom: 0.5rem; color: var(--md-sys-color-on-surface-variant); font-size: 0.9rem; }
         .sub-panel strong { color: var(--md-sys-color-on-surface); }
 
-        /* Market Table Lists */
+        /* Controls Panel */
         .market-controls { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 1.5rem; background-color: var(--md-sys-color-surface); padding: 1.5rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); }
         .market-type-toggle { display: inline-flex; background-color: var(--md-sys-color-surface-variant); border-radius: 100px; padding: 0.35rem; width: max-content; }
         .type-btn { background: transparent; border: none; color: var(--md-sys-color-on-surface-variant); padding: 0.75rem 1.5rem; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; }
@@ -178,30 +179,66 @@
         .filter-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
         .filter-chip { background-color: var(--md-sys-color-surface-variant); color: var(--md-sys-color-on-surface-variant); border: none; padding: 0.5rem 1rem; border-radius: 10px; font-size: 0.85rem; font-weight: 500; cursor: pointer; }
         .filter-chip.active { background-color: rgba(249, 168, 37, 0.15); color: var(--md-sys-color-primary); border: 1px solid var(--md-sys-color-primary); }
-        .market-list-container { background-color: var(--md-sys-color-surface); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); overflow: hidden; }
-        .market-list-header { display: grid; grid-template-columns: 2.5fr 3fr 1.5fr; padding: 1rem 1.5rem; background-color: var(--md-sys-color-surface-variant); font-weight: 700; font-family: 'Space Grotesk', sans-serif; color: var(--md-sys-color-primary); border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
-        .market-list-row { display: grid; grid-template-columns: 2.5fr 3fr 1.5fr; padding: 0.85rem 1.5rem; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.02); }
-        .item-info-col { display: flex; align-items: center; gap: 0.75rem; }
-        .item-list-icon-frame { width: 32px; height: 32px; background-color: var(--md-sys-color-surface-variant); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: var(--md-sys-color-primary); }
-        .item-list-name { font-weight: 600; color: var(--md-sys-color-on-surface); }
-        .item-list-id { font-family: monospace; color: var(--md-sys-color-on-surface-variant); font-size: 0.85rem; opacity: 0.8; word-break: break-all; }
-        .price-list-badge { padding: 0.35rem 0.75rem; border-radius: 8px; font-size: 0.85rem; font-weight: 700; text-align: center; width: max-content; }
-        .price-sell { background-color: rgba(76, 175, 80, 0.12); color: #81c784; border: 1px solid rgba(76, 175, 80, 0.2); }
-        .price-buy { background-color: rgba(226, 91, 67, 0.12); color: #ff8a76; border: 1px solid rgba(226, 91, 67, 0.2); }
 
-        /* Premium Pass Custom Layout Updates */
+        /* Optimized Focus-List Card Layout */
+        .market-list-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 1rem;
+        }
+
+        .market-list-row {
+            background-color: var(--md-sys-color-surface);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .item-info-col {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-width: 0;
+        }
+
+        .item-text-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .item-list-icon-frame {
+            width: 36px;
+            height: 36px;
+            background-color: var(--md-sys-color-surface-variant);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--md-sys-color-primary);
+            flex-shrink: 0;
+        }
+
+        .item-list-name { font-weight: 700; color: var(--md-sys-color-on-surface); font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .item-list-id { font-family: monospace; color: var(--md-sys-color-on-surface-variant); font-size: 0.75rem; opacity: 0.6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 0.15rem; }
+        .price-list-badge { padding: 0.4rem 0.75rem; border-radius: 10px; font-size: 0.85rem; font-weight: 700; text-align: center; white-space: nowrap; flex-shrink: 0; }
+
+        /* Premium pass styling */
         .premium-pass-card { background-color: var(--md-sys-color-surface); border-radius: 28px; padding: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.05); background: linear-gradient(145deg, #1d1b20 0%, #252015 100%); }
-        .premium-header { text-align: center; margin-bottom: 2.5rem; border-bottom: 1px solid var(--md-sys-color-surface-variant); padding-bottom: 1.5rem; }
-        .premium-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--md-sys-color-primary); margin: 0; }
-        .premium-tagline { color: var(--md-sys-color-on-surface-variant); margin-top: 0.5rem; font-size: 1.05rem; }
-        .premium-meta-box { background-color: rgba(20, 18, 24, 0.5); border-radius: 16px; padding: 1.25rem; margin-bottom: 2rem; border: 1px solid rgba(249, 168, 37, 0.15); font-size: 0.9rem; color: var(--md-sys-color-on-surface-variant); }
+        .premium-meta-box { background-color: rgba(20, 18, 24, 0.5); border-radius: 16px; padding: 1.25rem; margin-bottom: 2rem; border: 1px solid rgba(249, 168, 37, 0.15); font-size: 0.9rem; color: var(--md-sys-color-on-surface-variant); line-height: 1.6; }
         .premium-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
         .premium-feature-tile { background-color: rgba(20, 18, 24, 0.6); border: 1px solid rgba(249, 168, 37, 0.1); border-radius: 16px; padding: 1.25rem; display: flex; gap: 1rem; align-items: flex-start; }
         .premium-icon-marker { background-color: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 10px; font-size: 1.1rem; flex-shrink: 0; }
         .premium-feature-text h4 { font-family: 'Space Grotesk', sans-serif; margin: 0 0 0.25rem 0; font-size: 1.1rem; color: var(--md-sys-color-on-surface); }
         .premium-feature-text p { margin: 0; color: var(--md-sys-color-on-surface-variant); font-size: 0.85rem; }
 
-        /* Progression Hub Architecture Styling */
+        /* Progression Hub Architecture */
         .progression-split-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
         .progression-section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin: 0 0 1rem 0; color: var(--md-sys-color-primary); border-bottom: 1px solid var(--md-sys-color-surface-variant); padding-bottom: 0.5rem; }
         .rank-ladder-list { display: flex; flex-direction: column; gap: 0.75rem; }
@@ -216,7 +253,6 @@
         .quest-pool-container { display: flex; flex-direction: column; gap: 1.5rem; }
         .quest-cat-group { background-color: var(--md-sys-color-surface); border-radius: 18px; padding: 1.25rem; border: 1px solid rgba(255, 255, 255, 0.03); }
         .quest-cat-header { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; margin: 0 0 0.75rem 0; display: flex; justify-content: space-between; align-items: center; }
-        .quest-cat-badge { font-size: 0.7rem; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 700; }
         .quest-grid-elements { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; }
         .quest-data-pill { background-color: var(--md-sys-color-surface-variant); padding: 0.75rem; border-radius: 10px; font-size: 0.85rem; }
         .quest-pill-name { font-weight: 700; color: var(--md-sys-color-on-surface); margin-bottom: 0.25rem; }
@@ -258,11 +294,6 @@
             .intro-text { position: sticky; top: 5rem; }
             .progression-split-grid { grid-template-columns: 5.5fr 4.5fr; align-items: start; }
             .system-grid-2 { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 768px) {
-            .market-list-header { display: none; }
-            .market-list-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.25rem 1.5rem; }
         }
 
         @media (max-width: 600px) {
@@ -405,17 +436,12 @@
                     </div>
                 </div>
             </div>
-            <div class="market-list-container">
-                <div class="market-list-header">
-                    <div>Item Name</div>
-                    <div>In-Game Identifier</div>
-                    <div>Pricing Action</div>
-                </div>
-                <div id="market-grid-target"></div>
+            <div class="market-list-container" id="market-grid-target">
+                <!-- Data targets render directly here -->
             </div>
         </div>
 
-        <!-- PAGE VIEW C: PREMIUM PASS PERKS (Hydrated from Source File) -->
+        <!-- PAGE VIEW C: PREMIUM PASS PERKS -->
         <div id="view-premium" class="page-view">
             <article class="premium-pass-card">
                 <div class="premium-header">
@@ -425,7 +451,7 @@
 
                 <div class="premium-meta-box">
                     <strong>💳 Pricing Strategy:</strong> Costs <strong>RM15</strong> (Promotion for current season)[cite: 6].<br>
-                    <strong>⏱️ Terms Constraints:</strong> Premium is seasonal and will reset at the conclusion of each active season[cite: 6]. Contact admins to finalize verification channels[cite: 6].
+                    <strong>⏱️ Terms Constraints:</strong> Premium is seasonal and will reset at the conclusion of each active season[cite: 6]. Contact server admins to complete purchase validation passes[cite: 6].
                 </div>
 
                 <div class="premium-features-grid">
@@ -529,16 +555,16 @@
                     <div class="sub-panel">
                         <h3>Clans Creation Rules</h3>
                         <ul>
-                            <li><strong>Rank Requirement:</strong> Players must unlock the **Veteran** tier rank ladder position before obtaining permissions[cite: 3].</li>
-                            <li><strong>Materials:</strong> Requires a valid in-game **Clan Ticket** (`candra:ticket_clan`) purchased directly from shop keepers[cite: 3].</li>
-                            <li><strong>Naming Limits:</strong> Clan identifiers strictly cap at **12 characters** and permit alphanumeric vectors only (`a-Z, 0-9`)[cite: 3].</li>
+                            <li><strong>Rank Requirement:</strong> Players must unlock the Veteran tier rank ladder position before obtaining permissions[cite: 3].</li>
+                            <li><strong>Materials:</strong> Requires a valid in-game Clan Ticket (`candra:ticket_clan`) purchased directly from shop keepers[cite: 3].</li>
+                            <li><strong>Naming Limits:</strong> Clan identifiers strictly cap at 12 characters and permit alphanumeric vectors only (`a-Z, 0-9`)[cite: 3].</li>
                         </ul>
                     </div>
                     <div class="sub-panel">
                         <h3>Interactive Features</h3>
                         <ul>
-                            <li><strong>Dynamic Base Ports:</strong> Owners can update real-time coordinates inside dimensions using a **Set Base** system toggle[cite: 3].</li>
-                            <li><strong>Secure Teleportation:</strong> Access a delayed `timeout` warp thread providing direct fast travel back to team lines[cite: 3].</li>
+                            <li><strong>Dynamic Base Ports:</strong> Owners can update real-time coordinates inside dimensions using a Set Base system toggle[cite: 3].</li>
+                            <li><strong>Secure Teleportation:</strong> Access a delayed timeout warp thread providing direct fast travel back to team lines[cite: 3].</li>
                             <li><strong>Global Clan Chat:</strong> Isolated transactional chat communication paths routed purely to matched guild mates[cite: 3].</li>
                         </ul>
                     </div>
@@ -557,15 +583,15 @@
                     <div class="sub-panel">
                         <h3>The Outlaw Mechanics</h3>
                         <ul>
-                            <li><strong>Innocent Protection:</strong> Damaging or killing an active player carrying a **$0 bounty tracker** labels the aggressor an **Outlaw**[cite: 4].</li>
-                            <li><strong>Automatic Bank Fees:</strong> Triggers an instant deduction scaling to **20% of current assets** (min. $5,000 fine)[cite: 4].</li>
-                            <li><strong>Guaranteed Curses:</strong> Afflicts criminals with **Weakness II** and **Mining Fatigue** combat debuffs for 30s[cite: 4].</li>
+                            <li><strong>Innocent Protection:</strong> Damaging or killing an active player carrying a $0 bounty tracker labels the aggressor an Outlaw[cite: 4].</li>
+                            <li><strong>Automatic Bank Fees:</strong> Triggers an instant deduction scaling to 20% of current assets (min. $5,000 fine)[cite: 4].</li>
+                            <li><strong>Guaranteed Curses:</strong> Afflicts criminals with Weakness II and Mining Fatigue combat debuffs for 30s[cite: 4].</li>
                         </ul>
                     </div>
                     <div class="sub-panel">
                         <h3>Contract Hunting Tools</h3>
                         <ul>
-                            <li><strong>Live Matrix Tracking:</strong> The active board broadcasts real-time **dimension and coordinate tags** of targets[cite: 4].</li>
+                            <li><strong>Live Matrix Tracking:</strong> The active board broadcasts real-time dimension and coordinate tags of targets[cite: 4].</li>
                             <li><strong>Contract Scaling:</strong> Players can pay dynamic fees to place targets on rival factions via interface selectors[cite: 4].</li>
                             <li><strong>Payout Triggers:</strong> Successfully downing wanted players updates balances instantly matching the pool value[cite: 4].</li>
                         </ul>
@@ -585,9 +611,9 @@
                     <div class="sub-panel">
                         <h3>Claim Wand System</h3>
                         <ul>
-                            <li><strong>Activation:</strong> Rename standard items inside an anvil to **"Claim Wand"** to trigger active pointer listeners[cite: 5].</li>
-                            <li><strong>Vector Markers:</strong> Break blocks to flag structural **Position 1 and Position 2** coordinate boundaries cleanly[cite: 5].</li>
-                            <li><strong>Pricing Curves:</strong> Standard land acquisition costs **$3 per block**, scaling dynamically by area calculations[cite: 5].</li>
+                            <li><strong>Activation:</strong> Rename standard items inside an anvil to "Claim Wand" to trigger active pointer listeners[cite: 5].</li>
+                            <li><strong>Vector Markers:</strong> Break blocks to flag structural Position 1 and Position 2 coordinate boundaries cleanly[cite: 5].</li>
+                            <li><strong>Pricing Curves:</strong> Standard land acquisition costs $3 per block, scaling dynamically by area calculations[cite: 5].</li>
                         </ul>
                     </div>
                     <div class="sub-panel">
@@ -595,14 +621,14 @@
                         <ul>
                             <li><strong>Block Interventions:</strong> Non-members carry default bans blocking breaking, placement, or interaction passes[cite: 5].</li>
                             <li><strong>Member Sharing:</strong> Land owners can update access grids, adding or dropping friends from control lists safely[cite: 5].</li>
-                            <li><strong>Server liquidations:</strong> Refund structures guarantee an automated **$1.5 per block return rate** on land deletions[cite: 5].</li>
+                            <li><strong>Server liquidations:</strong> Refund structures guarantee an automated $1.5 per block return rate on land deletions[cite: 5].</li>
                         </ul>
                     </div>
                 </div>
             </article>
         </div>
 
-        <!-- NEW PAGE VIEW H: LOGIN STREAKS -->
+        <!-- PAGE VIEW H: LOGIN STREAKS -->
         <div id="view-streaks" class="page-view">
             <article class="system-layout-card">
                 <div class="system-heading-wrapper">
@@ -613,7 +639,7 @@
                     <div class="sub-panel">
                         <h3>Streak Validation Logic</h3>
                         <ul>
-                            <li><strong>Time Horizon Offset:</strong> Routine logs evaluate based on local **Malaysia Standard Time (MYT / UTC+8)** parameters[cite: 7].</li>
+                            <li><strong>Time Horizon Offset:</strong> Routine logs evaluate based on local Malaysia Standard Time (MYT / UTC+8) parameters[cite: 7].</li>
                             <li><strong>Continuous Multipliers:</strong> Logging in on sequential days increases the player's active counter value[cite: 7].</li>
                             <li><strong>Missed Days Penalty:</strong> Failing to connect within a calendar window resets the tracker directly back to Day 1[cite: 7].</li>
                         </ul>
@@ -622,7 +648,7 @@
                         <h3>Feedback Alerts</h3>
                         <ul>
                             <li><strong>Welcome Messages:</strong> Connected runs trigger sound effect signals alongside status chat logs[cite: 7].</li>
-                            <li><strong>Interface Display Elements:</strong> Active streak counters register and sync directly into nameplate systems[cite: 2].</li>
+                            <li><strong>Interface Display Elements:</strong> Active streak counters register and sync directly into nameplate systems.</li>
                         </ul>
                     </div>
                 </div>
@@ -632,7 +658,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 BakaUI Addon. Developed by <a href="https://github.com" target="_blank">Lightinity</a>[cite: 2]. Hosted via GitHub Pages[cite: 2].</p>
+        <p>&copy; 2026 BakaUI Addon. Developed by <a href="https://github.com" target="_blank">Lightinity</a>. Hosted via GitHub Pages.</p>
     </footer>
 
     <script>
@@ -733,12 +759,208 @@
             });
         }
 
-        const itemLibrary = [{ itemSellables: [{ name: 'Coal', sell: 10, item: 'minecraft:coal' }, { name: 'Raw Copper', sell: 20, item: 'minecraft:raw_copper' }, { name: 'Diamond', sell: 400, item: 'minecraft:diamond' }, { name: 'Netherite Ingot', sell: 3000, item: 'minecraft:netherite_ ingot' }], blocks: [{ name: 'Dirt', cost: 2, item: 'minecraft:dirt' }, { name: 'Grass', cost: 5, item: 'minecraft:grass_block' }, { name: 'Obsidian', cost: 500, item: 'minecraft:obsidian' }], refinedblocks: [{ name: 'Smooth Stone', cost: 15, item: 'minecraft:smooth_stone' }], colorblocks: [{ name: 'Glass', cost: 20, item: 'minecraft:glass' }], redstones: [{ name: 'Piston', cost: 300, item: 'piston' }], crops: [{ name: 'Seeds', cost: 5, item: 'minecraft:wheat_seeds' }], miscellaneous: [{ name: 'Villager', cost: 8000, item: 'villager_spawn_egg' }], cosmetics: [{ name: 'Crown', cost: 1000000, item: 'bakaui:crown' }] }];
-        let marketMode = 'sell'; let activeCategory = 'all';
+        const itemLibrary = [
+            {
+                itemSellables: [
+                    { name: 'Coal', sell: 10, item: 'minecraft:coal' },
+                    { name: 'Raw Copper', sell: 20, item: 'minecraft:raw_copper' },
+                    { name: 'Copper ingot', sell: 30, item: 'minecraft:copper_ingot' },
+                    { name: 'Raw Iron', sell: 40, item: 'minecraft:raw_iron' },
+                    { name: 'Iron ingot', sell: 60, item: 'minecraft:iron_ingot' },
+                    { name: 'Raw Gold', sell: 50, item: 'minecraft:raw_gold' },
+                    { name: 'Gold ingot', sell: 75, item: 'minecraft:gold_ingot' },
+                    { name: 'Redstone', sell: 25, item: 'minecraft:redstone' },
+                    { name: 'Lapis Lazuli', sell: 50, item: 'minecraft:lapis_lazuli' },
+                    { name: 'Nether Quartz', sell: 20, item: 'minecraft:quartz' },
+                    { name: 'Emerald', sell: 150, item: 'minecraft:emerald' },
+                    { name: 'Diamond', sell: 400, item: 'minecraft:diamond' },
+                    { name: 'Netherite Scrap', sell: 600, item: 'minecraft:netherite_scrap' },
+                    { name: 'Netherite Ingot', sell: 3000, item: 'minecraft:netherite_ingot' },
+                    { name: 'Armadillo Scute', sell: 100, item: 'minecraft:armadillo_scute' },
+                    { name: 'Dragon Egg', sell: 500000, item: 'minecraft:dragon_egg' },
+                    { name: 'Shulker Shell', sell: 500, item: 'minecraft:shulker_shell' },
+                    { name: 'Nether Star', sell: 15000, item: 'minecraft:nether_star' },
+                    { name: 'Totem of Undying', sell: 800, item: 'minecraft:totem_of_undying' },
+                    { name: 'Wither Skeleton Skull', sell: 2500, item: 'minecraft:wither_skeleton_skull' },
+                    { name: 'Wither Rose', sell: 500, item: 'minecraft:wither_rose' },
+                    { name: 'Dragon Head', sell: 100000, item: 'minecraft:dragon_head' },
+                    { name: 'Paper', sell: 8, item: 'minecraft:paper' },
+                    { name: 'Oak Log', sell: 4, item: 'minecraft:oak_log' },
+                    { name: 'Birch Log', sell: 4, item: 'minecraft:birch_log' },
+                    { name: 'Spruce Log', sell: 4, item: 'minecraft:spruce_log' },
+                    { name: 'Dark Oak Log', sell: 4, item: 'minecraft:dark_oak_log' },
+                    { name: 'Jungle Log', sell: 4, item: 'minecraft:jungle_log' },
+                    { name: 'Acacia Log', sell: 4, item: 'minecraft:acacia_log' },
+                    { name: 'Cherry Log', sell: 5, item: 'minecraft:cherry_log' },
+                    { name: 'Mangrove Log', sell: 5, item: 'minecraft:mangrove_log' },
+                    { name: 'Warped Stem', sell: 6, item: 'minecraft:warped_stem' },
+                    { name: 'Crimson Stem', sell: 6, item: 'minecraft:crimson_stem' },
+                    { name: 'Pale Oak Log', sell: 15, item: 'minecraft:pale_oak_log' },
+                    { name: 'Grass', sell: 2, item: 'minecraft:grass_block' },
+                    { name: 'Dirt', sell: 1, item: 'minecraft:dirt' },
+                    { name: 'Sand', sell: 1, item: 'minecraft:sand' },
+                    { name: 'Gravel', sell: 2, item: 'minecraft:gravel' },
+                    { name: 'Clay', sell: 1, item: 'minecraft:clay' },
+                    { name: 'Cobblestone', sell: 2, item: 'minecraft:cobblestone' },
+                    { name: 'Stone', sell: 3, item: 'minecraft:stone' },
+                    { name: 'Granite', sell: 3, item: 'minecraft:stone' },
+                    { name: 'Diorite', sell: 3, item: 'minecraft:stone' },
+                    { name: 'Andesite', sell: 3, item: 'minecraft:stone' },
+                    { name: 'Wheat', sell: 4, item: 'minecraft:wheat' },
+                    { name: 'Beetroot', sell: 4, item: 'minecraft:beetroot' },
+                    { name: 'Carrot', sell: 4, item: 'minecraft:carrot' },
+                    { name: 'Potato', sell: 4, item: 'minecraft:potato' },
+                    { name: 'Melon Slice', sell: 1, item: 'minecraft:melon_slice' },
+                    { name: 'Melon', sell: 9, item: 'minecraft:melon_block' },
+                    { name: 'Pumpkin', sell: 10, item: 'minecraft:pumpkin' },
+                    { name: 'Sugar Cane', sell: 5, item: 'minecraft:sugar_cane' },
+                    { name: 'Bamboo', sell: 1, item: 'minecraft:bamboo' },
+                    { name: 'Feather', sell: 5, item: 'minecraft:feather' },
+                    { name: 'Rotten Flesh', sell: 3, item: 'minecraft:rotten_flesh' },
+                    { name: 'Bone', sell: 5, item: 'minecraft:bone' },
+                    { name: 'Spider Eye', sell: 8, item: 'minecraft:spider_eye' },
+                    { name: 'String', sell: 5, item: 'minecraft:string' },
+                    { name: 'Leather', sell: 8, item: 'minecraft:leather' },
+                    { name: 'Beef', sell: 8, item: 'minecraft:beef' },
+                    { name: 'Porkchop', sell: 8, item: 'minecraft:porkchop' },
+                    { name: 'Chicken', sell: 8, item: 'minecraft:chicken' },
+                    { name: 'Egg', sell: 4, item: 'minecraft:egg' },
+                    { name: 'Mutton', sell: 8, item: 'minecraft:mutton' },
+                    { name: 'Cod', sell: 8, item: 'minecraft:cod' },
+                    { name: 'Tropical Fish', sell: 10, item: 'minecraft:tropical_fish' },
+                    { name: 'Pufferfish', sell: 8, item: 'minecraft:pufferfish' },
+                    { name: 'Salmon', sell: 12, item: 'minecraft:salmon' },
+                    { name: 'Slime Ball', sell: 15, item: 'minecraft:slime_ball' },
+                    { name: 'Ender Pearl', sell: 50, item: 'minecraft:ender_pearl' },
+                    { name: 'Blaze Rod', sell: 80, item: 'minecraft:blaze_rod' },
+                    { name: 'Bow', sell: 20, item: 'minecraft:bow' },
+                    { name: 'Arrow', sell: 3, item: 'minecraft:arrow' }
+                ],
+                blocks: [
+                    { name: 'Dirt', cost: 2, item: 'minecraft:dirt' },
+                    { name: 'Grass', cost: 5, item: 'minecraft:grass_block' },
+                    { name: 'Podzol', cost: 5, item: 'minecraft:podzol' },
+                    { name: 'Mycelium', cost: 10, item: 'minecraft:mycelium' },
+                    { name: 'Gravel', cost: 3, item: 'minecraft:gravel' },
+                    { name: 'Sand', cost: 3, item: 'minecraft:sand' },
+                    { name: 'Red sand', cost: 5, item: 'minecraft:red_sand' },
+                    { name: 'Clay Block', cost: 5, item: 'minecraft:clay' },
+                    { name: 'Stone', cost: 10, item: 'minecraft:stone' },
+                    { name: 'Cobblestone', cost: 8, item: 'minecraft:cobblestone' },
+                    { name: 'Granite', cost: 10, item: 'minecraft:granite' },
+                    { name: 'Diorite', cost: 10, item: 'minecraft:diorite' },
+                    { name: 'Andesite', cost: 10, item: 'minecraft:andesite' },
+                    { name: 'Mossy Cobblestone', cost: 10, item: 'minecraft:mossy_cobblestone' },
+                    { name: 'Obsidian', cost: 500, item: 'minecraft:obsidian' },
+                    { name: 'Snow Block', cost: 10, item: 'minecraft:snow' },
+                    { name: 'Sponge', cost: 50, item: 'minecraft:sponge' },
+                    { name: 'Sea Lantern', cost: 50, item: 'minecraft:sea_lantern' },
+                    { name: 'Prismarine', cost: 20, item: 'minecraft:prismarine' },
+                    { name: 'Oak Log', cost: 30, item: 'minecraft:oak_log' },
+                    { name: 'Birch Log', cost: 40, item: 'minecraft:birch_log' },
+                    { name: 'Spruce Log', cost: 40, item: 'minecraft:spruce_log' },
+                    { name: 'Dark Oak Log', cost: 40, item: 'minecraft:dark_oak_log' },
+                    { name: 'Jungle Log', cost: 40, item: 'minecraft:jungle_log' },
+                    { name: 'Acacia Log', cost: 40, item: 'minecraft:acacia_log' },
+                    { name: 'Cherry Log', cost: 55, item: 'minecraft:cherry_log' },
+                    { name: 'Mangrove Log', cost: 45, item: 'minecraft:mangrove_log' },
+                    { name: 'Warped Stem', cost: 40, item: 'minecraft:warped_stem' },
+                    { name: 'Deepslate', cost: 10, item: 'minecraft:deepslate' },
+                    { name: 'Cobbled Deepslate', cost: 10, item: 'minecraft:cobbled_deepslate' }
+                ],
+                refinedblocks: [
+                    { name: 'Smooth Stone', cost: 15, item: 'minecraft:smooth_stone' },
+                    { name: 'Polished Granite', cost: 15, item: 'minecraft:polished_granite' },
+                    { name: 'Polished Diorite', cost: 15, item: 'minecraft:polished_diorite' },
+                    { name: 'Polished Andesite', cost: 15, item: 'minecraft:polished_andesite' },
+                    { name: 'Brick Block', cost: 20, item: 'minecraft:brick_block' },
+                    { name: 'Bone Block', cost: 300, item: 'minecraft:bone_block' }
+                ],
+                colorblocks: [
+                    { name: 'Glass', cost: 20, item: 'minecraft:glass' },
+                    { name: 'White Concrete', cost: 50, item: 'minecraft:white_concrete' },
+                    { name: 'Light Gray Concrete', cost: 50, item: 'minecraft:light_gray_concrete' },
+                    { name: 'Gray Concrete', cost: 50, item: 'minecraft:gray_concrete' },
+                    { name: 'Black Concrete', cost: 50, item: 'minecraft:black_concrete' },
+                    { name: 'Brown Concrete', cost: 50, item: 'minecraft:brown_concrete' },
+                    { name: 'Red Concrete', cost: 50, item: 'minecraft:red_concrete' },
+                    { name: 'Orange Concrete', cost: 50, item: 'minecraft:orange_concrete' },
+                    { name: 'Yellow Concrete', cost: 50, item: 'minecraft:yellow_concrete' },
+                    { name: 'Lime Concrete', cost: 50, item: 'minecraft:lime_concrete' },
+                    { name: 'Green Concrete', cost: 50, item: 'minecraft:green_concrete' },
+                    { name: 'Cyan Concrete', cost: 50, item: 'minecraft:cyan_concrete' },
+                    { name: 'Light Blur Concrete', cost: 50, item: 'minecraft:light_blue_concrete' },
+                    { name: 'Blue Concrete', cost: 50, item: 'minecraft:blue_concrete' },
+                    { name: 'Purple Concrete', cost: 50, item: 'minecraft:purple_concrete' },
+                    { name: 'Pink Concrete', cost: 50, item: 'minecraft:pink_concrete' },
+                    { name: 'White Wool', cost: 15, item: 'white_wool' },
+                    { name: 'Light Gray Wool', cost: 20, item: 'light_gray_wool' },
+                    { name: 'Gray Wool', cost: 20, item: 'gray_wool' },
+                    { name: 'Black Wool', cost: 20, item: 'black_wool' },
+                    { name: 'Brown Wool', cost: 20, item: 'brown_wool' },
+                    { name: 'Red Wool', cost: 20, item: 'red_wool' },
+                    { name: 'Orange Wool', cost: 20, item: 'orange_wool' },
+                    { name: 'Yellow Wool', cost: 20, item: 'yellow_wool' },
+                    { name: 'Lime Wool', cost: 20, item: 'lime_wool' },
+                    { name: 'Dark Green Wool', cost: 20, item: 'green_wool' },
+                    { name: 'Cyan Wool', cost: 20, item: 'cyan_wool' },
+                    { name: 'Light Blue Wool', cost: 20, item: 'light_blue_wool' },
+                    { name: 'Dark Blue Wool', cost: 20, item: 'blue_wool' },
+                    { name: 'Purple Wool', cost: 20, item: 'purple_wool' },
+                    { name: 'Magenta Wool', cost: 20, item: 'magenta_wool' },
+                    { name: 'Pink Wool', cost: 20, item: 'pink_wool' }
+                ],
+                redstones: [
+                    { name: 'Piston', cost: 300, item: 'piston' },
+                    { name: 'Sticky Piston', cost: 550, item: 'sticky_piston' },
+                    { name: 'Hopper', cost: 1000, item: 'hopper' },
+                    { name: 'Dropper', cost: 500, item: 'dropper' },
+                    { name: 'Dispenser', cost: 1200, item: 'dispenser' },
+                    { name: 'Observer', cost: 1300, item: 'observer' },
+                    { name: 'Redstone Torch', cost: 100, item: 'redstone_torch' },
+                    { name: 'Redstone Repeater', cost: 340, item: 'repeater' },
+                    { name: 'Redstone Comparator', cost: 670, item: 'comparator' },
+                    { name: 'Redstone Lamp', cost: 700, item: 'redstone_lamp' },
+                    { name: 'Target Block', cost: 300, item: 'target' },
+                    { name: 'Auto Crafter', cost: 1200, item: 'crafter' }
+                ],
+                crops: [
+                    { name: 'Pumpkin Seeds', cost: 15, item: 'minecraft:pumpkin_seeds' },
+                    { name: 'Seeds', cost: 5, item: 'minecraft:wheat_seeds' },
+                    { name: 'Melon seeds', cost: 15, item: 'minecraft:melon_seeds' },
+                    { name: 'Beetroot seeds', cost: 15, item: 'minecraft:beetroot_seeds' },
+                    { name: 'Beetroot', cost: 50, item: 'minecraft:beetroot' },
+                    { name: 'Carrot', cost: 50, item: 'minecraft:carrot' },
+                    { name: 'Potato', cost: 50, item: 'minecraft:potato' },
+                    { name: 'Sugar Cane', cost: 40, item: 'minecraft:sugar_cane' },
+                    { name: 'Bamboo', cost: 70, item: 'minecraft:bamboo' }
+                ],
+                miscellaneous: [
+                    { name: 'Villager', cost: 8000, item: 'villager_spawn_egg' },
+                    { name: 'Zombie', cost: 15000, item: 'zombie_spawn_egg' },
+                    { name: 'Skeleton', cost: 17000, item: 'skeleton_spawn_egg' },
+                    { name: 'Creeper', cost: 30000, item: 'creeper_spawn_egg' },
+                    { name: 'Zombie Villager', cost: 30000, item: 'zombie_villager_spawn_egg' },
+                    { name: 'Firework', cost: 50, item: 'firework_rocket' },
+                    { name: 'Clay Ball', cost: 2, item: 'clay_ball' },
+                    { name: 'Clan Ticket', cost: 10000, item: 'candra:ticket_clan' },
+                    { name: 'XP Bottle', cost: 700, item: 'experience_bottle' }
+                ],
+                cosmetics: [
+                    { name: 'Crown', cost: 1000000, item: 'bakaui:crown' },
+                    { name: 'Incognito', cost: 1000000, item: 'bakaui:incognito' },
+                    { name: 'Sunglasses', cost: 1000000, item: 'bakaui:sunglasses' },
+                    { name: 'Rabbit', cost: 1000000, item: 'bakaui:rabbit' },
+                    { name: 'Graduation Hat', cost: 1000000, item: 'bakaui:graduation_hat' },
+                    { name: 'Bamboo', cost: 1000000, item: 'bakaui:bamboo' },
+                    { name: 'Construction Hat', cost: 1000000, item: 'bakaui:construction_hat' }
+                ]
+            }
+        ];let marketMode = 'sell'; let activeCategory = 'all';
         function setMarketType(type) { marketMode = type; document.querySelectorAll('.type-btn').forEach(btn => btn.classList.remove('active')); event.currentTarget.classList.add('active'); if (type === 'sell') { document.getElementById('buy-filters').style.display = 'none'; } else { document.getElementById('buy-filters').style.display = 'flex'; activeCategory = 'all'; document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); document.querySelector('.filter-chip').classList.add('active'); } renderMarketGrid(); }
         function setCategory(cat) { activeCategory = cat; document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.remove('active')); event.currentTarget.classList.add('active'); renderMarketGrid(); }
         function filterMarket() { renderMarketGrid(); }
-        function renderMarketGrid() { const grid = document.getElementById('market-grid-target'); const searchVal = document.getElementById('market-search').value.toLowerCase(); grid.innerHTML = ''; const librarySource = itemLibrary[0]; Object.keys(librarySource).forEach(categoryKey => { const isSellableGroup = categoryKey === 'itemSellables'; if (marketMode === 'sell' && !isSellableGroup) return; if (marketMode === 'buy' && isSellableGroup) return; if (marketMode === 'buy' && activeCategory !== 'all' && activeCategory !== categoryKey) return; librarySource[categoryKey].forEach(item => { if (!item.name.toLowerCase().includes(searchVal) && !item.item.toLowerCase().includes(searchVal)) return; const cleanedName = item.name.replace(/§[0-9a-fk-or]/g, ''); const initialLetter = cleanedName.charAt(0).toUpperCase(); const row = document.createElement('div'); row.className = 'market-list-row'; row.innerHTML = `<div class="item-info-col"><div class="item-list-icon-frame">${initialLetter}</div><span class="item-list-name">${cleanedName}</span></div><div class="item-list-id">${item.item}</div><div><div class="price-list-badge ${isSellableGroup ? 'price-sell' : 'price-buy'}">${isSellableGroup ? 'Pays $' + item.sell : 'Costs $' + item.cost}</div></div>`; grid.appendChild(row); }); }); }
+        function renderMarketGrid() { const grid = document.getElementById('market-grid-target'); const searchVal = document.getElementById('market-search').value.toLowerCase(); grid.innerHTML = ''; const librarySource = itemLibrary[0]; Object.keys(librarySource).forEach(categoryKey => { const isSellableGroup = categoryKey === 'itemSellables'; if (marketMode === 'sell' && !isSellableGroup) return; if (marketMode === 'buy' && isSellableGroup) return; if (marketMode === 'buy' && activeCategory !== 'all' && activeCategory !== categoryKey) return; librarySource[categoryKey].forEach(item => { if (!item.name.toLowerCase().includes(searchVal) && !item.item.toLowerCase().includes(searchVal)) return; const cleanedName = item.name.replace(/§[0-9a-fk-or]/g, ''); const initialLetter = cleanedName.charAt(0).toUpperCase(); const row = document.createElement('div'); row.className = 'market-list-row'; row.innerHTML = `<div class="item-info-col"><div class="item-list-icon-frame">${initialLetter}</div><div class="item-text-wrapper"><span class="item-list-name">${cleanedName}</span><span class="item-list-id">${item.item}</span></div></div><div><div class="price-list-badge ${isSellableGroup ? 'price-sell' : 'price-buy'}">${isSellableGroup ? 'Pays $' + item.sell : 'Costs $' + item.cost}</div></div>`; grid.appendChild(row); }); }); }
     </script>
 </body>
 </html>
