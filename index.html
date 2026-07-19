@@ -189,6 +189,8 @@
         .item-list-name { font-weight: 700; color: var(--md-sys-color-on-surface); font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .item-list-id { font-family: monospace; color: var(--md-sys-color-on-surface-variant); font-size: 0.75rem; opacity: 0.6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 0.15rem; }
         .price-list-badge { padding: 0.4rem 0.75rem; border-radius: 10px; font-size: 0.85rem; font-weight: 700; text-align: center; white-space: nowrap; flex-shrink: 0; }
+        .price-sell { background-color: rgba(76, 175, 80, 0.12); color: #81c784; border: 1px solid rgba(76, 175, 80, 0.2); }
+        .price-buy { background-color: rgba(226, 91, 67, 0.12); color: #ff8a76; border: 1px solid rgba(226, 91, 67, 0.2); }
 
         /* Premium Pass */
         .premium-pass-card { background-color: var(--md-sys-color-surface); border-radius: 28px; padding: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.05); background: linear-gradient(145deg, #1d1b20 0%, #252015 100%); }
@@ -321,7 +323,7 @@
         <!-- PAGE VIEW A: CHANGELOGS -->
         <div id="view-changelogs" class="page-view active">
             
-            <!-- CURRENT RELEASE (Now Collapsible) -->
+            <!-- CURRENT RELEASE (Collapsible) -->
             <article class="changelog-card older-version open">
                 <div class="version-header accordion-toggle" onclick="toggleChangelog(this)">
                     <h2 class="version-title">v3.2.0 — The Progression Update <span class="toggle-arrow">▼</span></h2>
@@ -332,7 +334,7 @@
                 </div>
                 <div class="card-content-grid collapsible-content">
                     <div class="intro-text">
-                        This massive update redefines the server's economy and progression. We are introducing a Play-to-Rank questing ecosystem, a fully scripted Admin Event system, a high-stakes Casino, and a revamped Bounty system to enforce justice in the wilds[cite: 1].
+                        This massive update redefines the server's economy and progression. We are introducing a Play-to-Rank questing ecosystem, a fully scripted Admin Event system, a high-stakes Casino, and a revamped Bounty system to enforce justice in the wilds.
                     </div>
                     <div class="logs-panel">
                         <section class="log-section">
@@ -341,8 +343,8 @@
                                 <span class="category-badge bg-progression">Progression</span>
                             </div>
                             <ul>
-                                <li><strong>Play-to-Rank:</strong> Ranks are earned via Quest XP across a 12-tier ladder[cite: 1].</li>
-                                <li><strong>Dynamic Daily Quests:</strong> 5 unique daily quests reset at 12:00 AM (MYT)[cite: 1].</li>
+                                <li><strong>Play-to-Rank:</strong> Ranks are earned via Quest XP across a 12-tier ladder.</li>
+                                <li><strong>Dynamic Daily Quests:</strong> 5 unique daily quests reset at 12:00 AM (MYT).</li>
                             </ul>
                         </section>
                         <section class="log-section">
@@ -351,8 +353,8 @@
                                 <span class="category-badge bg-bounty">Combat</span>
                             </div>
                             <ul>
-                                <li><strong>Outlaw Tagging:</strong> Slaying innocent players applies Outlaw status[cite: 4].</li>
-                                <li><strong>Automated Penalties:</strong> Triggers a 20% bank balance fine (min. $5,000)[cite: 4].</li>
+                                <li><strong>Outlaw Tagging:</strong> Slaying innocent players applies Outlaw status.</li>
+                                <li><strong>Automated Penalties:</strong> Triggers a 20% bank balance fine (min. $5,000).</li>
                             </ul>
                         </section>
                         <section class="log-section">
@@ -361,7 +363,7 @@
                                 <span class="category-badge bg-quests">Admin</span>
                             </div>
                             <ul>
-                                <li><strong>Global Events:</strong> Collaborative milestones pin to the peak of the UI[cite: 1].</li>
+                                <li><strong>Global Events:</strong> Collaborative milestones pin to the peak of the UI.</li>
                             </ul>
                         </section>
                         <section class="log-section">
@@ -370,7 +372,7 @@
                                 <span class="category-badge bg-casino">Minigames</span>
                             </div>
                             <ul>
-                                <li><strong>Slot Machine:</strong> 3-reel system offering 10x progressive payouts[cite: 1].</li>
+                                <li><strong>Slot Machine:</strong> 3-reel system offering 10x progressive payouts.</li>
                             </ul>
                         </section>
                         <section class="log-section full-width-desktop">
@@ -379,8 +381,8 @@
                                 <span class="category-badge bg-fixes">Performance</span>
                             </div>
                             <ul>
-                                <li><strong>Rank Core:</strong> Legacy buy code dropped cleanly to maximize performance benchmarks[cite: 1].</li>
-                                <li><strong>Land Safeguards:</strong> Cached block lookup filters loaded to prevent server lag metrics[cite: 1].</li>
+                                <li><strong>Rank Core:</strong> Legacy buy code dropped cleanly to maximize performance benchmarks.</li>
+                                <li><strong>Land Safeguards:</strong> Cached block lookup filters loaded to prevent server lag metrics.</li>
                             </ul>
                         </section>
                     </div>
@@ -434,9 +436,9 @@
                                 <span class="category-badge bg-bounty">Combat</span>
                             </div>
                             <ul>
-                                <li><strong>Outlaw Multiplier:</strong> Players who slay unbountied characters receive an automated bounty penalty equivalent to 50% of their own active cash balance[cite: 4].</li>
-                                <li><strong>Command Integration:</strong> Players can access real-time bounty logs by typing <code>?bounty</code> in chat[cite: 2].</li>
-                                <li><strong>Staff Permissions:</strong> Admins can force-set bounty balances manually via menu selectors[cite: 4].</li>
+                                <li><strong>Outlaw Multiplier:</strong> Players who slay unbountied characters receive an automated bounty penalty equivalent to 50% of their own active cash balance.</li>
+                                <li><strong>Command Integration:</strong> Players can access real-time bounty logs by typing <code>?bounty</code> in chat.</li>
+                                <li><strong>Staff Permissions:</strong> Admins can force-set bounty balances manually via menu selectors.</li>
                             </ul>
                         </section>
                         <section class="log-section">
@@ -445,9 +447,9 @@
                                 <span class="category-badge bg-progression">Land Protection</span>
                             </div>
                             <ul>
-                                <li><strong>Intrusion Warnings:</strong> Sends warning alerts if an unverified player attempts to break or interact with blocks inside registered territories[cite: 5].</li>
-                                <li><strong>Interaction Patches:</strong> Fixed a configuration flaw where players lacking land clearance could open or trigger entities within boundaries[cite: 5].</li>
-                                <li><strong>Database Chunks:</strong> Fixed memory flaws where Minecraft dynamic limits restricted global claim volume allocations[cite: 5].</li>
+                                <li><strong>Intrusion Warnings:</strong> Sends warning alerts if an unverified player attempts to break or interact with blocks inside registered territories.</li>
+                                <li><strong>Interaction Patches:</strong> Fixed a configuration flaw where players lacking land clearance could open or trigger entities within boundaries.</li>
+                                <li><strong>Database Chunks:</strong> Fixed memory flaws where Minecraft dynamic limits restricted global claim volume allocations.</li>
                             </ul>
                         </section>
                         <section class="log-section">
@@ -456,10 +458,10 @@
                                 <span class="category-badge bg-quests">Interface</span>
                             </div>
                             <ul>
-                                <li><strong>Privacy Locks:</strong> Added specific toggles (Hide Nametag and Hide Chat Name) to shield nameplate presence inside chat logs or overhead tags[cite: 2]. Fixed conflicts blocking both being enabled concurrently[cite: 2].</li>
-                                <li><strong>Global Broadcasts:</strong> Transactional money transfers and rank-up changes broadcast globally to server channels[cite: 1, 2].</li>
-                                <li><strong>Command Hooks:</strong> Integrated <code>?baltop</code> to track elite balances, and <code>?rules</code> to display server guidelines[cite: 2].</li>
-                                <li><strong>Spawning Updates:</strong> Performance tweaks refresh tags correctly whenever users spawn or rank up[cite: 2].</li>
+                                <li><strong>Privacy Locks:</strong> Added specific toggles (Hide Nametag and Hide Chat Name) to shield nameplate presence inside chat logs or overhead tags. Fixed conflicts blocking both being enabled concurrently.</li>
+                                <li><strong>Global Broadcasts:</strong> Transactional money transfers and rank-up changes broadcast globally to server channels.</li>
+                                <li><strong>Command Hooks:</strong> Integrated <code>?baltop</code> to track elite balances, and <code>?rules</code> to display server guidelines.</li>
+                                <li><strong>Spawning Updates:</strong> Performance tweaks refresh tags correctly whenever users spawn or rank up.</li>
                             </ul>
                         </section>
                         <section class="log-section">
@@ -468,7 +470,7 @@
                                 <span class="category-badge bg-casino">Sandbox Balance</span>
                             </div>
                             <ul>
-                                <li><strong>One-Time Purchases:</strong> Katanas and Dragon pets are cataloged as one-time buys, locking out further purchases once owned[cite: 6].</li>
+                                <li><strong>One-Time Purchases:</strong> Katanas and Dragon pets are cataloged as one-time buys, locking out further purchases once owned.</li>
                                 <li><strong>Asset Valuation:</strong> Raised price tiers across multiple core shop items to balance economy curves.</li>
                                 <li><strong>Scoreboard Polish:</strong> Introduced a pulsating animation and lowered scale layouts to reduce tracking size constraints.</li>
                             </ul>
@@ -507,8 +509,8 @@
                                 <span class="category-badge bg-casino">Premium Features</span>
                             </div>
                             <ul>
-                                <li><strong>Marketplace Entries:</strong> Premium players can buy a personal dragon for 10M coins, packaged with a free saddle and taming cod[cite: 6].</li>
-                                <li><strong>Time Navigation:</strong> Replaced legacy Boosters with the active Time UI to manage personal environments[cite: 6].</li>
+                                <li><strong>Marketplace Entries:</strong> Premium players can buy a personal dragon for 10M coins, packaged with a free saddle and taming cod.</li>
+                                <li><strong>Time Navigation:</strong> Replaced legacy Boosters with the active Time UI to manage personal environments.</li>
                             </ul>
                         </section>
                         <section class="log-section">
@@ -517,9 +519,9 @@
                                 <span class="category-badge bg-bounty">Gameplay</span>
                             </div>
                             <ul>
-                                <li><strong>Land Administration:</strong> Enabled a central admin node to safely locate, warp to, or dissolve map lands[cite: 5].</li>
-                                <li><strong>Interactive TPA:</strong> Teleport request interfaces pop into immediate view automatically upon receipt[cite: 3].</li>
-                                <li><strong>Rank Expansion:</strong> Appended 3 new top-tier ladder layers: Overlord, Hero, and Exarch[cite: 1, 2].</li>
+                                <li><strong>Land Administration:</strong> Enabled a central admin node to safely locate, warp to, or dissolve map lands.</li>
+                                <li><strong>Interactive TPA:</strong> Teleport request interfaces pop into immediate view automatically upon receipt.</li>
+                                <li><strong>Rank Expansion:</strong> Appended 3 new top-tier ladder layers: Overlord, Hero, and Exarch.</li>
                             </ul>
                         </section>
                         <section class="log-section">
@@ -528,8 +530,8 @@
                                 <span class="category-badge bg-fixes">Hotfixes</span>
                             </div>
                             <ul>
-                                <li><strong>Black Market:</strong> Patched block constraints preventing covert menus from opening properly[cite: 2].</li>
-                                <li><strong>Performance:</strong> Cleared unnecessary evaluation loops to drop processing overhead[cite: 1].</li>
+                                <li><strong>Black Market:</strong> Patched block constraints preventing covert menus from opening properly.</li>
+                                <li><strong>Performance:</strong> Cleared unnecessary evaluation loops to drop processing overhead.</li>
                             </ul>
                         </section>
                     </div>
@@ -566,8 +568,8 @@
                                 <span class="category-badge bg-fixes">Data Management</span>
                             </div>
                             <ul>
-                                <li><strong>Dynamic Properties Migration:</strong> Shifted memory management tracking out of raw scripts into native Minecraft dynamic property storage[cite: 3].</li>
-                                <li><strong>Deduplication:</strong> Discarded the defunct withdrawal toggle element within currency screens to clean up paths[cite: 3].</li>
+                                <li><strong>Dynamic Properties Migration:</strong> Shifted memory management tracking out of raw scripts into native Minecraft dynamic property storage.</li>
+                                <li><strong>Deduplication:</strong> Discarded the defunct withdrawal toggle element within currency screens to clean up paths.</li>
                             </ul>
                         </section>
                     </div>
@@ -594,9 +596,9 @@
                                 <span class="category-badge bg-quests">System Logs</span>
                             </div>
                             <ul>
-                                <li><strong>Nomenclature:</strong> Renamed utility rank pages to the formal Permission Menu, appending distinct trait indicators[cite: 2].</li>
-                                <li><strong>Visibility:</strong> Clarified text contrast profiles across admin tracking elements[cite: 2].</li>
-                                <li><strong>Fixes:</strong> Resolved a critical anchor fault preventing floating labels from properly rendering on the screen[cite: 5].</li>
+                                <li><strong>Nomenclature:</strong> Renamed utility rank pages to the formal Permission Menu, appending distinct trait indicators.</li>
+                                <li><strong>Visibility:</strong> Clarified text contrast profiles across admin tracking elements.</li>
+                                <li><strong>Fixes:</strong> Resolved a critical anchor fault preventing floating labels from properly rendering on the screen.</li>
                             </ul>
                         </section>
                     </div>
@@ -623,7 +625,7 @@
                                 <span class="category-badge bg-fixes">Time Core</span>
                             </div>
                             <ul>
-                                <li><strong>UTC Overrides:</strong> Patched retention engines to properly ignore inconsistent UTC times, locking operations securely to Malaysia Standard Time (MYT)[cite: 7].</li>
+                                <li><strong>UTC Overrides:</strong> Patched retention engines to properly ignore inconsistent UTC times, locking operations securely to Malaysia Standard Time (MYT).</li>
                             </ul>
                         </section>
                     </div>
@@ -652,7 +654,7 @@
                             <ul>
                                 <li><strong>Casino 1.0:</strong> Implemented the core double-or-nothing Coinflip betting mechanic.</li>
                                 <li><strong>Cleanup Engines:</strong> Deployed the automated item clear sweeper to eliminate environmental ground lag.</li>
-                                <li><strong>Chat Logs:</strong> Added options to capture channel text into admin console debugging streams[cite: 2].</li>
+                                <li><strong>Chat Logs:</strong> Added toggle switches to capture channel text into admin console debugging streams.</li>
                             </ul>
                         </section>
                         <section class="log-section">
@@ -688,7 +690,7 @@
                                 <span class="category-badge bg-fixes">TPS Optimization</span>
                             </div>
                             <ul>
-                                <li><strong>Playtime Counter Algorithm:</strong> Re-engineered playtime counters to rely on scheduled system intervals rather than running on every game tick, protecting server TPS processing loads[cite: 1].</li>
+                                <li><strong>Playtime Counter Algorithm:</strong> Re-engineered playtime counters to rely on scheduled system intervals rather than executing on every game tick, restoring critical server TPS overhead.</li>
                                 <li><strong>Experimental Views:</strong> Enabled the initial Beta model for specialized dynamic camera perspectives.</li>
                             </ul>
                         </section>
@@ -783,7 +785,7 @@
                                 <span class="category-badge bg-bounty">Economy</span>
                             </div>
                             <ul>
-                                <li><strong>Baron Rank Unlocks:</strong> Non-premium players can now access the Black Market without purchasing pass tiers by achieving the Baron ladder rank[cite: 2].</li>
+                                <li><strong>Baron Rank Unlocks:</strong> Non-premium players can now access the Black Market without purchasing pass tiers by achieving the Baron ladder rank.</li>
                                 <li><strong>Audio Shifting:</strong> Configured spatial audio parameters to stream background tracks globally to all server players.</li>
                             </ul>
                         </section>
@@ -793,8 +795,8 @@
                                 <span class="category-badge bg-progression">Clan Framework</span>
                             </div>
                             <ul>
-                                <li><strong>Privacy Toggles:</strong> Embedded specific settings to let players show or toggle away clan visibility flags in chat streams[cite: 2].</li>
-                                <li><strong>Veteran Restrictions:</strong> Re-anchored permissions to prevent low-tier ranks from bypassing clan registration constraints[cite: 2].</li>
+                                <li><strong>Privacy Toggles:</strong> Embedded specific settings to let players show or toggle away clan visibility flags in chat streams.</li>
+                                <li><strong>Veteran Restrictions:</strong> Re-anchored permissions to prevent low-tier ranks from bypassing clan registration constraints.</li>
                             </ul>
                         </section>
                     </div>
@@ -858,7 +860,7 @@
                                 <span class="category-badge bg-fixes">Moderation</span>
                             </div>
                             <ul>
-                                <li><strong>Inventory Inspection:</strong> Staff members can now audit active player inventory contents directly using the visual Admin UI panel[cite: 2].</li>
+                                <li><strong>Inventory Inspection:</strong> Staff members can now audit active player inventory contents directly using the visual Admin UI panel.</li>
                             </ul>
                         </section>
                     </div>
@@ -885,7 +887,7 @@
                                 <span class="category-badge bg-fixes">Client Sync</span>
                             </div>
                             <ul>
-                                <li><strong>Minecraft 1.21.60:</strong> Upgraded internal packet handles to match client updates. Premium ranks can buy cosmetics directly inside the pass dashboard[cite: 6].</li>
+                                <li><strong>Minecraft 1.21.60:</strong> Upgraded internal packet handles to match client updates. Premium ranks can buy cosmetics directly inside the pass dashboard.</li>
                             </ul>
                         </section>
                     </div>
@@ -1005,8 +1007,8 @@
                                 <span class="category-badge bg-bounty">Exploit Fixes</span>
                             </div>
                             <ul>
-                                <li><strong>Interaction Blockers:</strong> Patched an exploit that allowed unverified land trespassers to open chests, shulker storage blocks, or interact with iron doors[cite: 5].</li>
-                                <li><strong>Admin Mutes:</strong> Added a moderation path letting admins easily mute loud server players via overlay toggles[cite: 2].</li>
+                                <li><strong>Interaction Blockers:</strong> Patched an exploit that allowed unverified land trespassers to open chests, shulker storage blocks, or interact with iron doors.</li>
+                                <li><strong>Admin Mutes:</strong> Added a moderation path letting admins easily mute loud server players via overlay toggles.</li>
                             </ul>
                         </section>
                     </div>
@@ -1050,8 +1052,8 @@
                 </div>
 
                 <div class="premium-meta-box">
-                    <strong>💳 Pricing Strategy:</strong> Costs <strong>RM15</strong> (Promotion for current season)[cite: 6].<br>
-                    <strong>⏱️ Terms Constraints:</strong> Premium is seasonal and will reset at the conclusion of each active season[cite: 6]. Contact server admins to complete purchase validation passes[cite: 6].
+                    <strong>💳 Pricing Strategy:</strong> Costs <strong>RM15</strong> (Promotion for current season).<br>
+                    <strong>⏱️ Terms Constraints:</strong> Premium is seasonal and will reset at the conclusion of each active season. Contact server admins to complete purchase validation passes.
                 </div>
 
                 <div class="premium-features-grid">
@@ -1059,7 +1061,7 @@
                         <div class="premium-icon-marker">⏳</div>
                         <div class="premium-feature-text">
                             <h4>Change Server Time</h4>
-                            <p>Manually adjust client-side environmental lighting arrays (Morning, Midday, Evening, Midnight)[cite: 6].</p>
+                            <p>Manually adjust client-side environmental lighting arrays (Morning, Midday, Evening, Midnight).</p>
                         </div>
                     </div>
                     
@@ -1067,7 +1069,7 @@
                         <div class="premium-icon-marker">🎵</div>
                         <div class="premium-feature-text">
                             <h4>Play Music Broadcasts</h4>
-                            <p>Stream regional audio tracks like <em>Reminisensi (Insomniacks)</em> or <em>Untuk Dia (Sleeq ft. Najwa Latif)</em> to everyone[cite: 6].</p>
+                            <p>Stream regional audio tracks like <em>Reminisensi (Insomniacks)</em> or <em>Untuk Dia (Sleeq ft. Najwa Latif)</em> to everyone.</p>
                         </div>
                     </div>
 
@@ -1075,7 +1077,7 @@
                         <div class="premium-icon-marker">📸</div>
                         <div class="premium-feature-text">
                             <h4>Camera UI</h4>
-                            <p>Deploy specialized snapshot orientations and custom physical camera vectors[cite: 6].</p>
+                            <p>Deploy specialized snapshot orientations and custom physical camera vectors.</p>
                         </div>
                     </div>
 
@@ -1083,7 +1085,7 @@
                         <div class="premium-icon-marker">🏷️</div>
                         <div class="premium-feature-text">
                             <h4>Chat Prefix Unlocks</h4>
-                            <p>Gain verification access to append stylized badges directly alongside chat names[cite: 2, 6].</p>
+                            <p>Gain verification access to append stylized badges directly alongside chat names.</p>
                         </div>
                     </div>
 
@@ -1091,7 +1093,7 @@
                         <div class="premium-icon-marker">💎</div>
                         <div class="premium-feature-text">
                             <h4>Premium Daily Rewards</h4>
-                            <p>Collect exclusive structural reward packs full of balance bonuses from drop tables[cite: 6].</p>
+                            <p>Collect exclusive structural reward packs full of balance bonuses from drop tables.</p>
                         </div>
                     </div>
 
@@ -1099,7 +1101,7 @@
                         <div class="premium-icon-marker">👑</div>
                         <div class="premium-feature-text">
                             <h4>Exclusive Cosmetic Shop</h4>
-                            <p>Spend coins to claim vanity accessories valued around $1M Coins[cite: 6].</p>
+                            <p>Spend coins to claim vanity accessories valued around $1M Coins.</p>
                         </div>
                     </div>
 
@@ -1107,7 +1109,7 @@
                         <div class="premium-icon-marker">🎭</div>
                         <div class="premium-feature-text">
                             <h4>Custom Emotes</h4>
-                            <p>Trigger character physical animation behaviors to interact with other online players[cite: 6].</p>
+                            <p>Trigger character physical animation behaviors to interact with other online players.</p>
                         </div>
                     </div>
 
@@ -1115,7 +1117,7 @@
                         <div class="premium-icon-marker">🐉</div>
                         <div class="premium-feature-text">
                             <h4>Pet Dragons</h4>
-                            <p>Purchase custom companion dragons (Aether, Fire, Sculk, Wither) for $10M coins, tameable using raw cod[cite: 6].</p>
+                            <p>Purchase custom companion dragons (Aether, Fire, Sculk, Wither) for $10M coins, tameable using raw cod.</p>
                         </div>
                     </div>
 
@@ -1123,7 +1125,7 @@
                         <div class="premium-icon-marker">🕵️</div>
                         <div class="premium-feature-text">
                             <h4>Early Black Market Access</h4>
-                            <p>Unlock limited-item secret merchants before baseline server tiers[cite: 2, 6].</p>
+                            <p>Unlock limited-item secret merchants before baseline server tiers.</p>
                         </div>
                     </div>
                 </div>
@@ -1155,17 +1157,17 @@
                     <div class="sub-panel">
                         <h3>Clans Creation Rules</h3>
                         <ul>
-                            <li><strong>Rank Requirement:</strong> Players must unlock the Veteran tier rank ladder position before obtaining permissions[cite: 3].</li>
-                            <li><strong>Materials:</strong> Requires a valid in-game Clan Ticket (`candra:ticket_clan`) purchased directly from shop keepers[cite: 3].</li>
-                            <li><strong>Naming Limits:</strong> Clan identifiers strictly cap at 12 characters and permit alphanumeric vectors only (`a-Z, 0-9`)[cite: 3].</li>
+                            <li><strong>Rank Requirement:</strong> Players must unlock the Veteran tier rank ladder position before obtaining permissions.</li>
+                            <li><strong>Materials:</strong> Requires a valid in-game Clan Ticket (`candra:ticket_clan`) purchased directly from shop keepers.</li>
+                            <li><strong>Naming Limits:</strong> Clan identifiers strictly cap at 12 characters and permit alphanumeric vectors only (`a-Z, 0-9`).</li>
                         </ul>
                     </div>
                     <div class="sub-panel">
                         <h3>Interactive Features</h3>
                         <ul>
-                            <li><strong>Dynamic Base Ports:</strong> Owners can update real-time coordinates inside dimensions using a Set Base system toggle[cite: 3].</li>
-                            <li><strong>Secure Teleportation:</strong> Access a delayed timeout warp thread providing direct fast travel back to team lines[cite: 3].</li>
-                            <li><strong>Global Clan Chat:</strong> Isolated transactional chat communication paths routed purely to matched guild mates[cite: 3].</li>
+                            <li><strong>Dynamic Base Ports:</strong> Owners can update real-time coordinates inside dimensions using a Set Base system toggle.</li>
+                            <li><strong>Secure Teleportation:</strong> Access a delayed timeout warp thread providing direct fast travel back to team lines.</li>
+                            <li><strong>Global Clan Chat:</strong> Isolated transactional chat communication paths routed purely to matched guild mates.</li>
                         </ul>
                     </div>
                 </div>
@@ -1183,17 +1185,17 @@
                     <div class="sub-panel">
                         <h3>The Outlaw Mechanics</h3>
                         <ul>
-                            <li><strong>Innocent Protection:</strong> Damaging or killing an active player carrying a $0 bounty tracker labels the aggressor an Outlaw[cite: 4].</li>
-                            <li><strong>Automatic Bank Fees:</strong> Triggers an instant deduction scaling to 20% of current assets (min. $5,000 fine)[cite: 4].</li>
-                            <li><strong>Guaranteed Curses:</strong> Afflicts criminals with Weakness II and Mining Fatigue combat debuffs for 30s[cite: 4].</li>
+                            <li><strong>Innocent Protection:</strong> Damaging or killing an active player carrying a $0 bounty tracker labels the aggressor an Outlaw.</li>
+                            <li><strong>Automatic Bank Fees:</strong> Triggers an instant deduction scaling to 20% of current assets (min. $5,000 fine).</li>
+                            <li><strong>Guaranteed Curses:</strong> Afflicts criminals with Weakness II and Mining Fatigue combat debuffs for 30s.</li>
                         </ul>
                     </div>
                     <div class="sub-panel">
                         <h3>Contract Hunting Tools</h3>
                         <ul>
-                            <li><strong>Live Matrix Tracking:</strong> The active board broadcasts real-time dimension and coordinate tags of targets[cite: 4].</li>
-                            <li><strong>Contract Scaling:</strong> Players can pay dynamic fees to place targets on rival factions via interface selectors[cite: 4].</li>
-                            <li><strong>Payout Triggers:</strong> Successfully downing wanted players updates balances instantly matching the pool value[cite: 4].</li>
+                            <li><strong>Live Matrix Tracking:</strong> The active board broadcasts real-time dimension and coordinate tags of targets.</li>
+                            <li><strong>Contract Scaling:</strong> Players can pay dynamic fees to place targets on rival factions via interface selectors.</li>
+                            <li><strong>Payout Triggers:</strong> Successfully downing wanted players updates balances instantly matching the pool value.</li>
                         </ul>
                     </div>
                 </div>
@@ -1211,17 +1213,17 @@
                     <div class="sub-panel">
                         <h3>Claim Wand System</h3>
                         <ul>
-                            <li><strong>Activation:</strong> Rename standard items inside an anvil to "Claim Wand" to trigger active pointer listeners[cite: 5].</li>
-                            <li><strong>Vector Markers:</strong> Break blocks to flag structural Position 1 and Position 2 coordinate boundaries cleanly[cite: 5].</li>
-                            <li><strong>Pricing Curves:</strong> Standard land acquisition costs $3 per block, scaling dynamically by area calculations[cite: 5].</li>
+                            <li><strong>Activation:</strong> Rename standard items inside an anvil to "Claim Wand" to trigger active pointer listeners.</li>
+                            <li><strong>Vector Markers:</strong> Break blocks to flag structural Position 1 and Position 2 coordinate boundaries cleanly.</li>
+                            <li><strong>Pricing Curves:</strong> Standard land acquisition costs $3 per block, scaling dynamically by area calculations.</li>
                         </ul>
                     </div>
                     <div class="sub-panel">
                         <h3>Security Modifiers</h3>
                         <ul>
-                            <li><strong>Block Interventions:</strong> Non-members carry default bans blocking breaking, placement, or interaction passes[cite: 5].</li>
-                            <li><strong>Member Sharing:</strong> Land owners can update access grids, adding or dropping friends from control lists safely[cite: 5].</li>
-                            <li><strong>Server liquidations:</strong> Refund structures guarantee an automated $1.5 per block return rate on land deletions[cite: 5].</li>
+                            <li><strong>Block Interventions:</strong> Non-members carry default bans blocking breaking, placement, or interaction passes.</li>
+                            <li><strong>Member Sharing:</strong> Land owners can update access grids, adding or dropping friends from control lists safely.</li>
+                            <li><strong>Server liquidations:</strong> Refund structures guarantee an automated $1.5 per block return rate on land deletions.</li>
                         </ul>
                     </div>
                 </div>
@@ -1239,16 +1241,16 @@
                     <div class="sub-panel">
                         <h3>Streak Validation Logic</h3>
                         <ul>
-                            <li><strong>Time Horizon Offset:</strong> Routine logs evaluate based on local Malaysia Standard Time (MYT / UTC+8) parameters[cite: 7].</li>
-                            <li><strong>Continuous Multipliers:</strong> Logging in on sequential days increases the player's active counter value[cite: 7].</li>
-                            <li><strong>Missed Days Penalty:</strong> Failing to connect within a calendar window resets the tracker directly back to Day 1[cite: 7].</li>
+                            <li><strong>Time Horizon Offset:</strong> Routine logs evaluate based on local Malaysia Standard Time (MYT / UTC+8) parameters.</li>
+                            <li><strong>Continuous Multipliers:</strong> Logging in on sequential days increases the player's active counter value.</li>
+                            <li><strong>Missed Days Penalty:</strong> Failing to connect within a calendar window resets the tracker directly back to Day 1.</li>
                         </ul>
                     </div>
                     <div class="sub-panel">
                         <h3>Feedback Alerts</h3>
                         <ul>
-                            <li><strong>Welcome Messages:</strong> Connected runs trigger sound effect signals alongside status chat logs[cite: 7].</li>
-                            <li><strong>Interface Display Elements:</strong> Active streak counters register and sync directly into nameplate systems[cite: 2].</li>
+                            <li><strong>Welcome Messages:</strong> Connected runs trigger sound effect signals alongside status chat logs.</li>
+                            <li><strong>Interface Display Elements:</strong> Active streak counters register and sync directly into nameplate systems.</li>
                         </ul>
                     </div>
                 </div>
@@ -1258,7 +1260,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 BakaUI Addon. Developed by <a href="https://github.com" target="_blank">Lightinity</a>[cite: 2]. Hosted via GitHub Pages[cite: 2].</p>
+        <p>&copy; 2026 BakaUI Addon. Developed by <a href="https://github.com" target="_blank">Lightinity</a>. Hosted via GitHub Pages.</p>
     </footer>
 
     <script>
@@ -1381,7 +1383,7 @@
                     groupItemsHTML += `
                         <div class="quest-data-pill">
                             <div class="quest-pill-name">${q.name}</div>
-                            <div class="quest-pill-meta">Tier ${q.tier || 1} • Target: ${q.amount.toLocaleString()}<br>Payouts: <span style="color: #81c784;">+$${q.money}</span> | <span style="color: #76cfff;">+${q.xp} XP</span></div>
+                            <div class="quest-pill-meta">Tier ${q.tier || 1} • Goal Target: ${q.amount.toLocaleString()}<br>Payouts: <span style="color: #81c784;">+$${q.money}</span> | <span style="color: #76cfff;">+${q.xp} XP</span></div>
                         </div>
                     `;
                 });
@@ -1390,7 +1392,205 @@
             });
         }
 
-        const itemLibrary = [{ itemSellables: [{ name: 'Coal', sell: 10, item: 'minecraft:coal' }, { name: 'Raw Copper', sell: 20, item: 'minecraft:raw_copper' }, { name: 'Copper ingot', sell: 30, item: 'minecraft:copper_ingot' }, { name: 'Raw Iron', sell: 40, item: 'minecraft:raw_iron' }, { name: 'Iron ingot', sell: 60, item: 'minecraft:iron_ingot' }, { name: 'Raw Gold', sell: 50, item: 'minecraft:raw_gold' }, { name: 'Gold ingot', sell: 75, item: 'minecraft:gold_ingot' }, { name: 'Redstone', sell: 25, item: 'minecraft:redstone' }, { name: 'Lapis Lazuli', sell: 50, item: 'minecraft:lapis_lazuli' }, { name: 'Nether Quartz', sell: 20, item: 'minecraft:quartz' }, { name: 'Emerald', sell: 150, item: 'minecraft:emerald' }, { name: 'Diamond', sell: 400, item: 'minecraft:diamond' }, { name: 'Netherite Scrap', sell: 600, item: 'minecraft:netherite_scrap' }, { name: 'Netherite Ingot', sell: 3000, item: 'minecraft:netherite_ingot' }, { name: 'Armadillo Scute', sell: 100, item: 'minecraft:armadillo_scute' }, { name: 'Dragon Egg', sell: 500000, item: 'minecraft:dragon_egg' }, { name: 'Shulker Shell', sell: 500, item: 'minecraft:shulker_shell' }, { name: 'Nether Star', sell: 15000, item: 'minecraft:nether_star' }, { name: 'Totem of Undying', sell: 800, item: 'minecraft:totem_of_undying' }, { name: 'Wither Skeleton Skull', sell: 2500, item: 'minecraft:wither_skeleton_skull' }, { name: 'Wither Rose', sell: 500, item: 'minecraft:wither_rose' }, { name: 'Dragon Head', sell: 100000, item: 'minecraft:dragon_head' }, { name: 'Paper', sell: 8, item: 'minecraft:paper' }, { name: 'Oak Log', sell: 4, item: 'minecraft:oak_log' }, { name: 'Birch Log', sell: 4, item: 'minecraft:birch_log' }, { name: 'Spruce Log', sell: 4, item: 'minecraft:spruce_log' }, { name: 'Dark Oak Log', sell: 4, item: 'minecraft:dark_oak_log' }, { name: 'Jungle Log', sell: 4, item: 'minecraft:jungle_log' }, { name: 'Acacia Log', sell: 4, item: 'minecraft:acacia_log' }, { name: 'Cherry Log', sell: 5, item: 'minecraft:cherry_log' }, { name: 'Mangrove Log', sell: 5, item: 'minecraft:mangrove_log' }, { name: 'Warped Stem', sell: 6, item: 'minecraft:warped_stem' }, { name: 'Crimson Stem', sell: 6, item: 'minecraft:crimson_stem' }, { name: 'Pale Oak Log', sell: 15, item: 'minecraft:pale_oak_log' }, { name: 'Grass', sell: 2, item: 'minecraft:grass_block' }, { name: 'Dirt', sell: 1, item: 'minecraft:dirt' }, { name: 'Sand', sell: 1, item: 'minecraft:sand' }, { name: 'Gravel', sell: 2, item: 'minecraft:gravel' }, { name: 'Clay', sell: 1, item: 'minecraft:clay' }, { name: 'Cobblestone', sell: 2, item: 'minecraft:cobblestone' }, { name: 'Stone', sell: 3, item: 'minecraft:stone' }, { name: 'Granite', sell: 3, item: 'minecraft:stone' }, { name: 'Diorite', sell: 3, item: 'minecraft:stone' }, { name: 'Andesite', sell: 3, item: 'minecraft:stone' }, { name: 'Wheat', sell: 4, item: 'minecraft:wheat' }, { name: 'Beetroot', sell: 4, item: 'minecraft:beetroot' }, { name: 'Carrot', sell: 4, item: 'minecraft:carrot' }, { name: 'Potato', sell: 4, item: 'minecraft:potato' }, { name: 'Melon Slice', sell: 1, item: 'minecraft:melon_slice' }, { name: 'Melon', sell: 9, item: 'minecraft:melon_block' }, { name: 'Pumpkin', sell: 10, item: 'minecraft:pumpkin' }, { name: 'Sugar Cane', sell: 5, item: 'minecraft:sugar_cane' }, { name: 'Bamboo', sell: 1, item: 'minecraft:bamboo' }, { name: 'Feather', sell: 5, item: 'minecraft:feather' }, { name: 'Rotten Flesh', sell: 3, item: 'minecraft:rotten_flesh' }, { name: 'Bone', sell: 5, item: 'minecraft:bone' }, { name: 'Spider Eye', sell: 8, item: 'minecraft:spider_eye' }, { name: 'String', sell: 5, item: 'minecraft:string' }, { name: 'Leather', sell: 8, item: 'minecraft:leather' }, { name: 'Beef', sell: 8, item: 'minecraft:beef' }, { name: 'Porkchop', sell: 8, item: 'minecraft:porkchop' }, { name: 'Chicken', sell: 8, item: 'minecraft:chicken' }, { name: 'Egg', sell: 4, item: 'minecraft:egg' }, { name: 'Mutton', sell: 8, item: 'minecraft:mutton' }, { name: 'Cod', sell: 8, item: 'minecraft:cod' }, { name: 'Tropical Fish', sell: 10, item: 'minecraft:tropical_fish' }, { name: 'Pufferfish', sell: 8, item: 'minecraft:pufferfish' }, { name: 'Salmon', sell: 12, item: 'minecraft:salmon' }, { name: 'Slime Ball', sell: 15, item: 'minecraft:slime_ball' }, { name: 'Ender Pearl', sell: 50, item: 'minecraft:ender_pearl' }, { name: 'Blaze Rod', sell: 80, item: 'minecraft:blaze_rod' }, { name: 'Bow', sell: 20, item: 'minecraft:bow' }, { name: 'Arrow', sell: 3, item: 'minecraft:arrow' }], blocks: [{ name: 'Dirt', cost: 2, item: 'minecraft:dirt' }, { name: 'Grass', cost: 5, item: 'minecraft:grass_block' }, { name: 'Podzol', cost: 5, item: 'minecraft:podzol' }, { name: 'Mycelium', cost: 10, item: 'minecraft:mycelium' }, { name: 'Gravel', cost: 3, item: 'minecraft:gravel' }, { name: 'Sand', cost: 3, item: 'minecraft:sand' }, { name: 'Red sand', cost: 5, item: 'minecraft:red_sand' }, { name: 'Clay Block', cost: 5, item: 'minecraft:clay' }, { name: 'Stone', cost: 10, item: 'minecraft:stone' }, { name: 'Cobblestone', cost: 8, item: 'minecraft:cobblestone' }, { name: 'Granite', cost: 10, item: 'minecraft:granite' }, { name: 'Diorite', cost: 10, item: 'minecraft:diorite' }, { name: 'Andesite', cost: 10, item: 'minecraft:andesite' }, { name: 'Mossy Cobblestone', cost: 10, item: 'minecraft:mossy_cobblestone' }, { name: 'Obsidian', cost: 500, item: 'minecraft:obsidian' }, { name: 'Snow Block', cost: 10, item: 'minecraft:snow' }, { name: 'Sponge', cost: 50, item: 'minecraft:sponge' }, { name: 'Sea Lantern', cost: 50, item: 'minecraft:sea_lantern' }, { name: 'Prismarine', cost: 20, item: 'minecraft:prismarine' }, { name: 'Oak Log', cost: 30, item: 'minecraft:oak_log' }, { name: 'Birch Log', cost: 40, item: 'minecraft:birch_log' }, { name: 'Spruce Log', cost: 40, item: 'minecraft:spruce_log' }, { name: 'Dark Oak Log', cost: 40, item: 'minecraft:dark_oak_log' }, { name: 'Jungle Log', cost: 40, item: 'minecraft:jungle_log' }, { name: 'Acacia Log', cost: 40, item: 'minecraft:acacia_log' }, { name: 'Cherry Log', cost: 55, item: 'minecraft:cherry_log' }, { name: 'Mangrove Log', cost: 45, item: 'minecraft:mangrove_log' }, { name: 'Warped Stem', cost: 40, item: 'minecraft:warped_stem' }, { name: 'Deepslate', cost: 10, item: 'minecraft:deepslate' }, { name: 'Cobbled Deepslate', cost: 10, item: 'minecraft:cobbled_deepslate' }], refinedblocks: [{ name: 'Smooth Stone', cost: 15, item: 'minecraft:smooth_stone' }, { name: 'Polished Granite', cost: 15, item: 'minecraft:polished_granite' }, { name: 'Polished Diorite', cost: 15, item: 'minecraft:polished_diorite' }, { name: 'Polished Andesite', cost: 15, item: 'minecraft:polished_andesite' }, { name: 'Brick Block', cost: 20, item: 'minecraft:brick_block' }, { name: 'Bone Block', cost: 300, item: 'minecraft:bone_block' }], colorblocks: [{ name: 'Glass', cost: 20, item: 'minecraft:glass' }, { name: 'White Concrete', cost: 50, item: 'minecraft:white_concrete' }, { name: 'Light Gray Concrete', cost: 50, item: 'minecraft:light_gray_concrete' }, { name: 'Gray Concrete', cost: 50, item: 'minecraft:gray_concrete' }, { name: 'Black Concrete', cost: 50, item: 'minecraft:black_concrete' }, { name: 'Brown Concrete', cost: 50, item: 'minecraft:brown_concrete' }, { name: 'Red Concrete', cost: 50, item: 'minecraft:red_concrete' }, { name: 'Orange Concrete', cost: 50, item: 'minecraft:orange_concrete' }, { name: 'Yellow Concrete', cost: 50, item: 'minecraft:yellow_concrete' }, { name: 'Lime Concrete', cost: 50, item: 'minecraft:lime_concrete' }, { name: 'Green Concrete', cost: 50, item: 'minecraft:green_concrete' }, { name: 'Cyan Concrete', cost: 50, item: 'minecraft:cyan_concrete' }, { name: 'Light Blur Concrete', cost: 50, item: 'minecraft:light_blue_concrete' }, { name: 'Blue Concrete', cost: 50, item: 'minecraft:blue_concrete' }, { name: 'Purple Concrete', cost: 50, item: 'minecraft:purple_concrete' }, { name: 'Pink Concrete', cost: 50, item: 'minecraft:pink_concrete' }, { name: 'White Wool', cost: 15, item: 'white_wool' }, { name: 'Light Gray Wool', cost: 20, item: 'light_gray_wool' }, { name: 'Gray Wool', cost: 20, item: 'gray_wool' }, { name: 'Black Wool', cost: 20, item: 'black_wool' }, { name: 'Brown Wool', cost: 20, item: 'brown_wool' }, { name: 'Red Wool', cost: 20, item: 'red_wool' }, { name: 'Orange Wool', cost: 20, item: 'orange_wool' }, { name: 'Yellow Wool', cost: 20, item: 'yellow_wool' }, { name: 'Lime Wool', cost: 20, item: 'lime_wool' }, { name: 'Dark Green Wool', cost: 20, item: 'green_wool' }, { name: 'Cyan Wool', cost: 20, item: 'cyan_wool' }, { name: 'Light Blue Wool', cost: 20, item: 'light_blue_wool' }, { name: 'Dark Blue Wool', cost: 20, item: 'blue_wool' }, { name: 'Purple Wool', cost: 20, item: 'purple_wool' }, { name: 'Magenta Wool', cost: 20, item: 'magenta_wool' }, { name: 'Pink Wool', cost: 20, item: 'pink_wool' }], redstones: [{ name: 'Piston', cost: 300, item: 'piston' }, { name: 'Sticky Piston', cost: 550, item: 'sticky_piston' }, { name: 'Hopper', cost: 1000, item: 'hopper' }, { name: 'Dropper', cost: 500, item: 'dropper' }, { name: 'Dispenser', cost: 1200, item: 'dispenser' }, { name: 'Observer', cost: 1300, item: 'observer' }, { name: 'Redstone Torch', cost: 100, item: 'redstone_torch' }, { name: 'Redstone Repeater', cost: 340, item: 'repeater' }, { name: 'Redstone Comparator', cost: 670, item: 'comparator' }, { name: 'Redstone Lamp', cost: 700, item: 'redstone_lamp' }, { name: 'Target Block', cost: 300, item: 'target' }, { name: 'Auto Crafter', cost: 1200, item: 'crafter' }], crops: [{ name: 'Pumpkin Seeds', cost: 15, item: 'minecraft:pumpkin_seeds' }, { name: 'Seeds', cost: 5, item: 'minecraft:wheat_seeds' }, { name: 'Melon seeds', cost: 15, item: 'minecraft:melon_seeds' }, { name: 'Beetroot seeds', cost: 15, item: 'minecraft:beetroot_seeds' }, { name: 'Beetroot', cost: 50, item: 'minecraft:beetroot' }, { name: 'Carrot', cost: 50, item: 'minecraft:carrot' }, { name: 'Potato', cost: 50, item: 'minecraft:potato' }, { name: 'Sugar Cane', cost: 40, item: 'minecraft:sugar_cane' }, { name: 'Bamboo', cost: 70, item: 'minecraft:bamboo' }], miscellaneous: [{ name: 'Villager', cost: 8000, item: 'villager_spawn_egg' }, { name: 'Zombie', cost: 15000, item: 'zombie_spawn_egg' }, { name: 'Skeleton', cost: 17000, item: 'skeleton_spawn_egg' }, { name: 'Creeper', cost: 30000, item: 'creeper_spawn_egg' }, { name: 'Zombie Villager', cost: 30000, item: 'zombie_villager_spawn_egg' }, { name: 'Firework', cost: 50, item: 'firework_rocket' }, { name: 'Clay Ball', cost: 2, item: 'clay_ball' }, { name: 'Clan Ticket', cost: 10000, item: 'candra:ticket_clan' }, { name: 'XP Bottle', cost: 700, item: 'experience_bottle' }], cosmetics: [{ name: 'Crown', cost: 1000000, item: 'bakaui:crown' }, { name: 'Incognito', cost: 1000000, item: 'bakaui:incognito' }, { name: 'Sunglasses', cost: 1000000, item: 'bakaui:sunglasses' }, { name: 'Rabbit', cost: 1000000, item: 'bakaui:rabbit' }, { name: 'Graduation Hat', cost: 1000000, item: 'bakaui:graduation_hat' }, { name: 'Bamboo', cost: 1000000, item: 'bakaui:bamboo' }, { name: 'Construction Hat', cost: 1000000, item: 'bakaui:construction_hat' }] }];
+        const itemLibrary = [
+            {
+                itemSellables: [
+                    { name: 'Coal', sell: 10, item: 'minecraft:coal' },
+                    { name: 'Raw Copper', sell: 20, item: 'minecraft:raw_copper' },
+                    { name: 'Copper ingot', sell: 30, item: 'minecraft:copper_ingot' },
+                    { name: 'Raw Iron', sell: 40, item: 'minecraft:raw_iron' },
+                    { name: 'Iron ingot', sell: 60, item: 'minecraft:iron_ingot' },
+                    { name: 'Raw Gold', sell: 50, item: 'minecraft:raw_gold' },
+                    { name: 'Gold ingot', sell: 75, item: 'minecraft:gold_ingot' },
+                    { name: 'Redstone', sell: 25, item: 'minecraft:redstone' },
+                    { name: 'Lapis Lazuli', sell: 50, item: 'minecraft:lapis_lazuli' },
+                    { name: 'Nether Quartz', sell: 20, item: 'minecraft:quartz' },
+                    { name: 'Emerald', sell: 150, item: 'minecraft:emerald' },
+                    { name: 'Diamond', sell: 400, item: 'minecraft:diamond' },
+                    { name: 'Netherite Scrap', sell: 600, item: 'minecraft:netherite_scrap' },
+                    { name: 'Netherite Ingot', sell: 3000, item: 'minecraft:netherite_ingot' },
+                    { name: 'Armadillo Scute', sell: 100, item: 'minecraft:armadillo_scute' },
+                    { name: 'Dragon Egg', sell: 500000, item: 'minecraft:dragon_egg' },
+                    { name: 'Shulker Shell', sell: 500, item: 'minecraft:shulker_shell' },
+                    { name: 'Nether Star', sell: 15000, item: 'minecraft:nether_star' },
+                    { name: 'Totem of Undying', sell: 800, item: 'minecraft:totem_of_undying' },
+                    { name: 'Wither Skeleton Skull', sell: 2500, item: 'minecraft:wither_skeleton_skull' },
+                    { name: 'Wither Rose', sell: 500, item: 'minecraft:wither_rose' },
+                    { name: 'Dragon Head', sell: 100000, item: 'minecraft:dragon_head' },
+                    { name: 'Paper', sell: 8, item: 'minecraft:paper' },
+                    { name: 'Oak Log', sell: 4, item: 'minecraft:oak_log' },
+                    { name: 'Birch Log', sell: 4, item: 'minecraft:birch_log' },
+                    { name: 'Spruce Log', sell: 4, item: 'minecraft:spruce_log' },
+                    { name: 'Dark Oak Log', sell: 4, item: 'minecraft:dark_oak_log' },
+                    { name: 'Jungle Log', sell: 4, item: 'minecraft:jungle_log' },
+                    { name: 'Acacia Log', sell: 4, item: 'minecraft:acacia_log' },
+                    { name: 'Cherry Log', sell: 5, item: 'minecraft:cherry_log' },
+                    { name: 'Mangrove Log', sell: 5, item: 'minecraft:mangrove_log' },
+                    { name: 'Warped Stem', sell: 6, item: 'minecraft:warped_stem' },
+                    { name: 'Crimson Stem', sell: 6, item: 'minecraft:crimson_stem' },
+                    { name: 'Pale Oak Log', sell: 15, item: 'minecraft:pale_oak_log' },
+                    { name: 'Grass', sell: 2, item: 'minecraft:grass_block' },
+                    { name: 'Dirt', sell: 1, item: 'minecraft:dirt' },
+                    { name: 'Sand', sell: 1, item: 'minecraft:sand' },
+                    { name: 'Gravel', sell: 2, item: 'minecraft:gravel' },
+                    { name: 'Clay', sell: 1, item: 'minecraft:clay' },
+                    { name: 'Cobblestone', sell: 2, item: 'minecraft:cobblestone' },
+                    { name: 'Stone', sell: 3, item: 'minecraft:stone' },
+                    { name: 'Granite', sell: 3, item: 'minecraft:stone' },
+                    { name: 'Diorite', sell: 3, item: 'minecraft:stone' },
+                    { name: 'Andesite', sell: 3, item: 'minecraft:stone' },
+                    { name: 'Wheat', sell: 4, item: 'minecraft:wheat' },
+                    { name: 'Beetroot', sell: 4, item: 'minecraft:beetroot' },
+                    { name: 'Carrot', sell: 4, item: 'minecraft:carrot' },
+                    { name: 'Potato', sell: 4, item: 'minecraft:potato' },
+                    { name: 'Melon Slice', sell: 1, item: 'minecraft:melon_slice' },
+                    { name: 'Melon', sell: 9, item: 'minecraft:melon_block' },
+                    { name: 'Pumpkin', sell: 10, item: 'minecraft:pumpkin' },
+                    { name: 'Sugar Cane', sell: 5, item: 'minecraft:sugar_cane' },
+                    { name: 'Bamboo', sell: 1, item: 'minecraft:bamboo' },
+                    { name: 'Feather', sell: 5, item: 'minecraft:feather' },
+                    { name: 'Rotten Flesh', sell: 3, item: 'minecraft:rotten_flesh' },
+                    { name: 'Bone', sell: 5, item: 'minecraft:bone' },
+                    { name: 'Spider Eye', sell: 8, item: 'minecraft:spider_eye' },
+                    { name: 'String', sell: 5, item: 'minecraft:string' },
+                    { name: 'Leather', sell: 8, item: 'minecraft:leather' },
+                    { name: 'Beef', sell: 8, item: 'minecraft:beef' },
+                    { name: 'Porkchop', sell: 8, item: 'minecraft:porkchop' },
+                    { name: 'Chicken', sell: 8, item: 'minecraft:chicken' },
+                    { name: 'Egg', sell: 4, item: 'minecraft:egg' },
+                    { name: 'Mutton', sell: 8, item: 'minecraft:mutton' },
+                    { name: 'Cod', sell: 8, item: 'minecraft:cod' },
+                    { name: 'Tropical Fish', sell: 10, item: 'minecraft:tropical_fish' },
+                    { name: 'Pufferfish', sell: 8, item: 'minecraft:pufferfish' },
+                    { name: 'Salmon', sell: 12, item: 'minecraft:salmon' },
+                    { name: 'Slime Ball', sell: 15, item: 'minecraft:slime_ball' },
+                    { name: 'Ender Pearl', sell: 50, item: 'minecraft:ender_pearl' },
+                    { name: 'Blaze Rod', sell: 80, item: 'minecraft:blaze_rod' },
+                    { name: 'Bow', sell: 20, item: 'minecraft:bow' },
+                    { name: 'Arrow', sell: 3, item: 'minecraft:arrow' }
+                ],
+                blocks: [
+                    { name: 'Dirt', cost: 2, item: 'minecraft:dirt' },
+                    { name: 'Grass', cost: 5, item: 'minecraft:grass_block' },
+                    { name: 'Podzol', cost: 5, item: 'minecraft:podzol' },
+                    { name: 'Mycelium', cost: 10, item: 'minecraft:mycelium' },
+                    { name: 'Gravel', cost: 3, item: 'minecraft:gravel' },
+                    { name: 'Sand', cost: 3, item: 'minecraft:sand' },
+                    { name: 'Red sand', cost: 5, item: 'minecraft:red_sand' },
+                    { name: 'Clay Block', cost: 5, item: 'minecraft:clay' },
+                    { name: 'Stone', cost: 10, item: 'minecraft:stone' },
+                    { name: 'Cobblestone', cost: 8, item: 'minecraft:cobblestone' },
+                    { name: 'Granite', cost: 10, item: 'minecraft:granite' },
+                    { name: 'Diorite', cost: 10, item: 'minecraft:diorite' },
+                    { name: 'Andesite', cost: 10, item: 'minecraft:andesite' },
+                    { name: 'Mossy Cobblestone', cost: 10, item: 'minecraft:mossy_cobblestone' },
+                    { name: 'Obsidian', cost: 500, item: 'minecraft:obsidian' },
+                    { name: 'Snow Block', cost: 10, item: 'minecraft:snow' },
+                    { name: 'Sponge', cost: 50, item: 'minecraft:sponge' },
+                    { name: 'Sea Lantern', cost: 50, item: 'minecraft:sea_lantern' },
+                    { name: 'Prismarine', cost: 20, item: 'minecraft:prismarine' },
+                    { name: 'Oak Log', cost: 30, item: 'minecraft:oak_log' },
+                    { name: 'Birch Log', cost: 40, item: 'minecraft:birch_log' },
+                    { name: 'Spruce Log', cost: 40, item: 'minecraft:spruce_log' },
+                    { name: 'Dark Oak Log', cost: 40, item: 'minecraft:dark_oak_log' },
+                    { name: 'Jungle Log', cost: 40, item: 'minecraft:jungle_log' },
+                    { name: 'Acacia Log', cost: 40, item: 'minecraft:acacia_log' },
+                    { name: 'Cherry Log', cost: 55, item: 'minecraft:cherry_log' },
+                    { name: 'Mangrove Log', cost: 45, item: 'minecraft:mangrove_log' },
+                    { name: 'Warped Stem', cost: 40, item: 'minecraft:warped_stem' },
+                    { name: 'Deepslate', cost: 10, item: 'minecraft:deepslate' },
+                    { name: 'Cobbled Deepslate', cost: 10, item: 'minecraft:cobbled_deepslate' }
+                ],
+                refinedblocks: [
+                    { name: 'Smooth Stone', cost: 15, item: 'minecraft:smooth_stone' },
+                    { name: 'Polished Granite', cost: 15, item: 'minecraft:polished_granite' },
+                    { name: 'Polished Diorite', cost: 15, item: 'minecraft:polished_diorite' },
+                    { name: 'Polished Andesite', cost: 15, item: 'minecraft:polished_andesite' },
+                    { name: 'Brick Block', cost: 20, item: 'minecraft:brick_block' },
+                    { name: 'Bone Block', cost: 300, item: 'minecraft:bone_block' }
+                ],
+                colorblocks: [
+                    { name: 'Glass', cost: 20, item: 'minecraft:glass' },
+                    { name: 'White Concrete', cost: 50, item: 'minecraft:white_concrete' },
+                    { name: 'Light Gray Concrete', cost: 50, item: 'minecraft:light_gray_concrete' },
+                    { name: 'Gray Concrete', cost: 50, item: 'minecraft:gray_concrete' },
+                    { name: 'Black Concrete', cost: 50, item: 'minecraft:black_concrete' },
+                    { name: 'Brown Concrete', cost: 50, item: 'minecraft:brown_concrete' },
+                    { name: 'Red Concrete', cost: 50, item: 'minecraft:red_concrete' },
+                    { name: 'Orange Concrete', cost: 50, item: 'minecraft:orange_concrete' },
+                    { name: 'Yellow Concrete', cost: 50, item: 'minecraft:yellow_concrete' },
+                    { name: 'Lime Concrete', cost: 50, item: 'minecraft:lime_concrete' },
+                    { name: 'Green Concrete', cost: 50, item: 'minecraft:green_concrete' },
+                    { name: 'Cyan Concrete', cost: 50, item: 'minecraft:cyan_concrete' },
+                    { name: 'Light Blur Concrete', cost: 50, item: 'minecraft:light_blue_concrete' },
+                    { name: 'Blue Concrete', cost: 50, item: 'minecraft:blue_concrete' },
+                    { name: 'Purple Concrete', cost: 50, item: 'minecraft:purple_concrete' },
+                    { name: 'Pink Concrete', cost: 50, item: 'minecraft:pink_concrete' },
+                    { name: 'White Wool', cost: 15, item: 'white_wool' },
+                    { name: 'Light Gray Wool', cost: 20, item: 'light_gray_wool' },
+                    { name: 'Gray Wool', cost: 20, item: 'gray_wool' },
+                    { name: 'Black Wool', cost: 20, item: 'black_wool' },
+                    { name: 'Brown Wool', cost: 20, item: 'brown_wool' },
+                    { name: 'Red Wool', cost: 20, item: 'red_wool' },
+                    { name: 'Orange Wool', cost: 20, item: 'orange_wool' },
+                    { name: 'Yellow Wool', cost: 20, item: 'yellow_wool' },
+                    { name: 'Lime Wool', cost: 20, item: 'lime_wool' },
+                    { name: 'Dark Green Wool', cost: 20, item: 'green_wool' },
+                    { name: 'Cyan Wool', cost: 20, item: 'cyan_wool' },
+                    { name: 'Light Blue Wool', cost: 20, item: 'light_blue_wool' },
+                    { name: 'Dark Blue Wool', cost: 20, item: 'blue_wool' },
+                    { name: 'Purple Wool', cost: 20, item: 'purple_wool' },
+                    { name: 'Magenta Wool', cost: 20, item: 'magenta_wool' },
+                    { name: 'Pink Wool', cost: 20, item: 'pink_wool' }
+                ],
+                redstones: [
+                    { name: 'Piston', cost: 300, item: 'piston' },
+                    { name: 'Sticky Piston', cost: 550, item: 'sticky_piston' },
+                    { name: 'Hopper', cost: 1000, item: 'hopper' },
+                    { name: 'Dropper', cost: 500, item: 'dropper' },
+                    { name: 'Dispenser', cost: 1200, item: 'dispenser' },
+                    { name: 'Observer', cost: 1300, item: 'observer' },
+                    { name: 'Redstone Torch', cost: 100, item: 'redstone_torch' },
+                    { name: 'Redstone Repeater', cost: 340, item: 'repeater' },
+                    { name: 'Redstone Comparator', cost: 670, item: 'comparator' },
+                    { name: 'Redstone Lamp', cost: 700, item: 'redstone_lamp' },
+                    { name: 'Target Block', cost: 300, item: 'target' },
+                    { name: 'Auto Crafter', cost: 1200, item: 'crafter' }
+                ],
+                crops: [
+                    { name: 'Pumpkin Seeds', cost: 15, item: 'minecraft:pumpkin_seeds' },
+                    { name: 'Seeds', cost: 5, item: 'minecraft:wheat_seeds' },
+                    { name: 'Melon seeds', cost: 15, item: 'minecraft:melon_seeds' },
+                    { name: 'Beetroot seeds', cost: 15, item: 'minecraft:beetroot_seeds' },
+                    { name: 'Beetroot', cost: 50, item: 'minecraft:beetroot' },
+                    { name: 'Carrot', cost: 50, item: 'minecraft:carrot' },
+                    { name: 'Potato', cost: 50, item: 'minecraft:potato' },
+                    { name: 'Sugar Cane', cost: 40, item: 'minecraft:sugar_cane' },
+                    { name: 'Bamboo', cost: 70, item: 'minecraft:bamboo' }
+                ],
+                miscellaneous: [
+                    { name: 'Villager', cost: 8000, item: 'villager_spawn_egg' },
+                    { name: 'Zombie', cost: 15000, item: 'zombie_spawn_egg' },
+                    { name: 'Skeleton', cost: 17000, item: 'skeleton_spawn_egg' },
+                    { name: 'Creeper', cost: 30000, item: 'creeper_spawn_egg' },
+                    { name: 'Zombie Villager', cost: 30000, item: 'zombie_villager_spawn_egg' },
+                    { name: 'Firework', cost: 50, item: 'firework_rocket' },
+                    { name: 'Clay Ball', cost: 2, item: 'clay_ball' },
+                    { name: 'Clan Ticket', cost: 10000, item: 'candra:ticket_clan' },
+                    { name: 'XP Bottle', cost: 700, item: 'experience_bottle' }
+                ],
+                cosmetics: [
+                    { name: 'Crown', cost: 1000000, item: 'bakaui:crown' },
+                    { name: 'Incognito', cost: 1000000, item: 'bakaui:incognito' },
+                    { name: 'Sunglasses', cost: 1000000, item: 'bakaui:sunglasses' },
+                    { name: 'Rabbit', cost: 1000000, item: 'bakaui:rabbit' },
+                    { name: 'Graduation Hat', cost: 1000000, item: 'bakaui:graduation_hat' },
+                    { name: 'Bamboo', cost: 1000000, item: 'bakaui:bamboo' },
+                    { name: 'Construction Hat', cost: 1000000, item: 'bakaui:construction_hat' }
+                ]
+            }
+        ];
+
         let marketMode = 'sell'; let activeCategory = 'all';
         function setMarketType(type) { marketMode = type; document.querySelectorAll('.type-btn').forEach(btn => btn.classList.remove('active')); event.currentTarget.classList.add('active'); if (type === 'sell') { document.getElementById('buy-filters').style.display = 'none'; } else { document.getElementById('buy-filters').style.display = 'flex'; activeCategory = 'all'; document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); document.querySelector('.filter-chip').classList.add('active'); } renderMarketGrid(); }
         function setCategory(cat) { activeCategory = cat; document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.remove('active')); event.currentTarget.classList.add('active'); renderMarketGrid(); }
