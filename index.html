@@ -31,7 +31,7 @@
             font-size: 0.95rem;
         }
 
-        /* 1. Optimized Dropdown Navigation Bar */
+        /* Optimized Dropdown Navigation Bar */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -64,7 +64,6 @@
             gap: 0.5rem;
         }
 
-        /* Dropdown Architecture Parent */
         .nav-dropdown {
             position: relative;
             display: inline-block;
@@ -126,7 +125,6 @@
             display: block;
         }
 
-        /* Expressive Header Area */
         header {
             background: linear-gradient(180deg, rgba(249, 168, 37, 0.1) 0%, rgba(20, 18, 24, 0) 100%);
             padding: 3rem 2rem 2rem 2rem;
@@ -144,11 +142,9 @@
         .brand-subtitle { color: var(--md-sys-color-on-surface-variant); font-size: 1.1rem; max-width: 650px; margin: 0.5rem auto 0 auto; }
         main { max-width: 1280px; margin: 0 auto; padding: 0 2rem 4rem 2rem; }
 
-        /* View Control Matrix */
         .page-view { display: none; }
         .page-view.active { display: block; }
 
-        /* Document Component Panels */
         .system-layout-card {
             background-color: var(--md-sys-color-surface);
             border-radius: 28px;
@@ -165,7 +161,6 @@
         .system-title { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; margin: 0; color: var(--md-sys-color-primary); }
         .system-tagline { color: var(--md-sys-color-on-surface-variant); margin-top: 0.25rem; }
 
-        /* Multi-column layouts */
         .system-grid-2 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; }
         .sub-panel { background-color: rgba(255, 255, 255, 0.02); padding: 1.25rem; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.02); }
         .sub-panel h3 { font-family: 'Space Grotesk', sans-serif; margin: 0 0 0.75rem 0; font-size: 1.25rem; color: var(--md-sys-color-on-surface); border-bottom: 1px solid var(--md-sys-color-surface-variant); padding-bottom: 0.35rem; }
@@ -194,8 +189,12 @@
         .price-sell { background-color: rgba(76, 175, 80, 0.12); color: #81c784; border: 1px solid rgba(76, 175, 80, 0.2); }
         .price-buy { background-color: rgba(226, 91, 67, 0.12); color: #ff8a76; border: 1px solid rgba(226, 91, 67, 0.2); }
 
-        /* Premium pass styling */
+        /* Premium Pass Custom Layout Updates */
         .premium-pass-card { background-color: var(--md-sys-color-surface); border-radius: 28px; padding: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.05); background: linear-gradient(145deg, #1d1b20 0%, #252015 100%); }
+        .premium-header { text-align: center; margin-bottom: 2.5rem; border-bottom: 1px solid var(--md-sys-color-surface-variant); padding-bottom: 1.5rem; }
+        .premium-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--md-sys-color-primary); margin: 0; }
+        .premium-tagline { color: var(--md-sys-color-on-surface-variant); margin-top: 0.5rem; font-size: 1.05rem; }
+        .premium-meta-box { background-color: rgba(20, 18, 24, 0.5); border-radius: 16px; padding: 1.25rem; margin-bottom: 2rem; border: 1px solid rgba(249, 168, 37, 0.15); font-size: 0.9rem; color: var(--md-sys-color-on-surface-variant); }
         .premium-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
         .premium-feature-tile { background-color: rgba(20, 18, 24, 0.6); border: 1px solid rgba(249, 168, 37, 0.1); border-radius: 16px; padding: 1.25rem; display: flex; gap: 1rem; align-items: flex-start; }
         .premium-icon-marker { background-color: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 10px; font-size: 1.1rem; flex-shrink: 0; }
@@ -278,7 +277,6 @@
 </head>
 <body>
 
-    <!-- Optimized Dropdown Navbar Link Elements -->
     <nav class="navbar">
         <a href="#" class="nav-logo" onclick="switchTab('changelogs')">
             <img src="title.png" alt="BakaUI" class="nav-mini-logo">
@@ -301,6 +299,7 @@
                     <button onclick="switchTab('clans')">Clan System</button>
                     <button onclick="switchTab('bounties')">Bounty System</button>
                     <button onclick="switchTab('land')">Land Claim</button>
+                    <button onclick="switchTab('streaks')">Login Streaks</button>
                 </div>
             </div>
         </div>
@@ -416,23 +415,91 @@
             </div>
         </div>
 
-        <!-- PAGE VIEW C: PREMIUM PASS PERKS -->
+        <!-- PAGE VIEW C: PREMIUM PASS PERKS (Hydrated from Source File) -->
         <div id="view-premium" class="page-view">
             <article class="premium-pass-card">
                 <div class="premium-header">
                     <h2 class="premium-title">Premium Pass Tier Perks</h2>
-                    <p class="premium-tagline">Unlock the ultimate utility, cosmetic, and environmental customization toolsets inside BakaUI.</p>
+                    <p class="premium-tagline">Unlock seasonal utility, cosmetics, and environmental customization tools[cite: 6].</p>
                 </div>
+
+                <div class="premium-meta-box">
+                    <strong>💳 Pricing Strategy:</strong> Costs <strong>RM15</strong> (Promotion for current season)[cite: 6].<br>
+                    <strong>⏱️ Terms Constraints:</strong> Premium is seasonal and will reset at the conclusion of each active season[cite: 6]. Contact admins to finalize verification channels[cite: 6].
+                </div>
+
                 <div class="premium-features-grid">
-                    <div class="premium-feature-tile"><div class="premium-icon-marker">⏳</div><div class="premium-feature-text"><h4>Time Control</h4><p>Toggle and customize personal client-side environment lighting parameters.</p></div></div>
-                    <div class="premium-feature-tile"><div class="premium-icon-marker">🎵</div><div class="premium-feature-text"><h4>Music Player</h4><p>Access full tracking background soundtrack options loaded inside the UI system.</p></div></div>
-                    <div class="premium-feature-tile"><div class="premium-icon-marker">📸</div><div class="premium-feature-text"><h4>Camera Features</h4><p>Deploy custom physical tripod anchors and selfie camera frame angles mapping views.</p></div></div>
-                    <div class="premium-feature-tile"><div class="premium-icon-marker">🏷️</div><div class="premium-feature-text"><h4>Custom Username Prefixes</h4><p>Display elite identifier prefix stamps matching chat channels next to names.</p></div></div>
-                    <div class="premium-feature-tile"><div class="premium-icon-marker">💎</div><div class="premium-feature-text"><h4>Daily & Weekly Rewards</h4><p>Claim prioritized balance bundles yielding advanced currencies on fast tracks.</p></div></div>
-                    <div class="premium-feature-tile"><div class="premium-icon-marker">👑</div><div class="premium-feature-text"><h4>Exclusive Cosmetics Store</h4><p>Trade inside premium cosmetic arrays utilizing unique transaction networks.</p></div></div>
-                    <div class="premium-feature-tile"><div class="premium-icon-marker">🎭</div><div class="premium-feature-text"><h4>Custom Emotes</h4><p>Deploy custom physical loop animations tied directly to your player framework.</p></div></div>
-                    <div class="premium-feature-tile"><div class="premium-icon-marker">🐉</div><div class="premium-feature-text"><h4>Pet Dragons</h4><p>Summon specialized animated vanity pet dragons tracking your positions.</p></div></div>
-                    <div class="premium-feature-tile"><div class="premium-icon-marker">🕵️</div><div class="premium-feature-text"><h4>Black Market Access</h4><p>Enter specialized hidden menus shifting standard trade caps and rates.</p></div></div>
+                    <div class="premium-feature-tile">
+                        <div class="premium-icon-marker">⏳</div>
+                        <div class="premium-feature-text">
+                            <h4>Change Server Time</h4>
+                            <p>Manually adjust client-side environmental lighting arrays (Morning, Midday, Evening, Midnight)[cite: 6].</p>
+                        </div>
+                    </div>
+                    
+                    <div class="premium-feature-tile">
+                        <div class="premium-icon-marker">🎵</div>
+                        <div class="premium-feature-text">
+                            <h4>Play Music Broadcasts</h4>
+                            <p>Stream regional audio tracks like <em>Reminisensi (Insomniacks)</em> or <em>Untuk Dia (Sleeq ft. Najwa Latif)</em> to everyone[cite: 6].</p>
+                        </div>
+                    </div>
+
+                    <div class="premium-feature-tile">
+                        <div class="premium-icon-marker">📸</div>
+                        <div class="premium-feature-text">
+                            <h4>Camera UI</h4>
+                            <p>Deploy specialized snapshot orientations and custom physical camera vectors[cite: 6].</p>
+                        </div>
+                    </div>
+
+                    <div class="premium-feature-tile">
+                        <div class="premium-icon-marker">🏷️</div>
+                        <div class="premium-feature-text">
+                            <h4>Chat Prefix Unlocks</h4>
+                            <p>Gain verification access to append stylized badges directly alongside chat names[cite: 6].</p>
+                        </div>
+                    </div>
+
+                    <div class="premium-feature-tile">
+                        <div class="premium-icon-marker">💎</div>
+                        <div class="premium-feature-text">
+                            <h4>Premium Daily Rewards</h4>
+                            <p>Collect exclusive structural reward packs full of balance bonuses from drop tables[cite: 6].</p>
+                        </div>
+                    </div>
+
+                    <div class="premium-feature-tile">
+                        <div class="premium-icon-marker">👑</div>
+                        <div class="premium-feature-text">
+                            <h4>Exclusive Cosmetic Shop</h4>
+                            <p>Spend coins to claim vanity accessories valued around $1M Coins[cite: 6].</p>
+                        </div>
+                    </div>
+
+                    <div class="premium-feature-tile">
+                        <div class="premium-icon-marker">🎭</div>
+                        <div class="premium-feature-text">
+                            <h4>Custom Emotes</h4>
+                            <p>Trigger character physical animation behaviors to interact with other online players[cite: 6].</p>
+                        </div>
+                    </div>
+
+                    <div class="premium-feature-tile">
+                        <div class="premium-icon-marker">🐉</div>
+                        <div class="premium-feature-text">
+                            <h4>Pet Dragons</h4>
+                            <p>Purchase custom companion dragons (Aether, Fire, Sculk, Wither) for $10M coins, tameable using raw cod[cite: 6].</p>
+                        </div>
+                    </div>
+
+                    <div class="premium-feature-tile">
+                        <div class="premium-icon-marker">🕵️</div>
+                        <div class="premium-feature-text">
+                            <h4>Early Black Market Access</h4>
+                            <p>Unlock limited-item secret merchants before baseline server tiers[cite: 6].</p>
+                        </div>
+                    </div>
                 </div>
             </article>
         </div>
@@ -451,7 +518,7 @@
             </div>
         </div>
 
-        <!-- NEW PAGE VIEW E: CLAN MANAGEMENT SYSTEM -->
+        <!-- PAGE VIEW E: CLAN MANAGEMENT SYSTEM -->
         <div id="view-clans" class="page-view">
             <article class="system-layout-card">
                 <div class="system-heading-wrapper">
@@ -479,7 +546,7 @@
             </article>
         </div>
 
-        <!-- NEW PAGE VIEW F: BOUNTY & OUTLAW SYSTEM -->
+        <!-- PAGE VIEW F: BOUNTY & OUTLAW SYSTEM -->
         <div id="view-bounties" class="page-view">
             <article class="system-layout-card">
                 <div class="system-heading-wrapper">
@@ -507,7 +574,7 @@
             </article>
         </div>
 
-        <!-- NEW PAGE VIEW G: LAND CLAIM SECURITY -->
+        <!-- PAGE VIEW G: LAND CLAIM SECURITY -->
         <div id="view-land" class="page-view">
             <article class="system-layout-card">
                 <div class="system-heading-wrapper">
@@ -535,6 +602,33 @@
             </article>
         </div>
 
+        <!-- NEW PAGE VIEW H: LOGIN STREAKS -->
+        <div id="view-streaks" class="page-view">
+            <article class="system-layout-card">
+                <div class="system-heading-wrapper">
+                    <h2 class="system-title">🔥 Daily Login Streak Engine</h2>
+                    <p class="system-tagline">Maintain consecutive daily log cycles to showcase your tracking history[cite: 7].</p>
+                </div>
+                <div class="system-grid-2">
+                    <div class="sub-panel">
+                        <h3>Streak Validation Logic</h3>
+                        <ul>
+                            <li><strong>Time Horizon Offset:</strong> Routine logs evaluate based on local **Malaysia Standard Time (MYT / UTC+8)** parameters[cite: 7].</li>
+                            <li><strong>Continuous Multipliers:</strong> Logging in on sequential days increases the player's active counter value[cite: 7].</li>
+                            <li><strong>Missed Days Penalty:</strong> Failing to connect within a calendar window resets the tracker directly back to Day 1[cite: 7].</li>
+                        </ul>
+                    </div>
+                    <div class="sub-panel">
+                        <h3>Feedback Alerts</h3>
+                        <ul>
+                            <li><strong>Welcome Messages:</strong> Connected runs trigger sound effect signals alongside status chat logs[cite: 7].</li>
+                            <li><strong>Interface Display Elements:</strong> Active streak counters register and sync directly into nameplate systems[cite: 2].</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+
     </main>
 
     <footer>
@@ -546,7 +640,6 @@
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
             
-            // Highlight parent link headers depending on routing criteria matches
             const targetBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick') === `switchTab('${tabId}')`);
             if(targetBtn) targetBtn.classList.add('active');
 
@@ -640,7 +733,7 @@
             });
         }
 
-        const itemLibrary = [{ itemSellables: [{ name: 'Coal', sell: 10, item: 'minecraft:coal' }, { name: 'Raw Copper', sell: 20, item: 'minecraft:raw_copper' }, { name: 'Diamond', sell: 400, item: 'minecraft:diamond' }, { name: 'Netherite Ingot', sell: 3000, item: 'minecraft:netherite_ingot' }], blocks: [{ name: 'Dirt', cost: 2, item: 'minecraft:dirt' }, { name: 'Grass', cost: 5, item: 'minecraft:grass_block' }, { name: 'Obsidian', cost: 500, item: 'minecraft:obsidian' }], refinedblocks: [{ name: 'Smooth Stone', cost: 15, item: 'minecraft:smooth_stone' }], colorblocks: [{ name: 'Glass', cost: 20, item: 'minecraft:glass' }], redstones: [{ name: 'Piston', cost: 300, item: 'piston' }], crops: [{ name: 'Seeds', cost: 5, item: 'minecraft:wheat_seeds' }], miscellaneous: [{ name: 'Villager', cost: 8000, item: 'villager_spawn_egg' }], cosmetics: [{ name: 'Crown', cost: 1000000, item: 'bakaui:crown' }] }];
+        const itemLibrary = [{ itemSellables: [{ name: 'Coal', sell: 10, item: 'minecraft:coal' }, { name: 'Raw Copper', sell: 20, item: 'minecraft:raw_copper' }, { name: 'Diamond', sell: 400, item: 'minecraft:diamond' }, { name: 'Netherite Ingot', sell: 3000, item: 'minecraft:netherite_ ingot' }], blocks: [{ name: 'Dirt', cost: 2, item: 'minecraft:dirt' }, { name: 'Grass', cost: 5, item: 'minecraft:grass_block' }, { name: 'Obsidian', cost: 500, item: 'minecraft:obsidian' }], refinedblocks: [{ name: 'Smooth Stone', cost: 15, item: 'minecraft:smooth_stone' }], colorblocks: [{ name: 'Glass', cost: 20, item: 'minecraft:glass' }], redstones: [{ name: 'Piston', cost: 300, item: 'piston' }], crops: [{ name: 'Seeds', cost: 5, item: 'minecraft:wheat_seeds' }], miscellaneous: [{ name: 'Villager', cost: 8000, item: 'villager_spawn_egg' }], cosmetics: [{ name: 'Crown', cost: 1000000, item: 'bakaui:crown' }] }];
         let marketMode = 'sell'; let activeCategory = 'all';
         function setMarketType(type) { marketMode = type; document.querySelectorAll('.type-btn').forEach(btn => btn.classList.remove('active')); event.currentTarget.classList.add('active'); if (type === 'sell') { document.getElementById('buy-filters').style.display = 'none'; } else { document.getElementById('buy-filters').style.display = 'flex'; activeCategory = 'all'; document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active')); document.querySelector('.filter-chip').classList.add('active'); } renderMarketGrid(); }
         function setCategory(cat) { activeCategory = cat; document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.remove('active')); event.currentTarget.classList.add('active'); renderMarketGrid(); }
